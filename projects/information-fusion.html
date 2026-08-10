@@ -75,11 +75,11 @@
     </p>
 
     <dl class="meta-row">
-      <div class="meta-item"><dt>Status</dt><dd>Ongoing · pre-registered</dd></div>
-      <div class="meta-item"><dt>Role</dt><dd>First author</dd></div>
+      <div class="meta-item"><dt>Status</dt><dd>Ongoing → Information Fusion</dd></div>
+      <div class="meta-item"><dt>My role</dt><dd>First author · preprocessing, protocol, models</dd></div>
       <div class="meta-item"><dt>Corpus</dt><dd>27,081 windows · 1,817 trials · 22 subjects</dd></div>
       <div class="meta-item"><dt>Protocol</dt><dd>22-fold LOSO</dd></div>
-      <div class="meta-item"><dt>Compute</dt><dd>HPC / Slurm</dd></div>
+      <div class="meta-item"><dt>Stack</dt><dd>PyTorch · NumPy · SciPy</dd></div>
     </dl>
   </div>
 </section>
@@ -95,6 +95,21 @@
         </a>
         <figcaption><b>Figure 1.</b> The three mechanisms in sequence, and the rule that decides whether each one survives.</figcaption>
       </figure>
+
+      <div class="project-now">
+        <b>Current status — what I am doing now</b>
+        <p>
+          Ongoing, targeting <strong>Information Fusion</strong>. My part covers the preprocessing
+          rebuild, the pre-registration, the baseline suite and the proposed model.
+        </p>
+        <p>
+          I am <strong>training the eleven baseline arms</strong> across 22 leave-one-subject-out
+          folds. The proposed model is deliberately not trained until those results land — the
+          protocol below makes the baseline outcome decide whether an architecture claim is
+          defensible at this sample size at all. After that come the two experiments this design
+          can actually resolve: modality-dropout robustness and calibration.
+        </p>
+      </div>
 
       <h2>Why it is built this way</h2>
       <p>

@@ -588,7 +588,7 @@
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="tag ongoing">T-RO · In preparation</span>
+            <span class="tag ongoing">Ongoing → IEEE T-RO</span>
             <span class="tag">First author</span>
             <span class="tag">Diffusion policy</span>
             <span class="tag">SAM2 · MuJoCo</span>
@@ -607,6 +607,23 @@
             <div class="stat-chip"><b>906</b><span>usable trials</span></div>
             <div class="stat-chip"><b>14</b><span>ablation variants</span></div>
           </div>
+
+          <div class="project-now">
+            <b>Ongoing — what I am doing now</b>
+            <p>
+              I own this project end to end: the capture rig, the perception stack, the policy and
+              the evaluation. The offline result is done; I am now running the
+              <strong>real-robot study</strong> on the Kinova Gen3 — gate on versus gate off in
+              alternating blocks, with per-task success criteria written down before the first
+              trial. The gate's decision is logged even when it is switched off, so the control arm
+              can answer whether the robot actually failed on the frames it would have paused.
+            </p>
+            <p>
+              Remaining work before the <strong>IEEE Transactions on Robotics</strong> submission:
+              close out the ablation set and the embodiment-matching step that keeps the deployed
+              policy seeing the rendered arm it was trained on.
+            </p>
+          </div>
           <div class="project-actions">
             <a class="btn btn-primary btn-sm" href="projects/video-to-robot.html">Case study</a>
             <a class="btn btn-ghost btn-sm" href="assets/docs/Video-to-Robot-Methods-Overview.pdf">Methods overview</a>
@@ -622,10 +639,10 @@
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="tag ongoing">Ongoing · Pre-registered</span>
+            <span class="tag ongoing">Ongoing → Information Fusion</span>
             <span class="tag">First author</span>
+            <span class="tag">Pre-registered</span>
             <span class="tag">22 subjects</span>
-            <span class="tag">HPC / Slurm</span>
           </div>
           <h3>Reliability-Aware Fusion</h3>
           <p class="project-sub">A pre-registered study of what fusion architecture can and cannot claim</p>
@@ -640,6 +657,23 @@
             <div class="stat-chip"><b>11</b><span>fixed baselines</span></div>
             <div class="stat-chip"><b>A0–A5</b><span>pre-set ablations</span></div>
             <div class="stat-chip"><b>22</b><span>LOSO folds</span></div>
+          </div>
+
+          <div class="project-now">
+            <b>Ongoing — what I am doing now</b>
+            <p>
+              I rebuilt the preprocessing after finding five defects that invalidated the earlier
+              results — duplicated EEG samples, an unapplied EMG latency, a ragged gaze feature
+              width — and wrote the pre-registration that fixes the claims and the comparison set
+              in advance. I am currently <strong>training the eleven baseline arms</strong> across
+              22 leave-one-subject-out folds.
+            </p>
+            <p>
+              The proposed model is deliberately not trained until those land: the pre-registration
+              makes the baseline outcome decide whether an architecture claim is defensible at all.
+              Next are the two axes this sample size can actually resolve — modality-dropout
+              robustness and calibration — for a submission to <strong>Information Fusion</strong>.
+            </p>
           </div>
           <div class="project-actions">
             <a class="btn btn-primary btn-sm" href="projects/information-fusion.html">Case study</a>
@@ -1012,7 +1046,7 @@
       <div class="skill-group reveal">
         <h3>Infrastructure</h3>
         <div class="chips">
-          <span class="chip">Linux</span><span class="chip">HPC / Slurm</span>
+          <span class="chip">Linux</span><span class="chip">Multi-GPU training</span>
           <span class="chip">Docker</span><span class="chip">Git</span>
           <span class="chip">NumPy · pandas · SciPy</span><span class="chip">Tableau</span>
         </div>
