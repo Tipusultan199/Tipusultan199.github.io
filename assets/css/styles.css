@@ -406,12 +406,32 @@ section.alt { background: var(--bg-subtle); }
   box-shadow: var(--shadow-lg);
   background: var(--surface-2);
 }
-.hero-shot img { width: 100%; display: block; }
+.hero-shot img, .hero-shot video { width: 100%; display: block; background: #000; }
+.hero-shot video { aspect-ratio: 16 / 10; object-fit: contain; }
+.hero-shot .shot-tag {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  display: inline-flex; align-items: center; gap: .4em;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(4, 8, 14, .72);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  font-family: var(--font-mono); font-size: .66rem; font-weight: 600;
+  letter-spacing: .04em; color: #5eead4;
+}
+.hero-shot .shot-tag svg { width: 11px; height: 11px; }
 .hero-shot figcaption {
   position: absolute; inset: auto 0 0 0;
   padding: 30px 16px 12px;
   background: linear-gradient(to top, rgba(4, 8, 14, .92), rgba(4, 8, 14, .55) 48%, transparent);
   color: #e8eef6; font-size: .73rem; line-height: 1.45;
+}
+
+/* a video caption must not sit over the playback controls */
+.hero-shot.is-video figcaption {
+  position: static;
+  padding: 11px 14px 12px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted); font-size: .75rem;
 }
 
 @media (max-width: 860px) {
@@ -460,17 +480,21 @@ section.alt { background: var(--bg-subtle); }
 }
 .exp:hover, .edu:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); }
 
+/* Logos are dark artwork on transparency, so every tile stays light in both
+   themes — otherwise the KSU and Fordham lettering disappears in dark mode. */
 .org-mark {
-  width: 54px; height: 54px; flex: none;
+  width: 56px; height: 56px; flex: none;
   display: grid; place-items: center;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: var(--bg-subtle);
-  font-family: var(--font-mono); font-weight: 700; font-size: .82rem;
-  letter-spacing: -.02em; color: var(--accent);
+  background: #ffffff;
+  font-family: var(--font-mono); font-weight: 700; font-size: .8rem;
+  letter-spacing: -.02em; color: #0f766e;
   text-align: center; line-height: 1;
+  overflow: hidden;
 }
-.org-mark.violet { color: var(--violet); }
+.org-mark img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.org-mark.violet { color: #4f46e5; }
 
 .exp-head {
   display: flex; flex-wrap: wrap; gap: 6px 22px;

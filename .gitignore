@@ -9,3 +9,6 @@ _preview.html
 
 # original of the processed hero photo — kept locally, not published
 /Main-photo.png
+
+# original logo artwork — processed copies live in assets/img/logos/
+/Logo/
