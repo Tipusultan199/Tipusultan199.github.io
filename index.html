@@ -69,6 +69,7 @@
     </a>
 
     <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
@@ -99,23 +100,23 @@
       <div>
         <span class="hero-status">
           <span class="status-dot" aria-hidden="true"></span>
-          ML / Robotics internships &middot; 2027 full-time
+          Graduating Apr 2027 &middot; open to full-time research roles
         </span>
 
         <h1>Tipu Sultan</h1>
 
         <p class="hero-role">
           Robot Learning <span class="sep">·</span> Computer Vision <span class="sep">·</span> Multimodal ML
-          <br>Ph.D. Candidate, Saint Louis University
+          <br>Ph.D. Candidate, MechaRithm Lab — Saint Louis University
         </p>
 
         <p class="hero-lede">
-          I build <strong>multimodal learning systems that help robots learn from people and act
-          safely when sensing is uncertain</strong>. My work connects robust EEG–EMG–gaze intent
-          models with manipulation learned from ordinary RGB-D human video — spanning SAM2
-          perception, 3D hand-pose estimation, diffusion policies and deployment on a Kinova Gen3
-          through ROS 2. The goal is consistent: calibrated systems that know when their evidence
-          is strong enough to act.
+          I teach robots to learn from people — and <strong>to know when not to act</strong>.
+          My work joins two halves of one problem: reading human intent from EEG, EMG and gaze
+          when a sensor degrades or drops out, and learning manipulation from ordinary video of
+          a person instead of hundreds of teleoperation demonstrations. Both rest on calibrated
+          uncertainty — a robot that can tell when its evidence is strong enough to move, and
+          stops when it is not.
         </p>
 
         <div class="hero-cta">
@@ -134,11 +135,12 @@
         </div>
 
         <div class="hero-focus" aria-label="Focus areas">
-          <span>Multimodal fusion</span>
-          <span>Robot learning from video</span>
-          <span>RGB-D perception</span>
+          <span>EEG–EMG–gaze fusion</span>
+          <span>Imitation learning from video</span>
+          <span>RGB-D perception · SAM2</span>
           <span>Diffusion policies</span>
-          <span>Uncertainty &amp; safety</span>
+          <span>ROS 2 · Kinova Gen3</span>
+          <span>Uncertainty &amp; calibration</span>
         </div>
 
         <div class="hero-links">
@@ -214,6 +216,74 @@
         <div class="metric-value">32<span class="unit"> subj</span></div>
         <div class="metric-label">EEG–EMG–gaze dataset<br>collected, labelled and released</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ about -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">About</span>
+      <h2>Mechatronics, then language, then robots</h2>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="about-body">
+        <p>
+          I am a Ph.D. candidate in Aerospace &amp; Mechanical Engineering at
+          <strong>Saint Louis University</strong>, advised by <strong>Prof. Madi Babaiasl</strong>
+          in the MechaRithm Lab, where I build multimodal learning systems for assistive robots.
+          My work has been presented at robotics, biomedical engineering and data mining venues
+          including <strong>IROS</strong>, <strong>BioRob</strong>, <strong>ISMR</strong> and
+          <strong>IEEE Big Data</strong>, and published in <strong>IEEE Access</strong>. My
+          dissertation encompasses the following:
+        </p>
+
+        <ul class="about-list">
+          <li>Reliability-aware fusion of EEG, EMG and gaze for intent decoding that degrades gracefully when a sensor drifts or drops out</li>
+          <li>Learning manipulation from ordinary RGB-D video of a person, in place of hundreds of teleoperation demonstrations</li>
+          <li>Calibrated uncertainty and feasibility gating, so a robot acts only when its own evidence supports the motion</li>
+        </ul>
+
+        <p>
+          Before robotics I spent two years as a research assistant at <strong>Fordham
+          University</strong> working on multimodal NLP and clinical language models. I
+          first-authored <strong>SumGPT</strong>, a T5 + Vision Transformer framework for
+          radiology report summarization that reached a ROUGE-1 of 0.8514 and a BLEU of 0.8470
+          against VisualGPT, T5 + CLIP and XLM-RoBERTa + ViT baselines; and
+          <strong>MemesViTa</strong>, a ViT + DeBERTa fusion model for troll-meme detection at
+          94.29% accuracy and 95.82% F1 — 41.3% above the strongest vision-only baseline, and
+          well clear of GPT-4 in a 50-shot setting. I also co-authored <strong>MediGPT</strong>,
+          which benchmarked ChatGPT-3.5 and ChatGPT-4 against fine-tuned and prompt-tuned
+          language models for medical text classification, improving on them by 13.6–22.3%
+          across four datasets. That work is where I learned to treat ablation, error analysis
+          and calibration as first-class concerns — the same discipline I now apply to robots.
+        </p>
+
+        <p>
+          I completed my <strong>M.Sc. in Data Science</strong> at Fordham University on a GSAS
+          Centennial Scholarship, and interned as a data analyst at
+          <strong>Authentic Brands Group</strong> in New York, automating ETL and reporting over
+          Salesforce and SQL sources. Earlier, at <strong>Kyungsung University</strong> in South
+          Korea, I researched switched reluctance machines for flywheel energy storage and
+          finished first in my class in Mechatronics Engineering. Three degrees across three
+          countries left one through-line: hardware, signals and language are all the same
+          problem once you ask a system to say how much it trusts its own input.
+        </p>
+      </div>
+
+      <aside class="about-side">
+        <h3>Interests</h3>
+        <ul>
+          <li>Multimodal fusion</li>
+          <li>Imitation learning from video</li>
+          <li>Uncertainty &amp; calibration</li>
+          <li>Vision-language models</li>
+          <li>Text summarization</li>
+          <li>Robot manipulation</li>
+        </ul>
+      </aside>
     </div>
   </div>
 </section>
@@ -539,11 +609,13 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Selected work</span>
-      <h2>Four systems, end to end</h2>
+      <h2>Seven systems, end to end</h2>
       <p>
-        Two accepted at IROS and BioRob 2026, two in preparation for journals. Every one runs from
-        raw sensor capture through model design to evaluation on real hardware — and every case
-        study reports the ablations and the things that did not work.
+        Four robotics systems — two accepted at IROS and BioRob 2026, two in preparation for
+        journals — each running from raw sensor capture through model design to evaluation on real
+        hardware. Then three published multimodal NLP systems from my clinical-AI years, which is
+        where the emphasis on ablations, error analysis and calibration started. Every case study
+        reports the things that did not work.
       </p>
     </div>
 
@@ -736,6 +808,93 @@
           <div class="project-actions">
             <a class="btn btn-primary btn-sm" href="projects/information-fusion.html">Case study</a>
           </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- multimodal NLP & clinical AI -------------------------------- -->
+    <div class="group-head reveal">
+      <h3>Multimodal NLP &amp; clinical AI</h3>
+      <p>
+        Three peer-reviewed IEEE Access systems from my research-assistant years at Fordham,
+        first-authored except where noted. Same method throughout: pair a vision encoder with a
+        language model, then benchmark it honestly against the LLM everyone reaches for first.
+      </p>
+    </div>
+
+    <div class="paper-grid">
+
+      <article class="paper-card reveal">
+        <div class="project-tags">
+          <span class="tag venue">IEEE Access 2025</span>
+          <span class="tag">First author</span>
+        </div>
+        <h4>SumGPT</h4>
+        <p class="paper-sub">Radiology reports, summarised well enough to trust</p>
+        <p>
+          A T5 language model paired with a Vision Transformer, so the summary is written from the
+          scan and the report together rather than the text alone. Trained on 1,952 image–report
+          pairs and tested on 488, it beat every baseline tried — VisualGPT, T5&nbsp;+&nbsp;CLIP,
+          XLM-RoBERTa&nbsp;+&nbsp;ViT and BERT&nbsp;+&nbsp;EfficientNet — on all four metrics.
+        </p>
+        <div class="project-stats">
+          <div class="stat-chip"><b>0.8514</b><span>ROUGE-1</span></div>
+          <div class="stat-chip"><b>0.8470</b><span>BLEU</span></div>
+          <div class="stat-chip"><b>2,440</b><span>image–report pairs</span></div>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-ghost btn-sm" href="assets/docs/SumGPT-IEEE-Access-2025.pdf">Paper</a>
+          <a class="btn btn-ghost btn-sm" href="https://doi.org/10.1109/ACCESS.2025.3528335" rel="noopener">DOI</a>
+        </div>
+      </article>
+
+      <article class="paper-card reveal">
+        <div class="project-tags">
+          <span class="tag venue">IEEE Access 2024</span>
+          <span class="tag">First author</span>
+        </div>
+        <h4>MemesViTa</h4>
+        <p class="paper-sub">Where a meme turns hostile is in the gap between image and caption</p>
+        <p>
+          Troll memes defeat single-modality detectors because the picture and the text are each
+          innocuous alone. Fusing a Vision Transformer with DeBERTa closes that gap: 94.29%
+          accuracy against 4,368 training and 1,092 test pairs — 41.3% above the best vision-only
+          model, and far ahead of GPT-4 prompted with 50 examples, which reached 37.00% F1.
+        </p>
+        <div class="project-stats">
+          <div class="stat-chip"><b>94.29%</b><span>accuracy</span></div>
+          <div class="stat-chip"><b>95.82%</b><span>F1</span></div>
+          <div class="stat-chip"><b>+41.3%</b><span>over best vision-only</span></div>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-ghost btn-sm" href="assets/docs/MemesViTa-IEEE-Access-2024.pdf">Paper</a>
+          <a class="btn btn-ghost btn-sm" href="https://doi.org/10.1109/ACCESS.2024.3505614" rel="noopener">DOI</a>
+        </div>
+      </article>
+
+      <article class="paper-card reveal">
+        <div class="project-tags">
+          <span class="tag venue">IEEE Access 2024</span>
+          <span class="tag">Third author</span>
+        </div>
+        <h4>MediGPT</h4>
+        <p class="paper-sub">What a general LLM is actually worth on medical text</p>
+        <p>
+          A controlled comparison of ChatGPT-3.5 and ChatGPT-4 against fine-tuned and prompt-tuned
+          language models across four medical corpora, from 6M clinical-trial statements to
+          symptom descriptions. The contribution is the method — prompt construction, response
+          parsing and strategy selection — which lifted results 13.6–22.3% without any
+          domain-specific training.
+        </p>
+        <div class="project-stats">
+          <div class="stat-chip"><b>13.6–22.3%</b><span>improvement</span></div>
+          <div class="stat-chip"><b>4</b><span>medical datasets</span></div>
+          <div class="stat-chip"><b>0</b><span>domain fine-tuning</span></div>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-ghost btn-sm" href="assets/docs/MediGPT-IEEE-Access-2024.pdf">Paper</a>
+          <a class="btn btn-ghost btn-sm" href="https://doi.org/10.1109/ACCESS.2024.3428918" rel="noopener">DOI</a>
         </div>
       </article>
 

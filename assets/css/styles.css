@@ -476,6 +476,115 @@ section.alt { background: var(--bg-subtle); }
   margin-top: 5px; line-height: 1.4;
 }
 
+/* -------------------------------------------------------------- about */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+.about-body p {
+  /* even left and right margins, with hyphenation to avoid rivers */
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto; hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+  color: var(--text-muted);
+  font-size: 1.02rem; line-height: 1.75;
+  margin-bottom: 1.15em;
+  text-wrap: pretty;
+}
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { color: var(--text); font-weight: 600; }
+
+.about-list {
+  list-style: none;
+  margin: 0 0 1.15em; padding: 0;
+  display: grid; gap: 9px;
+}
+.about-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-muted);
+  font-size: .97rem; line-height: 1.6;
+  text-wrap: pretty;
+}
+.about-list li::before {
+  content: ""; position: absolute;
+  left: 2px; top: .62em;
+  width: 7px; height: 7px; border-radius: 2px;
+  background: var(--accent);
+}
+
+.about-side {
+  border-left: 2px solid var(--border);
+  padding-left: 20px;
+  position: sticky; top: 96px;
+}
+.about-side h3 {
+  font-family: var(--font-mono);
+  font-size: .74rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.about-side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.about-side li { font-size: .92rem; color: var(--text); line-height: 1.4; }
+
+@media (max-width: 780px) {
+  .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .about-side {
+    border-left: 0; padding-left: 0;
+    border-top: 1px solid var(--border); padding-top: 22px;
+    position: static;
+  }
+  .about-side ul { display: flex; flex-wrap: wrap; gap: 7px 16px; }
+  /* justified text needs room; ragged-right reads better on narrow screens */
+  .about-body p { text-align: left; }
+}
+
+/* ------------------------------------------------------- paper cards */
+
+.group-head {
+  margin: clamp(46px, 6vw, 76px) 0 clamp(20px, 3vw, 30px);
+  padding-top: clamp(30px, 4vw, 44px);
+  border-top: 1px solid var(--border);
+  max-width: 72ch;
+}
+.group-head h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); margin-bottom: .45em; }
+.group-head p { color: var(--text-muted); font-size: .98rem; margin-bottom: 0; }
+
+.paper-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.paper-card {
+  display: flex; flex-direction: column;
+  padding: 24px 22px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.paper-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
+.paper-card h4 { font-size: 1.2rem; margin-bottom: .25em; }
+.paper-sub {
+  font-size: .89rem; color: var(--text-faint);
+  font-weight: 500; margin-bottom: .9em;
+}
+.paper-card > p { color: var(--text-muted); font-size: .93rem; line-height: 1.65; }
+.paper-card .project-stats { margin-top: auto; padding-top: 6px; }
+.paper-card .project-actions { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .paper-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .paper-grid { grid-template-columns: 1fr; }
+}
+
 /* ------------------------------------------------- experience & education */
 
 .exp-list, .edu-list { display: grid; gap: 16px; }
