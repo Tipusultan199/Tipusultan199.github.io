@@ -12,9 +12,14 @@
 <meta property="og:title" content="Tipu Sultan — Robot Learning, Computer Vision &amp; Multimodal ML">
 <meta property="og:description" content="Ph.D. researcher in multimodal ML for robots: EEG-EMG-gaze fusion, and teaching manipulation from ordinary human video with diffusion policies on a Kinova Gen3.">
 <meta property="og:url" content="https://tipusultan199.github.io/">
-<meta property="og:image" content="https://tipusultan199.github.io/assets/img/photos/setup-1600.jpg">
-<meta property="og:image:alt" content="Tipu Sultan at the experiment rig with a Kinova Gen3 arm, EEG cap, eye-tracking glasses and live EEG/EMG/gaze dashboard.">
+<meta property="og:image" content="https://tipusultan199.github.io/assets/img/social/tipu-sultan-og.jpg">
+<meta property="og:image:alt" content="Tipu Sultan with a Kinova robot, EEG and eye-tracking equipment in the MechaRithm Lab.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tipu Sultan — Robot Learning, Computer Vision &amp; Multimodal ML">
+<meta name="twitter:description" content="Ph.D. researcher building reliable multimodal learning and video-to-robot manipulation systems.">
+<meta name="twitter:image" content="https://tipusultan199.github.io/assets/img/social/tipu-sultan-og.jpg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
 
@@ -30,7 +35,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <script type="application/ld+json">
@@ -94,7 +99,7 @@
       <div>
         <span class="hero-status">
           <span class="status-dot" aria-hidden="true"></span>
-          Open to ML / Robotics internships and 2027 full-time roles
+          ML / Robotics internships &middot; 2027 full-time
         </span>
 
         <h1>Tipu Sultan</h1>
@@ -105,28 +110,13 @@
         </p>
 
         <p class="hero-lede">
-          I build <strong>multimodal machine-learning systems for robots</strong>, and I work on
-          two halves of the same problem. One is fusing human signals — EEG, EMG and eye tracking —
-          into intent models that keep working when a sensor degrades or drops out entirely. The
-          other is <strong>teaching robots manipulation from ordinary human video</strong>, so a
-          new skill costs a few recordings of a person instead of hundreds of teleoperation
-          demonstrations.
+          I build <strong>multimodal learning systems that help robots learn from people and act
+          safely when sensing is uncertain</strong>. My work connects robust EEG–EMG–gaze intent
+          models with manipulation learned from ordinary RGB-D human video — spanning SAM2
+          perception, 3D hand-pose estimation, diffusion policies and deployment on a Kinova Gen3
+          through ROS 2. The goal is consistent: calibrated systems that know when their evidence
+          is strong enough to act.
         </p>
-        <p class="hero-lede">
-          That covers the whole stack: RGB-D perception with SAM2 segmentation, hand-pose
-          estimation and depth fusion; diffusion policies trained on 155K frames of human
-          demonstrations; and deployment on a real Kinova Gen3 through ROS 2. The thread running
-          through all of it is <strong>calibrated uncertainty</strong> — a robot that knows when
-          its own perception cannot support the action it is about to take.
-        </p>
-
-        <div class="hero-focus" aria-label="Focus areas">
-          <span>Multimodal fusion</span>
-          <span>Robot learning from video</span>
-          <span>RGB-D perception</span>
-          <span>Diffusion policies</span>
-          <span>Uncertainty &amp; safety</span>
-        </div>
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="assets/docs/Tipu-Sultan-CV.pdf">
@@ -141,6 +131,14 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
             Email me
           </a>
+        </div>
+
+        <div class="hero-focus" aria-label="Focus areas">
+          <span>Multimodal fusion</span>
+          <span>Robot learning from video</span>
+          <span>RGB-D perception</span>
+          <span>Diffusion policies</span>
+          <span>Uncertainty &amp; safety</span>
         </div>
 
         <div class="hero-links">
@@ -270,6 +268,46 @@
         </p>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ===================================================== featured work -->
+<section id="projects" class="featured-work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured work</span>
+      <h2>Research with measurable outcomes</h2>
+      <p>Four systems spanning multimodal intent, safety-aware control and learning robot skills from human video.</p>
+    </div>
+
+    <div class="featured-grid">
+      <a class="featured-card reveal" href="projects/neurocommitssm.html">
+        <span class="featured-kicker">IROS 2026 &middot; Accepted</span>
+        <h3>NeuroCommitSSM</h3>
+        <p>Commit-ready shared autonomy under seven sensor-dropout scenarios.</p>
+        <span class="featured-result"><b>0.75</b> false commits / 1k rest</span>
+      </a>
+      <a class="featured-card reveal" href="projects/trisafe-trans.html">
+        <span class="featured-kicker">BioRob 2026 &middot; Accepted</span>
+        <h3>TriSaFe-Trans</h3>
+        <p>Reliability-gated EEG, EMG and gaze fusion for safe intent recognition.</p>
+        <span class="featured-result"><b>0.903</b> action accuracy</span>
+      </a>
+      <a class="featured-card reveal" href="projects/video-to-robot.html">
+        <span class="featured-kicker">Ongoing &middot; IEEE T-RO</span>
+        <h3>Video-to-Robot Learning</h3>
+        <p>Diffusion policies trained from ordinary RGB-D human demonstrations.</p>
+        <span class="featured-result"><b>&minus;11%</b> action error</span>
+      </a>
+      <a class="featured-card reveal" href="projects/information-fusion.html">
+        <span class="featured-kicker">Pre-registered study</span>
+        <h3>Reliability-Aware Fusion</h3>
+        <p>A falsifiable evaluation of bounded-lag, gated multimodal inference.</p>
+        <span class="featured-result"><b>11</b> fixed baselines</span>
+      </a>
+    </div>
+
+    <a class="featured-more reveal" href="#case-studies">Explore the full case studies <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -497,7 +535,7 @@
 </section>
 
 <!-- ========================================================= projects -->
-<section id="projects">
+<section id="case-studies">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Selected work</span>

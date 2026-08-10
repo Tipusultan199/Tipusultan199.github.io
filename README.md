@@ -9,7 +9,7 @@ machine learning at Saint Louis University (MechaRithm Lab).
 
 | Page | Contents |
 |---|---|
-| `index.html` | Hero (bio, two lab shots, 60-second IROS demo), research focus, experience, education, four project cards, video, 16 publications with search/filter, skills, lab gallery, contact |
+| `index.html` | Concise hero, research focus, evidence-first featured work, experience, education, four full case studies, video, 16 publications with search/filter, skills, lab gallery, contact |
 | `projects/neurocommitssm.html` | NeuroCommitSSM — IROS 2026 |
 | `projects/trisafe-trans.html` | TriSaFe-Trans — BioRob 2026 |
 | `projects/video-to-robot.html` | Video-to-robot imitation learning — T-RO, in preparation |
@@ -28,6 +28,7 @@ machine learning at Saint Louis University (MechaRithm Lab).
     ├── img/
     │   ├── figures/     paper figures (PNG + WebP)
     │   ├── photos/      lab photography, responsive widths
+    │   ├── social/      Open Graph and social sharing artwork
     │   └── posters/     video poster frames
     ├── video/           H.264 MP4, web-optimised
     └── docs/            CV and papers (PDF)

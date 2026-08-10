@@ -183,7 +183,7 @@
   /* ------------------------------------- pause offscreen looping video */
 
   var loops = document.querySelectorAll("video[data-autoloop]");
-  if (loops.length && "IntersectionObserver" in window) {
+  if (loops.length && !reduced && "IntersectionObserver" in window) {
     var vio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var v = entry.target;

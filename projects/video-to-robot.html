@@ -9,7 +9,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Video-to-Robot Imitation Learning">
 <meta property="og:description" content="A diffusion policy trained on human video, with a reliability gate that cuts action error 11% by pausing on exactly the frames its perception cannot support.">
+<meta property="og:url" content="https://tipusultan199.github.io/projects/video-to-robot.html">
 <meta property="og:image" content="https://tipusultan199.github.io/assets/img/figures/tro-system-overview.png">
+<meta property="og:image:alt" content="Video-to-robot pipeline converting RGB-D human demonstrations into gated robot trajectories.">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="804">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Video-to-Robot Imitation Learning — Tipu Sultan">
+<meta name="twitter:description" content="Learning robot manipulation from human video with an uncertainty-aware reliability gate.">
+<meta name="twitter:image" content="https://tipusultan199.github.io/assets/img/figures/tro-system-overview.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
 
 <script>
@@ -23,7 +31,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
@@ -138,7 +146,7 @@
 
       <ol class="step-list">
         <li>
-          <h4>Record people doing tasks</h4>
+          <h3>Record people doing tasks</h3>
           <p>
             An RGB-D camera at 640×400, 15 fps captures five household tasks — bottle, clock, fan,
             plant, wave — plus an explicit <em>rest</em> state that turns out to matter a great
@@ -146,25 +154,25 @@
           </p>
         </li>
         <li>
-          <h4>Find the hand in 3D</h4>
+          <h3>Find the hand in 3D</h3>
           <p>
             WiLoR-mini (HaMeR family, MANO hand model) gives 21 joint positions and a 778-vertex
             hand mesh for every frame.
           </p>
         </li>
         <li>
-          <h4>Separate hand, arm and object from the background</h4>
+          <h3>Separate hand, arm and object from the background</h3>
           <p>SAM2 produces the masks and tracks the manipulated object through the trial.</p>
         </li>
         <li>
-          <h4>Sharpen the hand pose against depth</h4>
+          <h3>Sharpen the hand pose against depth</h3>
           <p>
             ICP registers the hand mesh to the depth point cloud. The registration residual is kept
             — later it becomes one of the signals for how much to trust that frame.
           </p>
         </li>
         <li>
-          <h4>Translate human motion into robot motion</h4>
+          <h3>Translate human motion into robot motion</h3>
           <p>
             Cartesian retargeting maps hand pose to end-effector position, orientation and gripper
             opening, producing actions already expressed in the robot's own frame. About 23% of
@@ -172,21 +180,21 @@
           </p>
         </li>
         <li>
-          <h4>Erase the human from the video</h4>
+          <h3>Erase the human from the video</h3>
           <p>
             The policy should not train on footage containing a person's arm. Background-plate
             reconstruction driven by SAM2's arm mask (E2FGVI-family video inpainting) removes it.
           </p>
         </li>
         <li>
-          <h4>Draw the robot doing the task</h4>
+          <h3>Draw the robot doing the task</h3>
           <p>
             MuJoCo renders a Kinova Gen3 with a Robotiq 2F-85 gripper executing the retargeted
             motion, from the same calibrated camera viewpoint as the real footage.
           </p>
         </li>
         <li>
-          <h4>Composite it back in</h4>
+          <h3>Composite it back in</h3>
           <p>
             Depth-aware compositing merges the rendered arm with the inpainted background — depth
             decides what occludes what. The result looks like the robot performed the task, without
@@ -194,7 +202,7 @@
           </p>
         </li>
         <li>
-          <h4>Split the data honestly</h4>
+          <h3>Split the data honestly</h3>
           <p>
             Stratified train/val/test split <strong>at the trial level, not the frame level</strong>.
             Frames within a trial are nearly identical; splitting by frame would leak the test set
@@ -202,7 +210,7 @@
           </p>
         </li>
         <li>
-          <h4>Train the policy</h4>
+          <h3>Train the policy</h3>
           <p>
             A diffusion policy learns to turn noise into an action sequence: ResNet-18 vision
             encoders (ImageNet-pretrained), FiLM conditioning, a 1D U-Net decoder over the action
