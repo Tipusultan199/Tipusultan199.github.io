@@ -6,3 +6,6 @@ desktop.ini
 
 # local preview harness
 _preview.html
+
+# original of the processed hero photo — kept locally, not published
+/Main-photo.png
