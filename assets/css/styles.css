@@ -494,6 +494,9 @@ section.alt { background: var(--bg-subtle); }
   overflow: hidden;
 }
 .org-mark img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+/* a wordmark that carries its own brand background fills the tile edge to edge */
+.org-mark.bleed { background: #122849; }
+.org-mark.bleed img { padding: 0; object-fit: cover; }
 .org-mark.violet { color: #4f46e5; }
 
 .exp-head {
