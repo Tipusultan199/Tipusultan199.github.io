@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video-to-Robot Imitation Learning — Tipu Sultan</title>
+<meta name="description" content="Teaching a robot household manipulation from ordinary human video: SAM2 segmentation, MANO hand fitting, ICP refinement, inpainting, MuJoCo compositing, a diffusion policy, and a reliability gate that pauses when perception fails.">
+<link rel="canonical" href="https://tipusultan199.github.io/projects/video-to-robot.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Video-to-Robot Imitation Learning">
+<meta property="og:description" content="A diffusion policy trained on human video, with a reliability gate that cuts action error 11% by pausing on exactly the frames its perception cannot support.">
+<meta property="og:image" content="https://tipusultan199.github.io/assets/img/figures/tro-system-overview.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">TS</span>
+      <span>Tipu Sultan</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#media">Media</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="../index.html#projects">Projects</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      <span>Video-to-Robot</span>
+    </div>
+
+    <h1>Video-to-Robot Imitation Learning</h1>
+    <p class="page-lede">
+      Teaching a robot household tasks normally means physically guiding the arm hundreds of times.
+      We film a person instead. But a policy trained from camera footage inherits the camera's bad
+      moments — so the real contribution is a system that <strong>estimates how well the robot is
+      seeing, and pauses when it isn't</strong>.
+    </p>
+
+    <dl class="meta-row">
+      <div class="meta-item"><dt>Status</dt><dd>Journal paper in preparation (T-RO)</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>First author</dd></div>
+      <div class="meta-item"><dt>Data</dt><dd>906 usable trials · 5 tasks + rest</dd></div>
+      <div class="meta-item"><dt>Policy</dt><dd>Diffusion, 14 trained variants</dd></div>
+      <div class="meta-item"><dt>Stack</dt><dd>PyTorch · SAM2 · MuJoCo · ROS 2</dd></div>
+    </dl>
+
+    <div class="hero-cta" style="margin-top:26px">
+      <a class="btn btn-primary btn-sm" href="../assets/docs/Video-to-Robot-Methods-Overview.pdf">Methods overview (PDF)</a>
+      <a class="btn btn-ghost btn-sm" href="#pipeline">Jump to the pipeline</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prose">
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/tro-system-overview.png" title="Open full size">
+          <img src="../assets/img/figures/tro-system-overview.png" width="1400" height="804" loading="lazy"
+             alt="System overview: human RGB-D demonstrations converted into robot-compatible trajectories, a diffusion policy, and a reliability gate deciding when to act.">
+        </a>
+        <figcaption><b>Figure 1.</b> End-to-end system — human demonstration capture, perception, retargeting, robot compositing, policy learning, and the reliability gate that decides whether the predicted action is executed.</figcaption>
+      </figure>
+
+      <div class="callout">
+        <p>
+          <strong>In one paragraph.</strong> We teach robots household tasks by filming humans
+          rather than manually guiding the arm. But robots trained this way don't know when their
+          own vision is unreliable — they act confidently regardless. We add a system that
+          continuously estimates how well the robot is seeing and pauses when it isn't. Offline
+          this cuts errors by 11%, and control experiments confirm the gain comes from correctly
+          identifying risky moments rather than from pausing in general. We are now validating it
+          on real hardware.
+        </p>
+      </div>
+
+      <h2 id="pipeline">The pipeline, step by step</h2>
+      <p>
+        Fourteen stages from a camera pointed at a kitchen counter to a policy that runs on a
+        Kinova Gen3. Each one names the actual technique rather than gesturing at it.
+      </p>
+
+      <ol class="step-list">
+        <li>
+          <h4>Record people doing tasks</h4>
+          <p>
+            An RGB-D camera at 640×400, 15 fps captures five household tasks — bottle, clock, fan,
+            plant, wave — plus an explicit <em>rest</em> state that turns out to matter a great
+            deal. 906 usable trials across six condition blocks per task.
+          </p>
+        </li>
+        <li>
+          <h4>Find the hand in 3D</h4>
+          <p>
+            WiLoR-mini (HaMeR family, MANO hand model) gives 21 joint positions and a 778-vertex
+            hand mesh for every frame.
+          </p>
+        </li>
+        <li>
+          <h4>Separate hand, arm and object from the background</h4>
+          <p>SAM2 produces the masks and tracks the manipulated object through the trial.</p>
+        </li>
+        <li>
+          <h4>Sharpen the hand pose against depth</h4>
+          <p>
+            ICP registers the hand mesh to the depth point cloud. The registration residual is kept
+            — later it becomes one of the signals for how much to trust that frame.
+          </p>
+        </li>
+        <li>
+          <h4>Translate human motion into robot motion</h4>
+          <p>
+            Cartesian retargeting maps hand pose to end-effector position, orientation and gripper
+            opening, producing actions already expressed in the robot's own frame. About 23% of
+            frames have no computable action; those are smoothly interpolated.
+          </p>
+        </li>
+        <li>
+          <h4>Erase the human from the video</h4>
+          <p>
+            The policy should not train on footage containing a person's arm. Background-plate
+            reconstruction driven by SAM2's arm mask (E2FGVI-family video inpainting) removes it.
+          </p>
+        </li>
+        <li>
+          <h4>Draw the robot doing the task</h4>
+          <p>
+            MuJoCo renders a Kinova Gen3 with a Robotiq 2F-85 gripper executing the retargeted
+            motion, from the same calibrated camera viewpoint as the real footage.
+          </p>
+        </li>
+        <li>
+          <h4>Composite it back in</h4>
+          <p>
+            Depth-aware compositing merges the rendered arm with the inpainted background — depth
+            decides what occludes what. The result looks like the robot performed the task, without
+            a robot ever having been present.
+          </p>
+        </li>
+        <li>
+          <h4>Split the data honestly</h4>
+          <p>
+            Stratified train/val/test split <strong>at the trial level, not the frame level</strong>.
+            Frames within a trial are nearly identical; splitting by frame would leak the test set
+            into training.
+          </p>
+        </li>
+        <li>
+          <h4>Train the policy</h4>
+          <p>
+            A diffusion policy learns to turn noise into an action sequence: ResNet-18 vision
+            encoders (ImageNet-pretrained), FiLM conditioning, a 1D U-Net decoder over the action
+            sequence, DDPM with 100 noise steps for training and DDIM with 10 steps at inference.
+            Rotations use the 6D representation to avoid angle wraparound. 14 variants trained for
+            the ablation study.
+          </p>
+        </li>
+      </ol>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/tro-architecture.png" title="Open full size">
+          <img src="../assets/img/figures/tro-architecture.png" width="1600" height="908" loading="lazy"
+             alt="Model architecture: vision encoders, FiLM conditioning, and a 1D U-Net diffusion decoder over the action sequence.">
+        </a>
+        <figcaption><b>Figure 2.</b> Policy architecture — ResNet-18 visual encoders modulate a 1D U-Net action decoder through FiLM, trained as a denoising diffusion model over action sequences.</figcaption>
+      </figure>
+
+      <h2>The contribution: teaching the robot to know when it can't see</h2>
+      <p>
+        Everything above produces a competent imitation policy. It also produces a policy that
+        will confidently act on a frame where the depth sensor dropped out, the object is occluded,
+        or the RGB and depth streams have drifted out of alignment. Three candidate signals for
+        "how bad is this frame" were compared against real downstream error.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Signal</th><th>How it works</th><th>Correlation with error</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Depth-jump</td><td>How much the depth reading jumps between frames</td><td class="num">r = 0.35</td><td class="num">~2 ms</td></tr>
+            <tr><td>Model uncertainty</td><td>Run the policy 5×, measure disagreement with itself</td><td class="num">r = 0.51</td><td class="num">~340 ms</td></tr>
+            <tr><td><b>Combined</b></td><td>Both together</td><td class="num"><b>r = 0.52</b></td><td class="num">~340 ms</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Four supporting techniques make the gate deployable rather than merely measurable:</p>
+      <ul>
+        <li><strong>Causal temporal depth recovery</strong> — dropped depth pixels are filled using only past frames, because a live robot cannot see the future. This nearly doubled the signal's usefulness.</li>
+        <li><strong>Calibration</strong> — the signal is fit against real error on 80% of trials and validated on the remaining 20%.</li>
+        <li><strong>Geometric feasibility check</strong> — depth is lifted to a 3D point cloud and the planned path is tested for obstruction.</li>
+        <li><strong>ACT / DEFER / WAIT state machine</strong> — go, hold and re-check, or abort if the problem persists.</li>
+      </ul>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/tro-reliability-gate.png" title="Open full size">
+          <img src="../assets/img/figures/tro-reliability-gate.png" width="1400" height="765" loading="lazy"
+             alt="Reliability gate: perception quality estimated per frame and converted into an act, defer or wait decision.">
+        </a>
+        <figcaption><b>Figure 3.</b> The reliability gate — per-frame perception quality is calibrated against measured error, then thresholded into ACT, DEFER or WAIT.</figcaption>
+      </figure>
+
+      <h2>Does it actually work?</h2>
+      <p>
+        On held-out trials the model never trained on, gating produces <strong>11% lower action
+        error at a 10–20% pause rate</strong>, and the improvement holds across all five tasks.
+        Detection quality for bad frames reaches <strong>AUROC 0.795</strong>.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>The controls are what make this convincing.</strong> Pausing on <em>random</em>
+          frames: no benefit. Pausing on a <em>fixed schedule</em>: no benefit. Same number of
+          frames paused in every case. So the gain comes from the robot identifying <em>which</em>
+          moments are risky — not from pausing in general.
+        </p>
+      </div>
+
+      <div class="two-col" style="margin:2em 0">
+        <figure class="fig" style="margin:0">
+          <img src="../assets/img/figures/tro-gating-tradeoff.png" width="1000" height="955" loading="lazy"
+               alt="Action error against pause rate, showing the gated policy below the ungated baseline.">
+          <figcaption><b>Figure 4.</b> Error against pause rate — the operating band where gating pays for itself.</figcaption>
+        </figure>
+        <figure class="fig" style="margin:0">
+          <img src="../assets/img/figures/tro-per-task-gating.png" width="1400" height="478" loading="lazy"
+               alt="Per-task breakdown of the gating benefit across the five household tasks.">
+          <figcaption><b>Figure 5.</b> Per-task breakdown. The benefit is not carried by one easy task.</figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Statistics throughout: paired Wilcoxon signed-rank (errors are right-skewed, so
+        non-parametric), Cohen's <em>d</em> for effect size, Holm–Bonferroni across the many
+        comparisons, McNemar's exact test for binary outcomes, bootstrap confidence intervals,
+        permutation tests — and a per-task breakdown reported every time, not just the aggregate.
+      </p>
+
+      <h2>Perception at scale</h2>
+      <p>
+        Alongside the policy work, the perception stack was audited rather than assumed. Combining
+        SAM2 hand and object segmentation, camera calibration, temporal depth fusion and 3D
+        back-projection raised valid object observations from <strong>52.1% to 65.7%</strong> across
+        7,167 frames. A long-tail benchmark of <strong>570 corruption conditions and 27,360
+        frames</strong> — depth dropout, occlusion, blur, motion blur, RGB–depth misalignment —
+        supports a reliability estimator reaching <strong>0.782 AUROC</strong>. In total, 1,099
+        RGB-D demonstrations and 154,844 frames were processed through reproducible PyTorch
+        pipelines.
+      </p>
+
+      <h2>See it running</h2>
+    </div>
+
+    <div class="video-grid" style="margin-bottom:2em">
+      <figure class="video-card">
+        <video muted loop playsinline preload="metadata" data-autoloop poster="../assets/img/posters/tro-raw-rgb.jpg" width="640" height="400" aria-label="Raw RGB demonstration footage of a human performing a household task">
+          <source src="../assets/video/tro-raw-rgb.mp4" type="video/mp4">
+        </video>
+        <figcaption class="video-caption">
+          <b>1 — Raw human demonstration</b>
+          What the camera actually records: a person performing the task, RGB-D at 640×400, 15 fps.
+        </figcaption>
+      </figure>
+
+      <figure class="video-card">
+        <video muted loop playsinline preload="metadata" data-autoloop poster="../assets/img/posters/tro-debug.jpg" width="1280" height="533" aria-label="Debug panels showing segmentation masks, depth and hand pose">
+          <source src="../assets/video/tro-debug.mp4" type="video/mp4">
+        </video>
+        <figcaption class="video-caption">
+          <b>2 — Perception debug panels</b>
+          SAM2 masks, temporally fused depth and the 21-joint MANO hand fit, verified frame by frame
+          against the depth point cloud.
+        </figcaption>
+      </figure>
+
+      <figure class="video-card">
+        <video muted loop playsinline preload="metadata" data-autoloop poster="../assets/img/posters/tro-robotized.jpg" width="640" height="400" aria-label="The final robotised video with a simulated Kinova arm composited into the real scene">
+          <source src="../assets/video/tro-robotized.mp4" type="video/mp4">
+        </video>
+        <figcaption class="video-caption">
+          <b>3 — Robotised output</b>
+          Human arm inpainted away, MuJoCo-rendered Kinova depth-composited in from the same
+          calibrated viewpoint. This is the policy's training input.
+        </figcaption>
+      </figure>
+
+      <figure class="video-card">
+        <video muted loop playsinline preload="metadata" data-autoloop poster="../assets/img/posters/collection-3.jpg" width="848" height="464" aria-label="Data collection session showing a task being performed for the camera">
+          <source src="../assets/video/collection-3.mp4" type="video/mp4">
+        </video>
+        <figcaption class="video-caption">
+          <b>4 — Data collection</b>
+          One of the six condition blocks per task, varying lighting, viewpoint and clutter to build
+          the long-tail benchmark.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="prose">
+      <h2>Real-robot validation (in progress)</h2>
+      <p>
+        The hardware study is designed before it is run. Two arms — gate ON versus gate OFF,
+        everything else identical — in alternating blocks of about five so time-of-day drift cannot
+        confound the comparison. Success is defined per task in advance, in writing. Analysis uses
+        Fisher's exact test and Wilson binomial intervals, which behave correctly at small sample
+        sizes.
+      </p>
+      <p>
+        The useful trick: <strong>log the gate's decision even when it is switched off</strong>.
+        That makes it possible to ask, after the fact, "on the frames where the gate would have
+        paused, did the robot actually fail?" — turning the control arm into evidence rather than
+        just a baseline.
+      </p>
+      <p>
+        One prerequisite is easy to get wrong. The policy was trained only on <em>simulated</em>
+        robot footage, so at deployment it must keep seeing a simulated robot: read the real arm's
+        joint angles, render the simulated arm in that pose, and composite it over the live camera
+        feed. Skip this and the model sees something it has never encountered.
+      </p>
+
+      <h2>What didn't work — reported anyway</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Tried</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>Weighting training by demonstration reliability</td><td>Didn't help</td></tr>
+            <tr><td>Shrinking the model to reduce overfitting</td><td>Much worse</td></tr>
+            <tr><td>Engineered depth signal vs simply resampling the model</td><td>Engineered signal lost — but is 170× cheaper</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <p>
+          <strong>We also found a bug in our own data.</strong> One input was accidentally identical
+          to the answer the model was meant to predict, which made a set of early results look far
+          better than they were. We found it, removed those results, and documented it. It is in the
+          write-up for the same reason it is here: a result you cannot reproduce after fixing your
+          own leak was never a result.
+        </p>
+      </div>
+
+      <div class="next-nav">
+        <a class="btn btn-ghost btn-sm" href="trisafe-trans.html">← TriSaFe-Trans</a>
+        <a class="btn btn-primary btn-sm" href="information-fusion.html">Next: Reliability-Aware Fusion →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>© <span id="year">2026</span> Tipu Sultan · Saint Louis University</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/Tipusultan199" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=QmYyXBIAAAAJ&amp;hl=en" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

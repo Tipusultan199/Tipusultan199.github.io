@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TriSaFe-Trans — Tipu Sultan</title>
+<meta name="description" content="A safety-aware tri-modal transformer fusing EEG, EMG and eye-tracking with reliability-gated cross-modal attention, evaluated at the policy level under sensor failure. BioRob 2026.">
+<link rel="canonical" href="https://tipusultan199.github.io/projects/trisafe-trans.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TriSaFe-Trans — safety-aware tri-modal intent recognition">
+<meta property="og:description" content="0.903 action accuracy with positive multimodal synergy, and an explicit, tunable trade-off between unsafe actions and missed intent.">
+<meta property="og:image" content="https://tipusultan199.github.io/assets/img/figures/biorob-teaser.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">TS</span>
+      <span>Tipu Sultan</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#media">Media</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="../index.html#projects">Projects</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      <span>TriSaFe-Trans</span>
+    </div>
+
+    <h1>TriSaFe-Trans</h1>
+    <p class="page-lede">
+      A lightweight tri-modal transformer that fuses EEG, EMG and eye-tracking through
+      <strong>reliability-gated cross-modal attention</strong> — and is judged not by accuracy
+      alone but by what a safety policy actually does when one of those sensors fails.
+    </p>
+
+    <dl class="meta-row">
+      <div class="meta-item"><dt>Venue</dt><dd>BioRob 2026 — Accepted</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>First author</dd></div>
+      <div class="meta-item"><dt>Subjects</dt><dd>20, LOSO</dd></div>
+      <div class="meta-item"><dt>Model</dt><dd>1.20 M params · ~10.9 ms CPU</dd></div>
+      <div class="meta-item"><dt>Stack</dt><dd>PyTorch · ROS 2 · Kinova Gen3</dd></div>
+    </dl>
+
+    <div class="hero-cta" style="margin-top:26px">
+      <a class="btn btn-primary btn-sm" href="../assets/docs/TriSaFe-Trans-BioRob2026.pdf">Read the paper</a>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/madibabaiasl/SafeIntentDetectionPaper/wiki" rel="noopener">Code &amp; wiki ↗</a>
+      <a class="btn btn-ghost btn-sm" href="#video">Watch the video</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prose">
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/biorob-teaser.png" title="Open full size">
+          <img src="../assets/img/figures/biorob-teaser.png" width="1600" height="522" loading="lazy"
+             alt="TriSaFe-Trans pipeline: synchronised EEG, EMG and eye-tracking; a tri-modal model with a safety policy selecting action or stop; robot demonstrations of assistive tasks.">
+        </a>
+        <figcaption><b>Figure 1.</b> Synchronised neural, muscular and gaze cues feed a tri-modal model that decodes action and task intent, then applies a safety policy gating robot execution between act and stop.</figcaption>
+      </figure>
+
+      <h2>The problem</h2>
+      <p>
+        Fusing EEG, EMG and gaze gives an assistive arm three complementary views of user intent.
+        It also gives it three things that can break. EMG is vulnerable to artefacts and electrode
+        shift; eye tracking drifts out of calibration and loses the pupil; EEG is non-stationary
+        across sessions and subjects.
+      </p>
+      <p>
+        Static fusion handles this badly — when one stream degrades, a model that assumed uniform
+        quality keeps weighting it as if nothing happened. And because most work reports only
+        window-level accuracy, the consequence never shows up in the numbers.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>Research question.</strong> Can a safety-aware tri-modal transformer, evaluated
+          at the policy level and tested under sensor failures, reduce unsafe actions and missed
+          assistance compared with unimodal and naive multimodal baselines?
+        </p>
+      </div>
+
+      <h2>Architecture</h2>
+      <p>
+        Each modality gets a lightweight encoder — a temporal convolutional network followed by a
+        bidirectional GRU — and the resulting token sequences are fused by a gated cross-modal
+        transformer in which <strong>feature-wise modality gates modulate attention</strong>. Those
+        same mean gates are then reused downstream to build the reliability- and uncertainty-aware
+        safety policies, so the gate is not just an internal weight but an interpretable signal.
+      </p>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/biorob-architecture.png" title="Open full size">
+          <img src="../assets/img/figures/biorob-architecture.png" width="1600" height="568" loading="lazy"
+             alt="TriSaFe-Trans architecture: per-modality TCN and BiGRU encoders, gated cross-modal transformer fusion, joint action and task heads, and safety policies built from the modality gates.">
+        </a>
+        <figcaption><b>Figure 2.</b> Modality-specific encoders, gated cross-modal fusion, joint action/task prediction, and safety policies P0–P2 constructed from the mean modality gates.</figcaption>
+      </figure>
+
+      <h3>Two-stage training</h3>
+      <ol class="step-list">
+        <li>
+          <h4>Multi-objective self-supervised pretraining</h4>
+          <p>
+            On unbalanced windows, two augmented views per sample are produced by random timestep
+            masking and modality dropout. The backbone optimises masked reconstruction of EEG, EMG
+            and eye-tracking tokens, a symmetric contrastive loss between fused embeddings, and a
+            cross-modal prediction loss between modality summaries. EEG and EMG reconstruction are
+            weighted more heavily to emphasise neural and muscular intent cues.
+          </p>
+        </li>
+        <li>
+          <h4>Safety-aware supervised fine-tuning</h4>
+          <p>
+            Balanced LOSO windows train a joint action–task objective: the action head sees all
+            windows for binary REST/ACTION, the task head only ACTION windows. Eye-tracking dropout
+            is applied during fine-tuning so the model meets partial degradation in training rather
+            than first at deployment.
+          </p>
+        </li>
+      </ol>
+
+      <h3>Data collection</h3>
+      <p>
+        Twenty healthy adults performed five ICF-aligned assistive tasks — reach for a bottle,
+        reach for a clock, fan on/off, repositioning a plant, and a waving gesture — 16 trials
+        each, with a fixed structure of pre-trial rest, cue, movement and post-movement rest.
+        EEG came from an Enobio-8 at 250 Hz, EMG from a 4-channel wireless PLUX system placed to
+        SENIAM guidelines, and gaze from Pupil Labs Neon glasses, all streamed concurrently into
+        iMotions over Lab Streaming Layer. A hidden semi-Markov model produced fine-grained
+        ACTION vs REST boundaries.
+      </p>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/biorob-dataset.png" title="Open full size">
+          <img src="../assets/img/figures/biorob-dataset.png" width="1600" height="528" loading="lazy"
+             alt="Dataset summary: participants, task set, sensing streams, windowing parameters and the leave-one-subject-out protocol.">
+        </a>
+        <figcaption><b>Figure 3.</b> Participants, tasks, sensing streams, windowing parameters and the LOSO protocol used for subject-independent action and task evaluation.</figcaption>
+      </figure>
+
+      <h2>Results</h2>
+
+      <h3>Nominal sensing (S0)</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th rowspan="2">Model</th><th colspan="2">Action head</th><th colspan="2">Task head</th></tr>
+            <tr><th>Acc</th><th>Bal-Acc</th><th>Acc</th><th>Bal-Acc</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>TriSaFe-Trans</b></td>
+              <td class="num"><b>0.903 ± 0.079</b></td><td class="num"><b>0.882 ± 0.079</b></td>
+              <td class="num"><b>0.727 ± 0.096</b></td><td class="num"><b>0.680 ± 0.100</b></td>
+            </tr>
+            <tr><td>TriModal-GRU</td><td class="num">0.826 ± 0.127</td><td class="num">0.825 ± 0.129</td><td class="num">0.682 ± 0.145</td><td class="num">0.558 ± 0.092</td></tr>
+            <tr><td>TriModal-TCN</td><td class="num">0.786 ± 0.162</td><td class="num">0.784 ± 0.166</td><td class="num">0.576 ± 0.206</td><td class="num">0.478 ± 0.132</td></tr>
+            <tr><td>TriModal-Hybrid</td><td class="num">0.780 ± 0.118</td><td class="num">0.779 ± 0.121</td><td class="num">0.594 ± 0.150</td><td class="num">0.410 ± 0.098</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.86rem;color:var(--text-faint)">
+        Mean ± std across 20 LOSO folds. Paired Wilcoxon signed-rank with Holm correction:
+        significant against GRU and Hybrid on every reported metric; against TCN, significant for
+        task decoding and action AUPRC.
+      </p>
+
+      <h3>Each modality earns its place</h3>
+      <p>
+        Ablations show genuinely complementary roles rather than one dominant stream. EMG is the
+        best single detector of <em>whether</em> action is happening; gaze is the best single
+        discriminator of <em>which</em> task it is; EEG alone is weak for task specificity. Fusing
+        all three beats the best unimodal setting on both heads.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Input</th><th>Action Bal-Acc</th><th>Task Bal-Acc</th></tr></thead>
+          <tbody>
+            <tr><td>EEG only</td><td class="num">0.685 ± 0.130</td><td class="num">0.261 ± 0.050</td></tr>
+            <tr><td>EMG only</td><td class="num">0.827 ± 0.114</td><td class="num">0.412 ± 0.075</td></tr>
+            <tr><td>Eye tracking only</td><td class="num">0.778 ± 0.172</td><td class="num">0.585 ± 0.128</td></tr>
+            <tr><td><b>All three (TriSaFe-Trans)</b></td><td class="num"><b>0.882 ± 0.079</b></td><td class="num"><b>0.680 ± 0.100</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Multimodal Synergy Gain — tri-modal balanced accuracy minus the best unimodal — is
+        <strong>+0.055 for action</strong> and <strong>+0.095 for task</strong>. Several baselines
+        record <em>negative</em> action synergy: adding modalities makes them worse.
+      </p>
+
+      <h3>The safety–responsiveness trade-off</h3>
+      <p>
+        Three execution policies were defined over the action probability: P0 uses it raw, P1 scales
+        it by measured reliability, P2 further penalises uncertainty. Window-level outcomes are
+        scored as correct move, unsafe move, missed intent or safe idle.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Policy</th>
+              <th>SAE ↓<br><span style="font-weight:400;text-transform:none">unsafe among executed</span></th>
+              <th>UAR ↑<br><span style="font-weight:400;text-transform:none">correct on ACTION</span></th>
+              <th>MIR ↓<br><span style="font-weight:400;text-transform:none">missed intent</span></th>
+              <th>NRA ↑<br><span style="font-weight:400;text-transform:none">safe idle on REST</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>P0 — raw probability</td><td class="num">0.415</td><td class="num">0.637</td><td class="num">0.055</td><td class="num">0.819</td></tr>
+            <tr><td>P1 — reliability-scaled</td><td class="num">0.415</td><td class="num">0.637</td><td class="num">0.055</td><td class="num">0.819</td></tr>
+            <tr><td>P2 — safety-first</td><td class="num"><b>0.155</b></td><td class="num">0.313</td><td class="num">0.569</td><td class="num"><b>0.975</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>This table is the point of the paper, and it is not a clean win.</strong>
+          The safety-first policy cuts unsafe executed actions from 0.415 to 0.155 and pushes rest
+          safety to 0.975 — but missed intent rises from 0.055 to 0.569. P2 is a conservative upper
+          bound, not a free lunch. What the framework buys is the ability to <em>choose</em> the
+          operating point against a stated safety budget rather than discovering it in deployment.
+        </p>
+      </div>
+
+      <p>
+        Formally, the operating point is selected as the threshold minimising missed intent subject
+        to unsafe execution staying under a budget. Sweeping on the validation split: a 5% unsafe
+        budget lands at SAE 0.035 with MIR 0.793; a 3% budget at SAE 0.005 with MIR 0.875.
+        P1 collapses onto P0 under nominal sensing by construction — all modalities available means
+        all gates are 1 — and only diverges once a sensor actually fails.
+      </p>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/biorob-robustness.png" title="Open full size">
+          <img src="../assets/img/figures/biorob-robustness.png" width="1600" height="432" loading="lazy"
+             alt="Safety trade-off curves under nominal sensing and single-modality dropout, showing unsafe action fraction and missed intent against the execute/stop threshold.">
+        </a>
+        <figcaption><b>Figure 4.</b> Unsafe executed-action fraction and missed-intent rate against the execute/stop threshold, under all sensors (S0) and each single-modality dropout (S1–S3). Shaded bands are LOSO mean ± std.</figcaption>
+      </figure>
+
+      <h2>Deployment</h2>
+      <p>
+        A ROS 2 pipeline connects inference to a Kinova Gen3 with a Robotiq gripper. Task templates
+        were captured by teleoperating the arm with an Xbox controller and recording joint positions
+        at approach, grasp and release, then replayed autonomously through
+        <code>FollowJointTrajectory</code> goals and <code>GripperCommand</code> messages. The
+        predicted task ID selects the template; the safety policy decides whether it is issued at
+        all. If execution is suppressed, no command is sent and the arm holds position.
+      </p>
+      <p>
+        At 1.201 M parameters and roughly 10.9 ms per 500-sample window on CPU (~92 Hz), latency is
+        essentially unchanged between full sensing and eye-tracking dropout.
+      </p>
+
+      <h2 id="video">Video</h2>
+    </div>
+
+    <figure class="video-card" style="max-width:900px;margin:0 0 2em">
+      <video controls preload="none" playsinline poster="../assets/img/posters/biorob-2026.jpg" width="1280" height="720">
+        <source src="../assets/video/biorob-2026.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="../assets/video/biorob-2026.mp4">Download it instead.</a>
+      </video>
+      <figcaption class="video-caption">
+        <b>BioRob 2026 submission video</b>
+        Tri-modal capture, model inference and safety-gated robot execution across the five
+        assistive tasks. Also on <a href="https://youtu.be/pdMp_myF-lI" rel="noopener">YouTube ↗</a>.
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2>Honest limitations</h2>
+      <p>
+        The dataset comes from healthy adults performing the tasks themselves, so these numbers are
+        a non-clinical benchmark rather than validation in target assistive users. That distinction
+        matters more than usual here: in real users EMG may be weak or absent, which means
+        deployment would resemble the degraded-EMG scenario, leaning far harder on EEG and gaze.
+        The unsafe-action fraction under P0 (0.415) is too high for unsupervised use, which is
+        precisely why the policy layer and its explicit budget exist.
+      </p>
+
+      <div class="next-nav">
+        <a class="btn btn-ghost btn-sm" href="neurocommitssm.html">← NeuroCommitSSM</a>
+        <a class="btn btn-primary btn-sm" href="video-to-robot.html">Next: Video-to-Robot →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>© <span id="year">2026</span> Tipu Sultan · Saint Louis University</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/Tipusultan199" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=QmYyXBIAAAAJ&amp;hl=en" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

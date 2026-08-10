@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reliability-Aware Fusion — Tipu Sultan</title>
+<meta name="description" content="A pre-registered study of EEG–EMG–eye-tracking fusion: eleven baselines and six ablations fixed in writing before any result was read, with a declared minimum detectable effect.">
+<link rel="canonical" href="https://tipusultan199.github.io/projects/information-fusion.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reliability-Aware Fusion — a pre-registered study">
+<meta property="og:description" content="Bounded-lag gaze guidance, mask-driven reliability gating and calibrated hierarchical inference — each stated so it can be falsified by its own ablation.">
+<meta property="og:image" content="https://tipusultan199.github.io/assets/img/figures/infofusion-architecture.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">TS</span>
+      <span>Tipu Sultan</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#media">Media</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="../index.html#projects">Projects</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      <span>Reliability-Aware Fusion</span>
+    </div>
+
+    <h1>Reliability-Aware Fusion</h1>
+    <p class="page-lede">
+      An ongoing study built the awkward way round: the claims, the baselines, the endpoints and
+      the decision rules were <strong>fixed in writing before any result was read</strong> — including
+      an explicit statement of what this sample size cannot support, whatever the runs come out at.
+    </p>
+
+    <dl class="meta-row">
+      <div class="meta-item"><dt>Status</dt><dd>Ongoing · pre-registered</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>First author</dd></div>
+      <div class="meta-item"><dt>Corpus</dt><dd>27,081 windows · 1,817 trials · 22 subjects</dd></div>
+      <div class="meta-item"><dt>Protocol</dt><dd>22-fold LOSO</dd></div>
+      <div class="meta-item"><dt>Compute</dt><dd>HPC / Slurm</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prose">
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/infofusion-architecture.svg" title="Open full size">
+          <img src="../assets/img/figures/infofusion-architecture.svg" width="900" height="520" loading="lazy"
+             alt="Proposed architecture: per-modality convolutional encoders, bounded-lag attention from gaze and EEG to EMG, a reliability gate driven only by availability masks, and a calibrated hierarchical head.">
+        </a>
+        <figcaption><b>Figure 1.</b> The three mechanisms in sequence, and the rule that decides whether each one survives.</figcaption>
+      </figure>
+
+      <h2>Why it is built this way</h2>
+      <p>
+        Two things in this project's history forced the discipline.
+      </p>
+      <p>
+        <strong>A baseline was once removed after it beat the proposed model.</strong> MLP-Mixer was
+        dropped post hoc. A reviewer who notices that pattern discounts the entire paper, and after
+        the fact there is no way to disprove the suspicion. The only defence is a list fixed in
+        advance and a commitment to report every arm on it.
+      </p>
+      <p>
+        <strong>The previous results did not carry over.</strong> Rebuilding the preprocessing
+        surfaced defects that materially change the inputs:
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Defect</th><th>Effect on modelling inputs</th></tr></thead>
+          <tbody>
+            <tr><td>~31% duplicated EEG samples</td><td>Corrupted EEG time base throughout v1</td></tr>
+            <tr><td>Declared 16 ms EMG latency never applied</td><td>EEG↔EMG misaligned by 4 samples at 250 Hz</td></tr>
+            <tr><td>Eye-tracking feature width 39 vs 13</td><td>Ragged ET dimension across trials</td></tr>
+            <tr><td>ET coverage gate mis-measured</td><td>11 main trials and all 83 Sub-13 trials silently dropped</td></tr>
+            <tr><td>Adaptation cohort folded into the main LOSO</td><td>Held-out subjects would have been trained on</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Every prior number therefore has to be re-derived rather than carried forward. The corrected
+        corpus is 27,081 windows / 1,817 trials / 22 subjects for the main cohort, plus 11,166
+        windows / 497 trials / 6 subjects for few-shot adaptation.
+      </p>
+
+      <h2>What this study can — and cannot — claim</h2>
+      <p>
+        The binding constraint is statistical power, not compute. With 22 LOSO folds and paired
+        Wilcoxon tests, the <strong>minimum detectable effect is about 4.8 percentage points</strong>.
+        The previously observed proposed-versus-baseline deltas were 0.4–3.3 points: all below that
+        threshold. Adding baselines makes it worse, since multiple-comparison correction raises the
+        bar further.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>So the accuracy-superiority claim is abandoned before the runs start.</strong>
+          Not because a result disappointed — none had been seen — but because this <em>n</em> cannot
+          resolve an effect that size. What remains are claims whose effects are large enough for
+          22 subjects to settle, or whose form is the <em>absence</em> of a large effect, which this
+          design can support.
+        </p>
+      </div>
+
+      <h2>The three mechanisms, stated so they can fail</h2>
+
+      <h3>M1 — Asymmetric bounded-lag gaze guidance</h3>
+      <p>
+        Gaze and cortical activity <em>precede</em> muscle activation in goal-directed reaching, so
+        fusion should be temporally asymmetric: gaze and EEG at time <code>t − τ</code> inform EMG at
+        time <code>t</code>, but not the reverse, with τ bounded to a physiologically plausible range.
+        One encoder token spans 32 ms, so a requested band of 80–600 ms rounds to tokens 2–19 of 63
+        and the <strong>effective band is 64–608 ms</strong> — the paper quotes what the model
+        implements, not what was asked for.
+      </p>
+      <p>
+        <strong>The prior evidence is against this, and that is stated up front.</strong> In v1 the
+        no-lead-bias ablation scored <em>above</em> the full model. The reason to test it again is
+        specific rather than hopeful: v1 ran with the declared 16 ms EMG latency never applied, so a
+        mechanism built on lag was being fed misaligned data. That is the only reason.
+      </p>
+      <p><em>Falsified if</em> the symmetric ablation performs within the MDE, or the learned τ distribution centres on zero or is unstable across folds.</p>
+
+      <h3>M2 — Reliability-aware modality gating</h3>
+      <p>
+        Modality reliability varies within and across trials, and here it is <em>measured, not
+        assumed</em>: per-sample channel availability masks, tracker validity, and known failure
+        modes. Eye-tracking availability has a median of 0.796 because the tracker starts roughly
+        1.8 s late on nearly every trial; 99 trials carry only 12 of 38 gaze channels.
+      </p>
+      <p>
+        The gate is conditioned on those masks and <strong>not on the feature values</strong>. That
+        is what distinguishes it from FiLM, which was negative in v1: FiLM modulated on content,
+        this modulates on whether the content exists. The reliability descriptor uses four
+        statistics per modality — coverage mean, per-channel minimum, dead fraction, maximum gap —
+        chosen because they separate the two real failure modes as orthogonal axes. A reduced schema
+        gives dead-fraction 0.684 with gap 0; a late-starting tracker gives dead-fraction 0 with gap
+        0.900. A gate told only the coverage mean would see both as "about 0.3 covered".
+      </p>
+
+      <div class="callout warn">
+        <p>
+          <strong>Leakage guard.</strong> Because the tracker starts late, if the activity classes
+          differ in duration or onset then coverage becomes a partial label — and M2 could score
+          through leakage rather than reliability. A logistic probe is fit on the reliability
+          descriptor alone, per fold; if it beats chance by more than the MDE, M2's result is
+          reported as confounded rather than quietly claimed.
+        </p>
+      </div>
+
+      <h3>M3 — Calibrated hierarchical inference</h3>
+      <p>
+        The label structure is hierarchical by construction — the task label is zero at rest and the
+        task id when active — so a hierarchical head should beat a flat 6-way head and produce
+        better-calibrated probabilities. Temperature scaling is fitted on validation after training,
+        never on test.
+      </p>
+      <p>
+        Calibration matters here for two reasons. For a clinical or assistive application a
+        confident wrong answer is worse than an uncertain one. And calibration is measurable with
+        far better precision than accuracy at n = 22 — which makes it a claim this study can
+        actually support.
+      </p>
+
+      <h2>The comparison set — eleven arms, fixed</h2>
+      <p>
+        Chosen so the primary claim is refutable, not so it can be won. Arms 4–8 form a complete
+        fusion-strategy ladder: input → feature → gated → attention → decision.
+        <strong>Every arm is reported whatever the outcome. Removing one is not permitted.</strong>
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>#</th><th>Arm</th><th>What it tests</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1–3</td><td>EEG-only · EMG-only · ET-only</td><td>Which modality carries activity information at all — <b>the primary claim</b></td></tr>
+            <tr><td class="num">4</td><td>Early concatenation</td><td>Does trivial fusion suffice</td></tr>
+            <tr><td class="num">5</td><td>Intermediate (feature-level)</td><td>Does fusing representations help</td></tr>
+            <tr><td class="num">6</td><td>Gated fusion</td><td>Does learned weighting beat fixed combination</td></tr>
+            <tr><td class="num">7</td><td>Cross-attention fusion</td><td>Does cross-modal attention help</td></tr>
+            <tr><td class="num">8</td><td>Late fusion (decision-level)</td><td>Is combining decisions enough</td></tr>
+            <tr><td class="num">9–10</td><td>BiGRU · plain Transformer encoder</td><td>Does a generic sequence model suffice</td></tr>
+            <tr><td class="num">11</td><td>Linear probe on time-pooled statistics</td><td>Does the task need temporal modelling at all</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Arm 11 is the most informative in the set: if a linear probe matches the deep models, the
+        task does not require temporal modelling and no architectural claim survives. It is the
+        cheapest way for the primary claim to be refuted — which is exactly what a baseline is for.
+        <code>cross_attention</code> and <code>gated_fusion</code> are the honest competitors; if
+        either matches the proposed model, that is the reported result.
+      </p>
+
+      <h2>Ablations, fixed in advance</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>#</th><th>Variant</th><th>Removes</th><th>Decides</th></tr></thead>
+          <tbody>
+            <tr><td class="num">A0</td><td>Full model</td><td>—</td><td>Reference</td></tr>
+            <tr><td class="num">A1</td><td>Symmetric</td><td>M1 asymmetry — band opens both ways</td><td>Is the lag directional</td></tr>
+            <tr><td class="num">A2</td><td>Unbounded</td><td>M1 bound — all past permitted</td><td>Does the bound matter</td></tr>
+            <tr><td class="num">A3</td><td>Fixed gate</td><td>M2 conditioning — gate learned but input-independent</td><td>Does measured reliability help</td></tr>
+            <tr><td class="num">A4</td><td>Flat head</td><td>M3 factorisation — flat 6-way softmax</td><td>Does hierarchy help</td></tr>
+            <tr><td class="num">A5</td><td>Uncalibrated</td><td>M3 temperature scaling</td><td>Does calibration cost accuracy</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>The rule that binds the result.</strong> If removing a component does not degrade
+          the primary endpoint by more than the MDE, then either the component is removed from the
+          final model, or it is retained and the ablation reported showing it does not help.
+          Silently keeping a component whose ablation is neutral is not an option.
+        </p>
+        <p>
+          Given the v1 evidence, <strong>A1 is the ablation most likely to fire</strong>. If it does,
+          the honest paper describes a two-mechanism model, not three.
+        </p>
+      </div>
+
+      <h2>New endpoints: where a large effect is plausible</h2>
+      <p>
+        Accuracy endpoints cannot test "degrades gracefully" or "calibrated", so two experiments
+        were added — before results existed — on the axes this design can actually resolve.
+      </p>
+      <ul>
+        <li>
+          <strong>E1 — modality-dropout robustness.</strong> At test time only, zero one or more
+          modalities and mask them unavailable: all present, −EEG, −EMG, −ET, and each unimodal
+          condition. Report macro-F1 per condition and the degradation slope. This is the axis where
+          a large effect is plausible, and may be the strongest result in the paper.
+        </li>
+        <li>
+          <strong>E2 — calibration.</strong> Expected calibration error (15 bins) and Brier score
+          per fold, with reliability diagrams, under the same family-wise correction — with the MDE
+          re-derived per metric, since 4.8 points is an accuracy figure and does not transfer.
+        </li>
+        <li>
+          <strong>E3 — video validation of the lag prior (conditional).</strong> The scene camera
+          for 1,813 trials is used as a <em>measuring instrument, never as a model input</em>:
+          measure when gaze first lands on the task-relevant object and compare with EMG onset,
+          turning a declared prior into a measured constant. It runs only if video↔physiology
+          alignment is good to a few frames.
+        </li>
+      </ul>
+
+      <div class="callout warn">
+        <p>
+          <strong>Why video is banned from the classifier.</strong> The activity classes are defined
+          by the object being manipulated, so a vision model that sees a toothbrush outputs
+          "brushing teeth" — that is object recognition performing the whole task, not gaze guiding
+          physiology. v1's video teacher scoring ~14 points above the student is exactly this
+          effect, and is reported as a ceiling rather than as evidence.
+        </p>
+      </div>
+
+      <h2>The decision gate</h2>
+      <p>
+        The proposed model is not trained until the baseline results land, because they determine
+        whether it is worth building:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Baseline outcome</th><th>Consequence</th></tr></thead>
+          <tbody>
+            <tr><td>Linear probe ≈ deep arms</td><td>The task needs no temporal modelling. M1 is unjustifiable — pivot to modality and robustness claims</td></tr>
+            <tr><td>Cross-attention clearly best</td><td>M1 has a real target and must beat it by more than the MDE</td></tr>
+            <tr><td>All fusion arms ≈ each other</td><td>Fusion strategy does not resolve at n = 22 — the contribution becomes robustness and calibration, not accuracy</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The third case is the one prior evidence makes most likely, and the paper is arguably
+        stronger for it: <em>fusion architecture does not change activity-recognition accuracy at
+        this sample size, but reliability-aware gating changes how the system fails.</em> That is a
+        fusion result, it is honest, and it is powered.
+      </p>
+
+      <h2>Integrity commitments</h2>
+      <ol>
+        <li>Every arm is reported. None is removed.</li>
+        <li>No hyperparameter tuning on test folds — tuning uses the validation subject only.</li>
+        <li>Self-supervised pretraining is re-tested exactly once, with the recipe unchanged. Changing the data <em>and</em> the recipe would make any difference unattributable. If it loses again, that is the result.</li>
+        <li>Any deviation is recorded with a date and a reason <em>before</em> the affected analysis runs.</li>
+        <li>The preprocessing is version-controlled with a verifier per phase, so the reported counts are reproducible rather than asserted.</li>
+        <li>Fold-level results for every arm are published so any reader can recompute.</li>
+      </ol>
+
+      <div class="next-nav">
+        <a class="btn btn-ghost btn-sm" href="video-to-robot.html">← Video-to-Robot</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#projects">All projects →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>© <span id="year">2026</span> Tipu Sultan · Saint Louis University</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/Tipusultan199" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=QmYyXBIAAAAJ&amp;hl=en" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

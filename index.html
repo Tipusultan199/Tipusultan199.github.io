@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipu Sultan — Multimodal AI &amp; Robot Learning</title>
+<meta name="description" content="Ph.D. researcher in robot learning and multimodal machine learning. EEG–EMG–eye-tracking fusion, video-to-robot imitation learning, and reliability-aware manipulation on a Kinova Gen3.">
+<meta name="author" content="Tipu Sultan">
+<link rel="canonical" href="https://tipusultan199.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tipu Sultan — Multimodal AI &amp; Robot Learning">
+<meta property="og:description" content="Ph.D. researcher building multimodal perception and robot-learning systems that know when to act — and when not to.">
+<meta property="og:url" content="https://tipusultan199.github.io/">
+<meta property="og:image" content="https://tipusultan199.github.io/assets/img/photos/hero-1000.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
+
+<script>
+  /* set the theme before first paint so there is no flash */
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tipu Sultan",
+  "jobTitle": "Ph.D. Researcher, Robot Learning and Multimodal Machine Learning",
+  "email": "mailto:tipu.sultan@slu.edu",
+  "affiliation": { "@type": "Organization", "name": "Saint Louis University" },
+  "url": "https://tipusultan199.github.io/",
+  "sameAs": [
+    "https://scholar.google.com/citations?user=QmYyXBIAAAAJ&hl=en",
+    "https://github.com/Tipusultan199",
+    "https://www.linkedin.com/in/tipu-sultan-2633a91b4/",
+    "https://orcid.org/0009-0002-8607-0386",
+    "https://www.researchgate.net/profile/Tipu-Sultan-17/research"
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">TS</span>
+      <span>Tipu Sultan</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============================================================= hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Open to ML / Robotics internships and 2027 full-time roles
+        </span>
+
+        <h1>Tipu Sultan</h1>
+
+        <p class="hero-role">
+          Robot Learning &amp; Multimodal ML
+          <span class="sep">·</span>
+          Ph.D. Candidate, Saint Louis University
+        </p>
+
+        <p class="hero-lede">
+          I build multimodal perception and robot-learning systems that know
+          <strong>when to act — and when not to</strong>. My work fuses EEG, EMG, eye-tracking
+          and RGB-D video into policies that stay safe when a sensor degrades, and runs them
+          on a real Kinova Gen3 arm.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="assets/docs/Tipu-Sultan-CV.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download CV
+          </a>
+          <a class="btn btn-ghost" href="#projects">
+            View research
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="mailto:tipu.sultan@slu.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+            Email me
+          </a>
+        </div>
+
+        <div class="hero-links">
+          <a href="https://github.com/Tipusultan199" rel="me noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.8 18 5.1 18 5.1c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a href="https://scholar.google.com/citations?user=QmYyXBIAAAAJ&amp;hl=en" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 8l11 6 9-4.9V16h2V8L12 2Zm-6 9.6v3.6c0 2 2.7 3.6 6 3.6s6-1.6 6-3.6v-3.6l-6 3.3-6-3.3Z"/></svg>
+            Scholar
+          </a>
+          <a href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.7 8.65 22 10.9 22 14.1V21h-4v-6.1c0-1.5-.03-3.4-2.07-3.4-2.08 0-2.4 1.6-2.4 3.3V21H9V9Z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://orcid.org/0009-0002-8607-0386" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24ZM8.2 18.2H6.6V7.9h1.6v10.3ZM7.4 6.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm4 11.7h-1.6V7.9h4c3.2 0 4.6 2.3 4.6 5.2 0 2.9-1.8 5.1-4.7 5.1h-2.3Zm0-1.5h2.1c2.3 0 3.3-1.7 3.3-3.6 0-1.9-.9-3.7-3.3-3.7h-2.1v7.3Z"/></svg>
+            ORCID
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-portrait">
+        <img src="assets/img/photos/hero-1000.jpg"
+             srcset="assets/img/photos/hero-640.jpg 640w, assets/img/photos/hero-1000.jpg 1000w, assets/img/photos/hero-1600.jpg 1600w"
+             sizes="(max-width: 860px) 340px, 38vw"
+             width="1000" height="667"
+             alt="Tipu Sultan wearing an EEG cap and eye-tracking glasses in the MechaRithm Lab">
+        <figcaption>Tri-modal recording session — Enobio-8 EEG, PLUX EMG and Pupil Labs Neon, MechaRithm Lab, Saint Louis University.</figcaption>
+      </figure>
+    </div>
+
+    <div class="metrics reveal">
+      <div class="metric">
+        <div class="metric-value">16</div>
+        <div class="metric-label">Peer-reviewed papers<br>(6 journal · 10 conference)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">5</div>
+        <div class="metric-label">Accepted at IROS, BioRob<br>&amp; ISMR 2026</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">32<span class="unit"> subj</span></div>
+        <div class="metric-label">Largest synchronised<br>EEG–EMG–ET ADL dataset</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">155<span class="unit">K</span></div>
+        <div class="metric-label">RGB-D frames audited<br>across 1,099 demonstrations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= research -->
+<section id="research" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Research focus</span>
+      <h2>Perception that reports its own limits</h2>
+      <p>
+        A robot that misreads a scene and acts anyway is more dangerous than one that stops.
+        Across three projects I attack the same problem from different angles: estimate how much
+        the current input can be trusted, and let that estimate gate what the robot does next.
+      </p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar reveal">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h6M4 12h6M4 18h6"/><circle cx="17" cy="12" r="3.2"/><path d="M10 6c4 0 4 6 7 6M10 18c4 0 4-6 7-6"/></svg>
+        </div>
+        <h3>Multimodal fusion</h3>
+        <p>
+          Transformer and state-space fusion across EEG, EMG, gaze and RGB-D — with cross-modal
+          attention that is <em>gated on measured reliability</em> rather than on content, so a
+          dead channel is down-weighted instead of hallucinated through.
+        </p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="6" rx="1.6"/><path d="M7 10v4a3 3 0 0 0 3 3h3"/><circle cx="17.5" cy="17" r="3.4"/><path d="M17.5 13.6V11"/></svg>
+        </div>
+        <h3>Robot learning from human video</h3>
+        <p>
+          Diffusion policies trained on RGB-D recordings of people, not teleoperation. Hand-pose
+          estimation, SAM2 segmentation, ICP refinement and Cartesian retargeting turn ordinary
+          footage into executable Kinova Gen3 trajectories.
+        </p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4 6v6c0 4.6 3.4 8.4 8 9.2 4.6-.8 8-4.6 8-9.2V6l-8-3.2Z"/><path d="M9.2 12.2 11.3 14l3.7-4"/></svg>
+        </div>
+        <h3>Decision-centric safety</h3>
+        <p>
+          Commit-readiness scores, dwell/hysteresis filtering, geometric feasibility checks and
+          calibrated confidence — evaluated with policy-level metrics (false commits per 1k rest
+          windows, missed intent) rather than accuracy alone.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= projects -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2>Four systems, end to end</h2>
+      <p>
+        Each one goes from raw sensor capture through model design to evaluation on hardware.
+        Follow any card for the full case study — architecture, results, ablations and what failed.
+      </p>
+    </div>
+
+    <div class="projects">
+
+      <!-- IROS ------------------------------------------------------- -->
+      <article class="project-card reveal">
+        <div class="project-media">
+          <img src="assets/img/figures/iros-teaser.webp" width="1600" height="562" loading="lazy"
+               alt="NeuroCommitSSM overview: synchronised EEG, EMG and eye-tracking feed a commit-readiness score that gates a Kinova Gen3 arm.">
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag venue">IROS 2026 · Accepted</span>
+            <span class="tag">First author</span>
+            <span class="tag">EEG–EMG–ET</span>
+            <span class="tag">ROS 2</span>
+          </div>
+          <h3>NeuroCommitSSM</h3>
+          <p class="project-sub">Commit-as-decision readiness for feasibility-grounded shared autonomy</p>
+          <p>
+            Most intent decoders answer <em>what</em> the user wants. This one answers <em>when it is
+            safe to start</em>. A continuous commit-readiness score is converted into discrete commit
+            events by dwell/hysteresis filtering, then a HOLD–ASSIST–COMMIT supervisor requires
+            perception and IK feasibility before any motion is issued.
+          </p>
+          <div class="project-stats">
+            <div class="stat-chip"><b>0.950</b><span>action bal. acc.</span></div>
+            <div class="stat-chip"><b>0.75</b><span>false commits / 1k rest</span></div>
+            <div class="stat-chip"><b>N = 32</b><span>subjects, LOSO</span></div>
+            <div class="stat-chip"><b>S0–S6</b><span>dropout scenarios</span></div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary btn-sm" href="projects/neurocommitssm.html">Case study</a>
+            <a class="btn btn-ghost btn-sm" href="assets/docs/NeuroCommitSSM-IROS2026.pdf">Paper</a>
+            <a class="btn btn-ghost btn-sm" href="https://madibabaiasl.github.io/NeuroCommitSSM/" rel="noopener">Project site</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BioRob ----------------------------------------------------- -->
+      <article class="project-card reverse reveal">
+        <div class="project-media">
+          <img src="assets/img/figures/biorob-teaser.webp" width="1600" height="522" loading="lazy"
+               alt="TriSaFe-Trans pipeline: tri-modal sensing, a safety-gated intent model, and robot execution on assistive tasks.">
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag venue">BioRob 2026 · Accepted</span>
+            <span class="tag">First author</span>
+            <span class="tag">Self-supervised</span>
+            <span class="tag">Transformer</span>
+          </div>
+          <h3>TriSaFe-Trans</h3>
+          <p class="project-sub">Safety-aware tri-modal intent recognition for assistive robotics</p>
+          <p>
+            A lightweight tri-modal transformer with per-modality TCN + BiGRU encoders and
+            reliability-gated cross-modal attention, pretrained with a multi-objective
+            self-supervised loss. Evaluated not just by accuracy but by what a safety policy
+            actually does when a sensor drops out.
+          </p>
+          <div class="project-stats">
+            <div class="stat-chip"><b>0.903</b><span>action accuracy</span></div>
+            <div class="stat-chip"><b>0.727</b><span>task accuracy</span></div>
+            <div class="stat-chip"><b>N = 20</b><span>subjects, LOSO</span></div>
+            <div class="stat-chip"><b>P0–P2</b><span>safety policies</span></div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary btn-sm" href="projects/trisafe-trans.html">Case study</a>
+            <a class="btn btn-ghost btn-sm" href="assets/docs/TriSaFe-Trans-BioRob2026.pdf">Paper</a>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/madibabaiasl/SafeIntentDetectionPaper/wiki" rel="noopener">Code &amp; wiki</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- T-Ro ------------------------------------------------------- -->
+      <article class="project-card reveal">
+        <div class="project-media">
+          <img src="assets/img/figures/tro-system-overview.webp" width="1400" height="804" loading="lazy"
+               alt="Video-to-robot system overview: human RGB-D demonstrations converted into robot trajectories and gated by a reliability estimate.">
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag ongoing">T-RO · In preparation</span>
+            <span class="tag">First author</span>
+            <span class="tag">Diffusion policy</span>
+            <span class="tag">SAM2 · MuJoCo</span>
+          </div>
+          <h3>Video-to-Robot Imitation Learning</h3>
+          <p class="project-sub">Teaching manipulation from human video — and knowing when vision fails</p>
+          <p>
+            People are filmed doing five household tasks; the human arm is inpainted out, a
+            simulated Kinova is composited in, and a diffusion policy learns from the result.
+            The contribution is a reliability gate that pauses the robot exactly on the frames
+            its perception cannot support.
+          </p>
+          <div class="project-stats">
+            <div class="stat-chip"><b>−11%</b><span>action error</span></div>
+            <div class="stat-chip"><b>0.795</b><span>AUROC, bad frames</span></div>
+            <div class="stat-chip"><b>906</b><span>usable trials</span></div>
+            <div class="stat-chip"><b>14</b><span>ablation variants</span></div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary btn-sm" href="projects/video-to-robot.html">Case study</a>
+            <a class="btn btn-ghost btn-sm" href="assets/docs/Video-to-Robot-Methods-Overview.pdf">Methods overview</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Information Fusion ----------------------------------------- -->
+      <article class="project-card reverse reveal">
+        <div class="project-media">
+          <img src="assets/img/figures/infofusion-architecture.svg" width="900" height="520" loading="lazy"
+               alt="Proposed fusion architecture: bounded-lag attention, a reliability gate driven by masks, and a calibrated hierarchical head.">
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag ongoing">Ongoing · Pre-registered</span>
+            <span class="tag">First author</span>
+            <span class="tag">22 subjects</span>
+            <span class="tag">HPC / Slurm</span>
+          </div>
+          <h3>Reliability-Aware Fusion</h3>
+          <p class="project-sub">A pre-registered study of what fusion architecture can and cannot claim</p>
+          <p>
+            Eleven baselines and six ablations fixed <em>in writing before any result was read</em>,
+            with a declared minimum detectable effect of 4.8 points at n = 22. Three mechanisms —
+            bounded-lag gaze guidance, mask-driven reliability gating, calibrated hierarchical
+            inference — each stated so it can be falsified by its own ablation.
+          </p>
+          <div class="project-stats">
+            <div class="stat-chip"><b>27,081</b><span>windows</span></div>
+            <div class="stat-chip"><b>11</b><span>fixed baselines</span></div>
+            <div class="stat-chip"><b>A0–A5</b><span>pre-set ablations</span></div>
+            <div class="stat-chip"><b>22</b><span>LOSO folds</span></div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-primary btn-sm" href="projects/information-fusion.html">Case study</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ media -->
+<section id="media" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Video</span>
+      <h2>Systems running</h2>
+      <p>
+        Conference submission videos and pipeline renders. Everything below is real hardware or
+        real recorded data — no concept animations.
+      </p>
+    </div>
+
+    <div class="video-grid">
+      <figure class="video-card reveal">
+        <video controls preload="none" playsinline
+               poster="assets/img/posters/iros-2026.jpg"
+               width="1280" height="800">
+          <source src="assets/video/iros-2026.mp4" type="video/mp4">
+          Your browser cannot play this video.
+          <a href="assets/video/iros-2026.mp4">Download it instead.</a>
+        </video>
+        <figcaption class="video-caption">
+          <b>NeuroCommitSSM — IROS 2026 submission video</b>
+          Commit-readiness gating and the HOLD–ASSIST–COMMIT supervisor running on a Kinova Gen3,
+          including feasibility-triggered aborts. 3 min.
+        </figcaption>
+      </figure>
+
+      <figure class="video-card reveal">
+        <video controls preload="none" playsinline
+               poster="assets/img/posters/biorob-2026.jpg"
+               width="1280" height="720">
+          <source src="assets/video/biorob-2026.mp4" type="video/mp4">
+          Your browser cannot play this video.
+          <a href="assets/video/biorob-2026.mp4">Download it instead.</a>
+        </video>
+        <figcaption class="video-caption">
+          <b>TriSaFe-Trans — BioRob 2026 submission video</b>
+          Tri-modal capture through to safety-gated robot execution on five assistive tasks. 3 min.
+          <a href="https://youtu.be/pdMp_myF-lI" rel="noopener">Also on YouTube ↗</a>
+        </figcaption>
+      </figure>
+
+      <figure class="video-card reveal">
+        <video muted loop playsinline preload="metadata" data-autoloop
+               poster="assets/img/posters/tro-robotized.jpg"
+               width="640" height="400" aria-label="Rendered Kinova arm composited into a real kitchen scene">
+          <source src="assets/video/tro-robotized.mp4" type="video/mp4">
+        </video>
+        <figcaption class="video-caption">
+          <b>Video-to-robot — human erased, robot composited in</b>
+          The demonstrator's arm is inpainted away and a MuJoCo-rendered Kinova is depth-composited
+          back from the same calibrated viewpoint. This is what the policy trains on.
+        </figcaption>
+      </figure>
+
+      <figure class="video-card reveal">
+        <video muted loop playsinline preload="metadata" data-autoloop
+               poster="assets/img/posters/tro-debug.jpg"
+               width="1280" height="533" aria-label="Debug panels showing segmentation, depth and hand-pose tracking side by side">
+          <source src="assets/video/tro-debug.mp4" type="video/mp4">
+        </video>
+        <figcaption class="video-caption">
+          <b>Perception debug panels</b>
+          SAM2 masks, temporally fused depth and the 21-joint MANO hand fit, checked frame by frame
+          against the depth point cloud.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== publications -->
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Publications</span>
+      <h2>16 peer-reviewed papers</h2>
+      <p>
+        Six journal articles and ten conference papers spanning assistive robotics, multimodal
+        fusion and clinical AI. Search the list or filter by type and year.
+      </p>
+    </div>
+
+    <div class="pub-controls reveal">
+      <div class="pub-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        <label class="sr-only" for="pub-search">Search publications</label>
+        <input id="pub-search" type="search" placeholder="Search title, venue or co-author…" autocomplete="off">
+      </div>
+      <div class="filters" role="group" aria-label="Filter publications">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="journal" aria-pressed="false">Journal</button>
+        <button class="filter" type="button" data-filter="conference" aria-pressed="false">Conference</button>
+        <button class="filter" type="button" data-filter="2026" aria-pressed="false">2026</button>
+        <button class="filter" type="button" data-filter="2025" aria-pressed="false">2025</button>
+        <button class="filter" type="button" data-filter="2024" aria-pressed="false">2024</button>
+      </div>
+    </div>
+
+    <ul class="pub-list" id="pub-list">
+
+      <li class="pub" data-type="conference" data-year="2026">
+        <div class="pub-key">C10</div>
+        <div>
+          <div class="pub-title">NeuroCommitSSM: Commit-as-Decision Readiness for Feasibility-Grounded Shared Autonomy in Assistive Robot Skills</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, P. Sangani, K. Cool, H. A. Akbarpour, G. Liu, M. Babaiasl</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026 — Accepted</div>
+          <div class="pub-links">
+            <a href="assets/docs/NeuroCommitSSM-IROS2026.pdf">PDF</a>
+            <a href="projects/neurocommitssm.html">Case study</a>
+            <a href="https://madibabaiasl.github.io/NeuroCommitSSM/" rel="noopener">Project site</a>
+            <button type="button" data-bibtex="@inproceedings{sultan2026neurocommitssm,\n  title  = {NeuroCommitSSM: Commit-as-Decision Readiness for Feasibility-Grounded Shared Autonomy in Assistive Robot Skills},\n  author = {Sultan, Tipu and Sangani, Param and Cool, Kody and Akbarpour, Hadi A. and Liu, Guangping and Babaiasl, Madi},\n  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  year   = {2026}\n}">BibTeX</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2026">
+        <div class="pub-key">C9</div>
+        <div>
+          <div class="pub-title">A Multimodal Data Collection Framework for Dialogue-Driven Assistive Robotics to Clarify Ambiguities: A Wizard-of-Oz Pilot Study</div>
+          <div class="pub-authors">G. Liu, N. Hawkins, B. Madden, <span class="me">T. Sultan</span>, F. Esposito, M. Babaiasl</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026 — Accepted</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2601.16870" rel="noopener">arXiv:2601.16870</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2026">
+        <div class="pub-key">C8</div>
+        <div>
+          <div class="pub-title">TriSaFe-Trans: A Safety-Aware Multimodal Intent Recognition Pipeline for Assistive Robotics</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, K. Cool, G. Liu, G. Tamilselvan, M. Babaiasl</div>
+          <div class="pub-venue">11th IEEE RAS/EMBS International Conference on Biomedical Robotics and Biomechatronics (BioRob), 2026 — Accepted</div>
+          <div class="pub-links">
+            <a href="assets/docs/TriSaFe-Trans-BioRob2026.pdf">PDF</a>
+            <a href="projects/trisafe-trans.html">Case study</a>
+            <a href="https://github.com/madibabaiasl/SafeIntentDetectionPaper/wiki" rel="noopener">Code</a>
+            <a href="https://youtu.be/pdMp_myF-lI" rel="noopener">Video</a>
+            <button type="button" data-bibtex="@inproceedings{sultan2026trisafe,\n  title  = {TriSaFe-Trans: A Safety-Aware Multimodal Intent Recognition Pipeline for Assistive Robotics},\n  author = {Sultan, Tipu and Cool, Kody and Liu, Guangping and Tamilselvan, Gajapriya and Babaiasl, Madi},\n  booktitle = {IEEE RAS/EMBS International Conference on Biomedical Robotics and Biomechatronics (BioRob)},\n  year   = {2026}\n}">BibTeX</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2026">
+        <div class="pub-key">C7</div>
+        <div>
+          <div class="pub-title">A Dialogue-Based Human-Robot Interaction Protocol for Wheelchair and Robotic Arm Integrated Control</div>
+          <div class="pub-authors">G. Liu, N. Hawkins, B. Madden, <span class="me">T. Sultan</span>, M. Babaiasl</div>
+          <div class="pub-venue">11th IEEE RAS/EMBS International Conference on Biomedical Robotics and Biomechatronics (BioRob), 2026 — Accepted</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2602.06243" rel="noopener">arXiv:2602.06243</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2026">
+        <div class="pub-key">C6</div>
+        <div>
+          <div class="pub-title">WheelArm-Sim: A Manipulation and Navigation Combined Multimodal Synthetic Data Generation Simulator for Unified Control in Assistive Robotics</div>
+          <div class="pub-authors">G. Liu, <span class="me">T. Sultan</span>, V. Di Giorgio, N. Hawkins, F. Esposito, M. Babaiasl</div>
+          <div class="pub-venue">International Symposium on Medical Robotics (ISMR), 2026 — Accepted</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2601.21129" rel="noopener">arXiv:2601.21129</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="journal" data-year="2025">
+        <div class="pub-key">J6</div>
+        <div>
+          <div class="pub-title">NeuroFusion-Trans: A Novel Transformer-Based EEG-EMG Fusion Model for Assistive Robotics</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, G. Liu, P. Sikorski, S. Alshathri, W. El-Shafai, M. Babaiasl</div>
+          <div class="pub-venue">IEEE Access, 2025</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2025.3577996" rel="noopener">DOI</a>
+            <a href="assets/docs/NeuroFusion-Trans-IEEE-Access-2025.pdf">PDF</a>
+            <button type="button" data-bibtex="@article{sultan2025neurofusion,\n  title   = {NeuroFusion-Trans: A Novel Transformer-Based EEG-EMG Fusion Model for Assistive Robotics},\n  author  = {Sultan, Tipu and Liu, Guangping and Sikorski, Pascal and Alshathri, Samah and El-Shafai, Walid and Babaiasl, Madi},\n  journal = {IEEE Access},\n  year    = {2025},\n  doi     = {10.1109/ACCESS.2025.3577996}\n}">BibTeX</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="journal" data-year="2025">
+        <div class="pub-key">J5</div>
+        <div>
+          <div class="pub-title">TransNN-MHA: A Transformer-Based Model to Distinguish Real and Imaginary Motor Intent for Assistive Robotics</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, G. Liu, P. Sikorski, M. Babaiasl</div>
+          <div class="pub-venue">IEEE Access, 2025</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2025.3567908" rel="noopener">DOI</a>
+            <button type="button" data-bibtex="@article{sultan2025transnnmha,\n  title   = {TransNN-MHA: A Transformer-Based Model to Distinguish Real and Imaginary Motor Intent for Assistive Robotics},\n  author  = {Sultan, Tipu and Liu, Guangping and Sikorski, Pascal and Babaiasl, Madi},\n  journal = {IEEE Access},\n  year    = {2025},\n  doi     = {10.1109/ACCESS.2025.3567908}\n}">BibTeX</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="journal" data-year="2025">
+        <div class="pub-key">J4</div>
+        <div>
+          <div class="pub-title">SumGPT: A Multimodal Framework for Radiology Report Summarization to Improve Clinical Performance</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, M. A. T. Rony, M. S. Islam, S. Alshathri, W. El-Shafai</div>
+          <div class="pub-venue">IEEE Access, 2025</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2025.3528335" rel="noopener">DOI</a>
+            <a href="assets/docs/SumGPT-IEEE-Access-2025.pdf">PDF</a>
+            <button type="button" data-bibtex="@article{sultan2025sumgpt,\n  title   = {SumGPT: A Multimodal Framework for Radiology Report Summarization to Improve Clinical Performance},\n  author  = {Sultan, Tipu and Rony, Md Abdul Tahir and Islam, Md Samiul and Alshathri, Samah and El-Shafai, Walid},\n  journal = {IEEE Access},\n  year    = {2025},\n  doi     = {10.1109/ACCESS.2025.3528335}\n}">BibTeX</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2025">
+        <div class="pub-key">C5</div>
+        <div>
+          <div class="pub-title">MemeFusionNet: A Cross-Linguistic Multimodal Model for Identifying Troll Memes</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, H. A. Akbarpour, W. El-Shafai, M. Saib, M. K. B. Bhuiyan, M. S. Islam, et al.</div>
+          <div class="pub-venue">International Conference on Control, Automation and Diagnosis (ICCAD), pp. 1–6, 2025</div>
+          <div class="pub-links"><span class="tag">Conference paper</span></div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2025">
+        <div class="pub-key">C4</div>
+        <div>
+          <div class="pub-title">ViTDeBERTaNews: A Comparative Study of Single-modal, Multimodal, and LLM Techniques for Detecting Fake News</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, M. M. H. Sarker, M. K. B. Bhuiyan, M. Saib, M. S. Islam, M. R. Hossain, et al.</div>
+          <div class="pub-venue">International Conference on Control, Automation and Diagnosis (ICCAD), pp. 1–6, 2025</div>
+          <div class="pub-links"><span class="tag">Conference paper</span></div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="journal" data-year="2024">
+        <div class="pub-key">J3</div>
+        <div>
+          <div class="pub-title">GastroVRG: Enhancing Early Screening in Gastrointestinal Health via Advanced Transfer Features</div>
+          <div class="pub-authors">M. S. Islam, M. A. T. Rony, <span class="me">T. Sultan</span></div>
+          <div class="pub-venue">Intelligent Systems with Applications, vol. 23, 200399, 2024</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1016/j.iswa.2024.200399" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="journal" data-year="2024">
+        <div class="pub-key">J2</div>
+        <div>
+          <div class="pub-title">MediGPT: Exploring Potentials of Conventional and Large Language Models on Medical Data</div>
+          <div class="pub-authors">M. A. T. Rony, M. S. Islam, <span class="me">T. Sultan</span>, S. Alshathri, W. El-Shafai</div>
+          <div class="pub-venue">IEEE Access, vol. 12, pp. 103473–103487, 2024</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2024.3428918" rel="noopener">DOI</a>
+            <a href="assets/docs/MediGPT-IEEE-Access-2024.pdf">PDF</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="journal" data-year="2024">
+        <div class="pub-key">J1</div>
+        <div>
+          <div class="pub-title">MemesViTa: A Novel Multimodal Fusion Technique for Troll Memes Identification</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, M. A. T. Rony, M. S. Islam, S. Aldosary, W. El-Shafai</div>
+          <div class="pub-venue">IEEE Access, vol. 12, pp. 177811–177828, 2024</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ACCESS.2024.3505614" rel="noopener">DOI</a>
+            <a href="assets/docs/MemesViTa-IEEE-Access-2024.pdf">PDF</a>
+            <button type="button" data-bibtex="@article{sultan2024memesvita,\n  title   = {MemesViTa: A Novel Multimodal Fusion Technique for Troll Memes Identification},\n  author  = {Sultan, Tipu and Rony, Md Abdul Tahir and Islam, Md Samiul and Aldosary, Saad and El-Shafai, Walid},\n  journal = {IEEE Access},\n  volume  = {12},\n  pages   = {177811--177828},\n  year    = {2024},\n  doi     = {10.1109/ACCESS.2024.3505614}\n}">BibTeX</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2024">
+        <div class="pub-key">C3</div>
+        <div>
+          <div class="pub-title">EMG-TransNN-MHA: A Transformer-Based Model for Enhanced Motor Intent Recognition in Assistive Robotics</div>
+          <div class="pub-authors">J. A. Joby, P. Sikorski, <span class="me">T. Sultan</span>, H. Akbarpour, F. Esposito, M. Babaiasl</div>
+          <div class="pub-venue">IEEE International Conference on Big Data (BigData), pp. 8691–8693, 2024</div>
+          <div class="pub-links"><span class="tag">Conference paper</span></div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2022">
+        <div class="pub-key">C2</div>
+        <div>
+          <div class="pub-title">Preliminary Design and Considerations of Switched Reluctance Machine for FESS Application</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, G. F. Lukman, J. W. Ahn</div>
+          <div class="pub-venue">Proceedings of the KIEE Conference, pp. 1254–1255, 2022</div>
+          <div class="pub-links"><span class="tag">Conference paper</span></div>
+        </div>
+      </li>
+
+      <li class="pub" data-type="conference" data-year="2022">
+        <div class="pub-key">C1</div>
+        <div>
+          <div class="pub-title">Control of Switched Reluctance Motor/Generator for FESS</div>
+          <div class="pub-authors"><span class="me">T. Sultan</span>, G. F. Lukman, K. I. Jeong, J. W. Ahn</div>
+          <div class="pub-venue">Proceedings of the KIEE Conference, pp. 137–139, 2022</div>
+          <div class="pub-links"><span class="tag">Conference paper</span></div>
+        </div>
+      </li>
+
+    </ul>
+    <p class="pub-empty" id="pub-empty" hidden>No publications match that search.</p>
+  </div>
+</section>
+
+<!-- ======================================================= experience -->
+<section id="experience" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience</span>
+      <h2>Where the work happened</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="timeline reveal">
+
+        <article class="tl-item">
+          <div class="tl-meta">Jun 2024 — Present · St. Louis, MO</div>
+          <h3>Ph.D. Research Assistant</h3>
+          <div class="tl-org">Saint Louis University — MechaRithm Lab</div>
+          <ul>
+            <li>Built a video-to-robot imitation-learning pipeline converting human RGB-D demonstrations into robot trajectories via hand-pose estimation, depth processing, 3D transforms, retargeting and IK.</li>
+            <li>Developed an RGB-D perception stack (SAM2 segmentation, calibration, temporal depth fusion, back-projection) that raised valid object observations from 52.1% to 65.7% over 7,167 frames.</li>
+            <li>Constructed a long-tail benchmark of 570 corruption conditions / 27,360 frames and a reliability estimator reaching 0.782 AUROC.</li>
+            <li>Deployed and evaluated five assistive manipulation tasks on a Kinova Gen3 with uncertainty estimation and feasibility checks.</li>
+            <li>Audited 1,099 RGB-D demonstrations and 154,844 frames in reproducible PyTorch pipelines.</li>
+          </ul>
+        </article>
+
+        <article class="tl-item">
+          <div class="tl-meta">Jan 2024 — Apr 2024 · New York, NY</div>
+          <h3>Data Analyst Intern</h3>
+          <div class="tl-org">Authentic Brands Group</div>
+          <ul>
+            <li>Ran EDA across Salesforce, database and Excel sources with SQL and pandas.</li>
+            <li>Built interactive Tableau dashboards; integrated Salesforce and Excel through Tableau Prep.</li>
+            <li>Automated ETL and data-quality checks in Python; optimised SQL; delivered weekly KPI reporting.</li>
+          </ul>
+        </article>
+
+        <article class="tl-item">
+          <div class="tl-meta">2022 — 2024 · New York, NY</div>
+          <h3>Research Assistant</h3>
+          <div class="tl-org">Fordham University — Multimodal AI for clinical NLP &amp; imaging</div>
+          <ul>
+            <li>Led publication-focused research producing four IEEE Access papers (MediGPT, MemesViTa, SumGPT) plus GastroVRG.</li>
+            <li>Built an end-to-end radiology summarisation system over paired images and reports, with PHI-safe dataset construction and multimodal alignment.</li>
+            <li>Compared cross-attention against late fusion with full ablations, error analysis and calibration/ECE reliability evaluation.</li>
+          </ul>
+        </article>
+
+        <article class="tl-item">
+          <div class="tl-meta">May 2021 — Jul 2022 · Busan, South Korea</div>
+          <h3>Research Assistant</h3>
+          <div class="tl-org">Kyungsung University — Switched Reluctance Machines</div>
+          <ul>
+            <li>Designed and optimised a Switched Reluctance Machine for flywheel energy storage.</li>
+            <li>Developed control strategies for the SRM/G under varying load, with simulation-based feasibility analysis.</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="reveal">
+        <h3 style="margin-bottom:1em">Education</h3>
+
+        <div class="edu-item">
+          <h3>Ph.D., Aerospace &amp; Mechanical Engineering</h3>
+          <div class="edu-meta">Saint Louis University · Expected April 2027</div>
+          <div class="edu-extra">GPA <span class="gpa">4.00 / 4.00</span> · Fully funded Ph.D. program</div>
+        </div>
+
+        <div class="edu-item">
+          <h3>M.Sc., Data Science</h3>
+          <div class="edu-meta">Fordham University · May 2024</div>
+          <div class="edu-extra">GPA <span class="gpa">3.72 / 4.00</span> · GSAS Centennial Scholarship</div>
+        </div>
+
+        <div class="edu-item">
+          <h3>B.Sc., Mechatronics Engineering</h3>
+          <div class="edu-meta">Kyungsung University, Busan · Feb 2022</div>
+          <div class="edu-extra">GPA <span class="gpa">4.17 / 4.50</span> · Merit scholarship, ranked 1st</div>
+        </div>
+
+        <h3 style="margin:2.2em 0 1em">Awards</h3>
+
+        <div class="award-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+          <div>
+            <b>IEEE RAS Travel Member Support Award</b>
+            <span>IROS 2026 · up to $1,500</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+          <div>
+            <b>IROS Travel Award — Saint Louis University</b>
+            <span>IROS 2026 · institutional travel support</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+          <div>
+            <b>Dean's Travel Award — School of Science &amp; Engineering</b>
+            <span>BioRob 2026 and ISMR 2026</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+          <div>
+            <b>GSAS Centennial Scholarship</b>
+            <span>Fordham University</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== skills -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Toolkit</span>
+      <h2>What I work with</h2>
+    </div>
+
+    <div class="skill-grid">
+      <div class="skill-group reveal">
+        <h3>Languages</h3>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">SQL</span>
+          <span class="chip">C++ (ROS 2)</span><span class="chip">MATLAB</span>
+          <span class="chip">Bash</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>ML &amp; deep learning</h3>
+        <div class="chips">
+          <span class="chip">PyTorch</span><span class="chip">Hugging Face</span>
+          <span class="chip">scikit-learn</span><span class="chip">Multimodal transformers</span>
+          <span class="chip">Diffusion policies</span><span class="chip">Self-supervised learning</span>
+          <span class="chip">State-space models</span><span class="chip">Calibration &amp; ECE</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Robotics</h3>
+        <div class="chips">
+          <span class="chip">ROS 2</span><span class="chip">MoveIt</span>
+          <span class="chip">MuJoCo</span><span class="chip">Kinova Gen3</span>
+          <span class="chip">Robotiq 2F-85</span><span class="chip">Inverse kinematics</span>
+          <span class="chip">Imitation learning</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Perception</h3>
+        <div class="chips">
+          <span class="chip">OpenCV</span><span class="chip">SAM2</span>
+          <span class="chip">RGB-D / stereo</span><span class="chip">Camera calibration</span>
+          <span class="chip">Point clouds &amp; ICP</span><span class="chip">Hand pose (MANO)</span>
+          <span class="chip">Video inpainting</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Biosignals</h3>
+        <div class="chips">
+          <span class="chip">EEG (Enobio-8)</span><span class="chip">sEMG (PLUX)</span>
+          <span class="chip">Eye tracking (Pupil Neon)</span><span class="chip">Lab Streaming Layer</span>
+          <span class="chip">Filtering &amp; resampling</span><span class="chip">Artifact handling</span>
+          <span class="chip">Multi-stream sync</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Infrastructure</h3>
+        <div class="chips">
+          <span class="chip">Linux</span><span class="chip">HPC / Slurm</span>
+          <span class="chip">Docker</span><span class="chip">Git</span>
+          <span class="chip">NumPy · pandas · SciPy</span><span class="chip">Tableau</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== lab -->
+<section id="lab" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In the lab</span>
+      <h2>MechaRithm Lab, Saint Louis University</h2>
+      <p>Tri-modal data collection: EEG cap, surface EMG on the upper limb, and gaze from Pupil Labs Neon glasses, all streamed and synchronised through Lab Streaming Layer.</p>
+    </div>
+
+    <div class="gallery reveal">
+      <a href="assets/img/photos/lab-1-1000.jpg"><img src="assets/img/photos/lab-1-640.jpg" width="640" height="427" loading="lazy" alt="Portrait in EEG cap and eye-tracking glasses in the lab"></a>
+      <a href="assets/img/photos/lab-2-1000.jpg"><img src="assets/img/photos/lab-2-640.jpg" width="640" height="427" loading="lazy" alt="Reflection in a monitor during an EEG recording session"></a>
+      <a href="assets/img/photos/lab-3-1000.jpg"><img src="assets/img/photos/lab-3-640.jpg" width="640" height="427" loading="lazy" alt="Adjusting eye-tracking glasses over the EEG cap"></a>
+      <a href="assets/img/photos/about-1000.jpg"><img src="assets/img/photos/about-640.jpg" width="640" height="427" loading="lazy" alt="Reviewing live signal traces during a recording session"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== contact -->
+<section id="contact">
+  <div class="wrap wrap-narrow">
+    <div class="contact-card reveal">
+      <span class="eyebrow" style="justify-content:center">Get in touch</span>
+      <h2>Looking for ML &amp; robotics roles</h2>
+      <p>
+        I am seeking internships and 2027 full-time positions in machine learning, robot learning
+        and multimodal perception. Happy to talk through any of the projects above, or share code
+        and data on request.
+      </p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:tipu.sultan@slu.edu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+          tipu.sultan@slu.edu
+        </a>
+        <a class="btn btn-ghost" href="assets/docs/Tipu-Sultan-CV.pdf">Download CV</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>© <span id="year">2026</span> Tipu Sultan · Saint Louis University</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/Tipusultan199" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=QmYyXBIAAAAJ&amp;hl=en" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">LinkedIn</a>
+      <a href="https://www.researchgate.net/profile/Tipu-Sultan-17/research" rel="noopener">ResearchGate</a>
+      <a href="https://orcid.org/0009-0002-8607-0386" rel="noopener">ORCID</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

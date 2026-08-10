@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" role="img"
+     aria-label="Proposed fusion architecture: per-modality encoders feed bounded-lag attention, a mask-driven reliability gate, and a calibrated hierarchical head.">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arw-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0d9488"/>
+    </marker>
+    <style>
+      .t   { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; }
+      .s   { font-family: Inter, "Segoe UI", system-ui, sans-serif; }
+      .ttl { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .sub { font-size: 11px; fill: #52627a; }
+      .tiny{ font-size: 10px; fill: #7c8aa0; }
+      .mech{ font-size: 10.5px; font-weight: 700; fill: #0d9488; letter-spacing: .08em; }
+      .lbl { font-size: 11.5px; font-weight: 600; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect width="900" height="520" fill="#ffffff"/>
+
+  <!-- header -->
+  <text class="s ttl" x="24" y="34">Reliability-aware fusion — proposed architecture</text>
+  <text class="s sub" x="24" y="54">Three mechanisms, each ablated (A1–A5) against the full model A0</text>
+  <line x1="24" y1="68" x2="876" y2="68" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- ============================================ stage 1: inputs -->
+  <text class="t tiny" x="24" y="92">X  (B, 500, 50)</text>
+
+  <g>
+    <rect x="24" y="104" width="112" height="48" rx="8" fill="#f0f3f7" stroke="#cbd5e1"/>
+    <text class="s lbl" x="38" y="126">EEG</text>
+    <text class="t tiny" x="38" y="141">8 channels</text>
+  </g>
+  <g>
+    <rect x="24" y="192" width="112" height="48" rx="8" fill="#f0f3f7" stroke="#cbd5e1"/>
+    <text class="s lbl" x="38" y="214">EMG</text>
+    <text class="t tiny" x="38" y="229">4 channels</text>
+  </g>
+  <g>
+    <rect x="24" y="280" width="112" height="48" rx="8" fill="#f0f3f7" stroke="#cbd5e1"/>
+    <text class="s lbl" x="38" y="302">Eye tracking</text>
+    <text class="t tiny" x="38" y="317">38 channels</text>
+  </g>
+
+  <!-- ============================================ stage 2: encoders -->
+  <g stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arw)" fill="none">
+    <path d="M136 128 H 178"/>
+    <path d="M136 216 H 178"/>
+    <path d="M136 304 H 178"/>
+  </g>
+
+  <g fill="#ffffff" stroke="#cbd5e1">
+    <rect x="182" y="104" width="106" height="48" rx="8"/>
+    <rect x="182" y="192" width="106" height="48" rx="8"/>
+    <rect x="182" y="280" width="106" height="48" rx="8"/>
+  </g>
+  <g class="s" font-size="11" fill="#0f172a" text-anchor="middle">
+    <text x="235" y="125">ConvEncoder</text>
+    <text x="235" y="213">ConvEncoder</text>
+    <text x="235" y="301">ConvEncoder</text>
+  </g>
+  <g class="t tiny" text-anchor="middle">
+    <text x="235" y="140">d/3 · 63 tok</text>
+    <text x="235" y="228">d/3 · 63 tok</text>
+    <text x="235" y="316">d/3 · 63 tok</text>
+  </g>
+  <text class="s tiny" x="235" y="352" text-anchor="middle">shared width budget — fusion arms get no free capacity</text>
+
+  <!-- ============================================ stage 3: M1 -->
+  <g stroke="#0d9488" stroke-width="1.5" marker-end="url(#arw-t)" fill="none" opacity=".85">
+    <path d="M288 128 C 316 128, 316 190, 344 190"/>
+    <path d="M288 304 C 316 304, 316 242, 344 242"/>
+  </g>
+  <path d="M288 216 H 344" stroke="#0d9488" stroke-width="2.2" marker-end="url(#arw-t)" fill="none"/>
+
+  <rect x="348" y="104" width="152" height="224" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text class="t mech" x="364" y="128">M1</text>
+  <text class="s lbl" x="364" y="150">Bounded-lag</text>
+  <text class="s lbl" x="364" y="166">attention</text>
+  <text class="s sub" x="364" y="188">query = EMG at t</text>
+  <text class="s sub" x="364" y="204">keys = EEG, ET at t−τ</text>
+
+  <rect x="364" y="218" width="120" height="52" rx="7" fill="#ffffff" stroke="#99f6e4"/>
+  <text class="t tiny" x="376" y="236" fill="#0d9488">τ ∈ [64, 608] ms</text>
+  <text class="t tiny" x="376" y="250">tokens 2–19 of 63</text>
+  <text class="t tiny" x="376" y="263">24% of cells open</text>
+
+  <text class="s tiny" x="364" y="292">Gaze and cortical activity</text>
+  <text class="s tiny" x="364" y="306">lead muscle — asymmetric</text>
+  <text class="s tiny" x="364" y="320">by construction.</text>
+
+  <!-- ============================================ stage 4: M2 -->
+  <path d="M500 216 H 546" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arw)" fill="none"/>
+
+  <rect x="550" y="128" width="140" height="176" rx="12" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text class="t mech" x="566" y="152" fill="#6366f1">M2</text>
+  <text class="s lbl" x="566" y="174">Reliability gate</text>
+  <text class="s sub" x="566" y="194">g = σ(MLP(R))</text>
+
+  <rect x="566" y="206" width="108" height="46" rx="7" fill="#ffffff" stroke="#c7d2fe"/>
+  <text class="t tiny" x="577" y="223" fill="#6366f1">R from masks</text>
+  <text class="t tiny" x="577" y="236">cov · dead · gap</text>
+  <text class="t tiny" x="577" y="248">floor 0.1</text>
+
+  <text class="s tiny" x="566" y="272">Gates on whether the</text>
+  <text class="s tiny" x="566" y="286">signal exists — not on</text>
+  <text class="s tiny" x="566" y="300">what it says.</text>
+
+  <!-- mask input from below -->
+  <rect x="550" y="356" width="140" height="42" rx="8" fill="#f0f3f7" stroke="#cbd5e1" stroke-dasharray="4 3"/>
+  <text class="s lbl" x="566" y="374">Availability masks</text>
+  <text class="t tiny" x="566" y="389">M_EEG · M_EMG · M_ET</text>
+  <path d="M620 356 V 310" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arw)" fill="none"/>
+
+  <!-- ============================================ stage 5: M3 -->
+  <path d="M690 216 H 726" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arw)" fill="none"/>
+
+  <rect x="730" y="128" width="146" height="176" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text class="t mech" x="746" y="152">M3</text>
+  <text class="s lbl" x="746" y="174">Hierarchical head</text>
+
+  <rect x="746" y="188" width="114" height="44" rx="7" fill="#ffffff" stroke="#99f6e4"/>
+  <text class="t tiny" x="757" y="206">P(task k) =</text>
+  <text class="t tiny" x="757" y="221">P(active)·P(k|active)</text>
+
+  <rect x="746" y="240" width="114" height="30" rx="7" fill="#ffffff" stroke="#99f6e4"/>
+  <text class="t tiny" x="757" y="259" fill="#0d9488">Temperature scaler</text>
+
+  <text class="s tiny" x="746" y="288">Fitted on validation,</text>
+  <text class="s tiny" x="746" y="302">never on test.</text>
+
+  <!-- ============================================ output -->
+  <path d="M803 304 V 344" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arw)" fill="none"/>
+  <rect x="716" y="352" width="160" height="48" rx="8" fill="#0d9488"/>
+  <text class="s" x="796" y="373" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">rest + 5 ADL classes</text>
+  <text class="t" x="796" y="389" font-size="10" fill="#a7f3d0" text-anchor="middle">calibrated probabilities</text>
+
+  <!-- ============================================ footer bar -->
+  <line x1="24" y1="428" x2="876" y2="428" stroke="#e2e8f0"/>
+  <text class="s" x="24" y="452" font-size="11" font-weight="600" fill="#0f172a">Pre-registered falsification rule</text>
+  <text class="s" x="24" y="470" font-size="10.5" fill="#52627a">If ablating a mechanism does not degrade macro-F1 by more than the minimum detectable effect (4.8 pts at n = 22),</text>
+  <text class="s" x="24" y="486" font-size="10.5" fill="#52627a">the mechanism is either removed from the final model or retained with the null ablation reported. Silently keeping it is not an option.</text>
+  <text class="t" x="24" y="506" font-size="10" fill="#7c8aa0">27,081 windows · 1,817 trials · 22 subjects · 11 fixed baselines · ablations A0–A5</text>
+</svg>

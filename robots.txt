@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tipusultan199.github.io/sitemap.xml

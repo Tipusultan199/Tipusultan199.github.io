@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeuroCommitSSM — Tipu Sultan</title>
+<meta name="description" content="A decision-centric shared-autonomy framework that predicts when it is safe to commit, combining EEG–EMG–eye-tracking commit readiness with ROS 2 feasibility gating on a Kinova Gen3. IROS 2026.">
+<link rel="canonical" href="https://tipusultan199.github.io/projects/neurocommitssm.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NeuroCommitSSM — commit-as-decision readiness for assistive robots">
+<meta property="og:description" content="0.950 action balanced accuracy with 0.75 false commits per 1,000 rest windows, across 32 subjects and seven sensor-dropout scenarios.">
+<meta property="og:image" content="https://tipusultan199.github.io/assets/img/figures/iros-teaser.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d9488'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">TS</span>
+      <span>Tipu Sultan</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#media">Media</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M4.2 4.2l1.9 1.9M17.9 17.9l1.9 1.9M2 12h2.6M19.4 12H22M4.2 19.8l1.9-1.9M17.9 6.1l1.9-1.9"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="../index.html#projects">Projects</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      <span>NeuroCommitSSM</span>
+    </div>
+
+    <h1>NeuroCommitSSM</h1>
+    <p class="page-lede">
+      A decision-centric shared-autonomy framework that models <strong>when to execute</strong>,
+      not just what to do. It predicts a continuous commit-readiness score from synchronised
+      EEG, EMG and eye-tracking, turns it into discrete commit events, and refuses to move
+      unless perception and the robot's own kinematics agree that the motion is possible.
+    </p>
+
+    <dl class="meta-row">
+      <div class="meta-item"><dt>Venue</dt><dd>IROS 2026 — Accepted</dd></div>
+      <div class="meta-item"><dt>Role</dt><dd>First author</dd></div>
+      <div class="meta-item"><dt>Subjects</dt><dd>32, LOSO</dd></div>
+      <div class="meta-item"><dt>Hardware</dt><dd>Kinova Gen3 + Robotiq 2F-85</dd></div>
+      <div class="meta-item"><dt>Stack</dt><dd>PyTorch · ROS 2 · MoveIt</dd></div>
+    </dl>
+
+    <div class="hero-cta" style="margin-top:26px">
+      <a class="btn btn-primary btn-sm" href="../assets/docs/NeuroCommitSSM-IROS2026.pdf">Read the paper</a>
+      <a class="btn btn-ghost btn-sm" href="https://madibabaiasl.github.io/NeuroCommitSSM/" rel="noopener">Project site ↗</a>
+      <a class="btn btn-ghost btn-sm" href="#video">Watch the video</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prose">
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/iros-teaser.png" title="Open full size">
+          <img src="../assets/img/figures/iros-teaser.png" width="1600" height="562" loading="lazy"
+             alt="Left: synchronised EEG, EMG and eye tracking across five ICF-aligned assistive tasks. Middle: commit-readiness scoring and a HOLD–ASSIST–COMMIT supervisor. Right: Kinova Gen3 executing the tasks.">
+        </a>
+        <figcaption><b>Figure 1.</b> Synchronised tri-modal windows produce a continuous commit-readiness score and a HOLD/COMMIT decision, while a ROS 2 and computer-vision supervisor enforces action feasibility before any motion is issued.</figcaption>
+      </figure>
+
+      <h2>The problem</h2>
+      <p>
+        An assistive arm mounted on a wheelchair has to read its user's intent from noisy,
+        non-stationary biosignals. Almost every intent decoder in the literature is evaluated as
+        window-level classification — accuracy, F1 — and then deployed by thresholding that score.
+        That hides the failure mode that actually matters.
+      </p>
+      <p>
+        Non-target muscle activity during ordinary daily movement triggers <strong>false
+        activations during REST</strong>: the arm starts moving when the user never asked it to.
+        Conservative thresholds fix that by missing real intent instead. Neither number appears in
+        an accuracy table.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>The reframing.</strong> Treat the trigger as a first-class decision problem
+          rather than a post-processing step. Ask not "what does the user want?" but
+          "<em>is it safe to start right now?</em>" — and evaluate with metrics that reflect that:
+          false commits per 1,000 rest windows, and state toggles per minute.
+        </p>
+      </div>
+
+      <h2>Approach</h2>
+
+      <ol class="step-list">
+        <li>
+          <h4>Tri-modal encoding with validity masks</h4>
+          <p>
+            EEG (8 ch), EMG (4 ch) and eye tracking are windowed at 500 samples (2.0 s at 250 Hz)
+            and tokenised into 20 patches of size 25 at embedding dimension 160. Per-sample validity
+            masks propagate through tokenisation, fusion and pooling, so an invalid sample never
+            silently contributes.
+          </p>
+        </li>
+        <li>
+          <h4>Neurophysiology-aware encoders</h4>
+          <p>
+            EEG uses a multiscale depthwise filterbank projected to six virtual channels weighted by
+            per-channel descriptors and an availability bias. EMG is decomposed into an envelope and
+            a burst proxy, then projected onto four non-negative synergy channels. Eye tracking
+            injects the top-3 salient velocity/acceleration events through cross-attention.
+          </p>
+        </li>
+        <li>
+          <h4>Uncertainty-weighted fusion</h4>
+          <p>
+            Fusion weights come from a softmax over negative per-modality uncertainty plus the log
+            of measured availability, so a degraded stream is down-weighted rather than trusted.
+            An entropy penalty stops any single modality dominating the fusion.
+          </p>
+        </li>
+        <li>
+          <h4>Commit readiness, then hysteresis</h4>
+          <p>
+            A commit head outputs a continuous readiness score, action-gated by the predicted
+            action probability. A two-state hysteresis filter emits a commit only after the score
+            exceeds the on-threshold for <code>N</code> consecutive windows, and resets to HOLD
+            below the off-threshold — which is what suppresses flapping.
+          </p>
+        </li>
+        <li>
+          <h4>HOLD–ASSIST–COMMIT supervision</h4>
+          <p>
+            A three-state ROS 2 supervisor requires the neural commit signal <em>and</em> markerless
+            RGB-D perception feasibility (target visibility, depth support, obstacle proximity)
+            <em>and</em> robot feasibility (IK solvability, collision-free plan, joint limits) to
+            hold simultaneously before motion begins. No fiducial markers, no CAD registration.
+          </p>
+        </li>
+      </ol>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/iros-pipeline.png" title="Open full size">
+          <img src="../assets/img/figures/iros-pipeline.png" width="1600" height="514" loading="lazy"
+             alt="Pipeline from windowed acquisition through resampling, REST/ACTION segmentation, LOSO windowing and deterministic preprocessing to commit-as-decision evaluation.">
+        </a>
+        <figcaption><b>Figure 2.</b> The full pipeline: windowed EEG/EMG/ET with masks, tri-modal resampling and alignment, REST/ACTION segmentation, sliding windows under LOSO, deterministic preprocessing, and commit-as-decision evaluation under dropout scenarios S0–S6.</figcaption>
+      </figure>
+
+      <h2>Results</h2>
+      <p>
+        Evaluated on <strong>32 subjects</strong> under leave-one-subject-out cross-validation and
+        seven sensor-dropout scenarios — S0 all present, S1–S3 one modality missing, S4–S6 unimodal
+        — with paired Wilcoxon signed-rank tests and Holm correction.
+      </p>
+
+      <h3>Action detection under sensor dropout</h3>
+      <div class="table-scroll">
+        <table>
+          <caption class="sr-only">Action balanced accuracy across dropout scenarios</caption>
+          <thead>
+            <tr>
+              <th>Model</th><th>S0 (all)</th><th>S1 (−EEG)</th><th>S2 (−EMG)</th>
+              <th>S4 (EMG only)</th><th>S6 (ET only)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>NeuroCommitSSM</b></td>
+              <td class="num"><b>0.950</b></td><td class="num"><b>0.943</b></td>
+              <td class="num"><b>0.854</b></td><td class="num"><b>0.785</b></td><td class="num"><b>0.701</b></td>
+            </tr>
+            <tr>
+              <td>MM-Transformer (token fusion)</td>
+              <td class="num">0.887</td><td class="num">0.886</td>
+              <td class="num">0.606</td><td class="num">0.508</td><td class="num">0.600</td>
+            </tr>
+            <tr>
+              <td>GRU (gated fusion)</td>
+              <td class="num">0.898</td><td class="num">0.765</td>
+              <td class="num">0.652</td><td class="num">0.619</td><td class="num">0.567</td>
+            </tr>
+            <tr>
+              <td>TCN (early concat)</td>
+              <td class="num">0.863</td><td class="num">0.793</td>
+              <td class="num">0.610</td><td class="num">0.556</td><td class="num">0.623</td>
+            </tr>
+            <tr>
+              <td>Mean pool + linear</td>
+              <td class="num">0.782</td><td class="num">0.782</td>
+              <td class="num">0.517</td><td class="num">0.500</td><td class="num">0.517</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.86rem;color:var(--text-faint)">
+        Action balanced accuracy, mean over LOSO folds. Higher is better.
+      </p>
+
+      <h3>The result that matters: commit quality</h3>
+      <p>
+        Balanced accuracy is the polite metric. The one that decides whether a wheelchair user
+        would tolerate this system is how often the arm starts moving when they were resting.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Method</th><th>FP / 1k REST (S0)</th><th>Flaps / min (S0)</th><th>FP / 1k REST (S2, −EMG)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>NeuroCommitSSM</b></td><td class="num"><b>0.75</b></td><td class="num"><b>6.46</b></td><td class="num"><b>0.12</b></td></tr>
+            <tr><td>MM-Transformer</td><td class="num">6.49</td><td class="num">11.93</td><td class="num">7.08</td></tr>
+            <tr><td>TCN (early concat)</td><td class="num">8.56</td><td class="num">11.62</td><td class="num">80.15</td></tr>
+            <tr><td>Early-fusion GRU (hysteresis)</td><td class="num">9.44</td><td class="num">8.51</td><td class="num">86.01</td></tr>
+            <tr><td>Unimodal EEG</td><td class="num">25.71</td><td class="num">16.49</td><td class="num">25.71</td></tr>
+            <tr><td>Mean pool + linear</td><td class="num">2.37</td><td class="num">6.50</td><td class="num">0.95</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Baselines do not merely get worse under sensor loss — they collapse.</strong>
+          Dropping EMG takes the TCN from 8.56 to <b>80.15</b> false commits per 1,000 rest windows
+          and the early-fusion GRU to <b>86.01</b>. NeuroCommitSSM goes from 0.75 to <b>0.12</b>,
+          because when a modality disappears the fusion weights and the dwell filter both respond
+          to it instead of ignoring it.
+        </p>
+      </div>
+
+      <h3>System-level validation</h3>
+      <p>
+        Hardware-in-the-loop replay of recorded biosignals on a real Kinova Gen3 shows that
+        feasibility-checked execution reduces false starts and decision instability without
+        sacrificing task success. Feasibility-triggered aborts are logged with their cause, so a
+        refusal to move is attributable rather than mysterious.
+      </p>
+      <p>
+        The model is small enough to run in the loop: <strong>2.01 M parameters</strong> and
+        <strong>7.89 ± 0.08 ms</strong> inference per window at batch size 1 on an A100.
+      </p>
+
+      <figure class="fig wide">
+        <a href="../assets/img/figures/iros-model-to-experiment.png" title="Open full size">
+          <img src="../assets/img/figures/iros-model-to-experiment.png" width="1600" height="468" loading="lazy"
+             alt="From model outputs to the physical experiment on a Kinova Gen3 arm.">
+        </a>
+        <figcaption><b>Figure 3.</b> From commit decision to physical execution — the supervisor's state drives the ROS 2 trajectory controller, and every abort records which feasibility check failed.</figcaption>
+      </figure>
+
+      <h2 id="video">Video</h2>
+    </div>
+
+    <figure class="video-card" style="max-width:900px;margin:0 0 2em">
+      <video controls preload="none" playsinline poster="../assets/img/posters/iros-2026.jpg" width="1280" height="800">
+        <source src="../assets/video/iros-2026.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="../assets/video/iros-2026.mp4">Download it instead.</a>
+      </video>
+      <figcaption class="video-caption">
+        <b>IROS 2026 submission video</b>
+        Full system walkthrough: tri-modal capture, commit-readiness gating, the HOLD–ASSIST–COMMIT
+        supervisor, and feasibility-triggered aborts on the Kinova Gen3. There is also a
+        <a href="../assets/video/iros-2026-1min.mp4">one-minute cut</a>.
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2>Contributions</h2>
+      <ul>
+        <li>A decision-centric intent-to-commit model with entropy-regularised multimodal fusion, evaluated on commit-event quality rather than window accuracy alone.</li>
+        <li>A ROS 2-native HOLD–ASSIST–COMMIT shared-autonomy framework with markerless RGB-D feasibility checking — no fiducial markers, CAD models or task-specific 6D pose estimators.</li>
+        <li>System-level validation on real hardware via hardware-in-the-loop replay, with unsafe-motion prevention and abort-cause analysis.</li>
+        <li>Release of, to our knowledge, the first synchronised EEG–EMG–eye-tracking dataset for functionally complete, ICF-aligned assistive ADL intent decoding.</li>
+      </ul>
+
+      <h2>Honest limitations</h2>
+      <p>
+        Hardware-in-the-loop replay is repeatable and lets the full stack be tested, but it is not
+        live human-in-the-loop assistive testing: it does not capture user adaptation, fatigue,
+        trust, or closed-loop co-adaptation. Participants were healthy adults performing the tasks
+        themselves, so results are a non-clinical benchmark, not validation in target users — for
+        whom EMG may be weak or absent entirely.
+      </p>
+
+      <div class="next-nav">
+        <a class="btn btn-ghost btn-sm" href="../index.html#projects">← All projects</a>
+        <a class="btn btn-primary btn-sm" href="trisafe-trans.html">Next: TriSaFe-Trans →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>© <span id="year">2026</span> Tipu Sultan · Saint Louis University</div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/Tipusultan199" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=QmYyXBIAAAAJ&amp;hl=en" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/tipu-sultan-2633a91b4/" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>
