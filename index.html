@@ -10,7 +10,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tipu Sultan — Multimodal AI &amp; Robot Learning">
-<meta property="og:description" content="Ph.D. researcher building multimodal perception and robot-learning systems that know when to act — and when not to.">
+<meta property="og:description" content="Ph.D. researcher in multimodal ML for robots: EEG-EMG-gaze fusion, and teaching manipulation from ordinary human video with diffusion policies on a Kinova Gen3.">
 <meta property="og:url" content="https://tipusultan199.github.io/">
 <meta property="og:image" content="https://tipusultan199.github.io/assets/img/photos/setup-1600.jpg">
 <meta property="og:image:alt" content="Tipu Sultan at the experiment rig with a Kinova Gen3 arm, EEG cap, eye-tracking glasses and live EEG/EMG/gaze dashboard.">
@@ -67,9 +67,9 @@
       <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#media">Media</a></li>
-      <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
@@ -106,11 +106,28 @@
         </p>
 
         <p class="hero-lede">
-          I build multimodal perception and robot-learning systems that know
-          <strong>when to act — and when not to</strong>. My work fuses EEG, EMG, eye-tracking
-          and RGB-D video into policies that stay safe when a sensor degrades, and runs them
-          on a real Kinova Gen3 arm.
+          I build <strong>multimodal machine-learning systems for robots</strong>, and I work on
+          two halves of the same problem. One is fusing human signals — EEG, EMG and eye tracking —
+          into intent models that keep working when a sensor degrades or drops out entirely. The
+          other is <strong>teaching robots manipulation from ordinary human video</strong>, so a
+          new skill costs a few recordings of a person instead of hundreds of teleoperation
+          demonstrations.
         </p>
+        <p class="hero-lede">
+          That covers the whole stack: RGB-D perception with SAM2 segmentation, hand-pose
+          estimation and depth fusion; diffusion policies trained on 155K frames of human
+          demonstrations; and deployment on a real Kinova Gen3 through ROS 2. The thread running
+          through all of it is <strong>calibrated uncertainty</strong> — a robot that knows when
+          its own perception cannot support the action it is about to take.
+        </p>
+
+        <div class="hero-focus" aria-label="Focus areas">
+          <span>Multimodal fusion</span>
+          <span>Robot learning from video</span>
+          <span>RGB-D perception</span>
+          <span>Diffusion policies</span>
+          <span>Uncertainty &amp; safety</span>
+        </div>
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="assets/docs/Tipu-Sultan-CV.pdf">
@@ -147,14 +164,25 @@
         </div>
       </div>
 
-      <figure class="hero-portrait">
-        <img src="assets/img/photos/hero-1000.jpg"
-             srcset="assets/img/photos/hero-640.jpg 640w, assets/img/photos/hero-1000.jpg 1000w, assets/img/photos/hero-1600.jpg 1600w"
-             sizes="(max-width: 860px) 340px, 38vw"
-             width="1000" height="667"
-             alt="Tipu Sultan wearing an EEG cap and eye-tracking glasses in the MechaRithm Lab">
-        <figcaption>Tri-modal recording session — Enobio-8 EEG, PLUX EMG and Pupil Labs Neon, MechaRithm Lab, Saint Louis University.</figcaption>
-      </figure>
+      <div class="hero-media">
+        <figure class="hero-shot">
+          <img src="assets/img/photos/hero-1000.jpg"
+               srcset="assets/img/photos/hero-640.jpg 640w, assets/img/photos/hero-1000.jpg 1000w, assets/img/photos/hero-1600.jpg 1600w"
+               sizes="(max-width: 860px) 470px, 38vw"
+               width="1000" height="667" fetchpriority="high"
+               alt="Tipu Sultan wearing an EEG cap and eye-tracking glasses in the MechaRithm Lab">
+          <figcaption>Tri-modal recording session — Enobio-8 EEG, PLUX EMG and Pupil Labs Neon, MechaRithm Lab, Saint Louis University.</figcaption>
+        </figure>
+
+        <figure class="hero-shot">
+          <img src="assets/img/photos/setup-1000.jpg"
+               srcset="assets/img/photos/setup-640.jpg 640w, assets/img/photos/setup-1000.jpg 1000w, assets/img/photos/setup-1600.jpg 1600w"
+               sizes="(max-width: 860px) 470px, 38vw"
+               width="1000" height="563" loading="lazy"
+               alt="The experiment rig: a Kinova Gen3 arm reaching for a block on a calibrated mat, beside a monitor showing live EEG channels, an eye-tracking gaze heatmap and EMG traces.">
+          <figcaption>The full loop — EEG, EMG and gaze stream in; the Kinova Gen3 moves only once intent and scene feasibility agree.</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="metrics reveal">
@@ -175,30 +203,6 @@
         <div class="metric-label">RGB-D frames audited<br>across 1,099 demonstrations</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ========================================================= showcase -->
-<section class="showcase" aria-label="Experimental setup">
-  <picture>
-    <source type="image/webp"
-            srcset="assets/img/photos/setup-640.webp 640w, assets/img/photos/setup-1000.webp 1000w, assets/img/photos/setup-1600.webp 1600w"
-            sizes="100vw">
-    <img src="assets/img/photos/setup-1600.jpg"
-         srcset="assets/img/photos/setup-640.jpg 640w, assets/img/photos/setup-1000.jpg 1000w, assets/img/photos/setup-1600.jpg 1600w"
-         sizes="100vw" width="1600" height="900" fetchpriority="high"
-         alt="Tipu Sultan seated at the experiment rig: a Kinova Gen3 arm reaching for a block on a calibrated workspace mat, a monitor showing live EEG channels, eye-tracking gaze heatmap and EMG traces, while he wears an EEG cap, eye-tracking glasses and forearm EMG electrodes.">
-  </picture>
-  <div class="wrap showcase-caption">
-    <p style="margin:0;max-width:62ch">
-      <b>The full loop, in one frame.</b> Cortical, muscular and gaze signals stream in from the
-      person on the right; the arm on the left only moves once the model says the intent is real
-      and the scene says the motion is possible.
-    </p>
-    <span class="kit">
-      <span>Kinova Gen3</span><span>Enobio-8 EEG</span><span>PLUX sEMG</span>
-      <span>Pupil Labs Neon</span><span>RGB-D</span>
-    </span>
   </div>
 </section>
 
@@ -482,6 +486,229 @@
   </div>
 </section>
 
+<!-- ======================================================= experience -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience</span>
+      <h2>Where the work happened</h2>
+      <p>Four research and industry roles across robotics, clinical AI, analytics and electric machines.</p>
+    </div>
+
+    <div class="exp-list">
+
+      <article class="exp reveal">
+        <div class="org-mark" aria-hidden="true">SLU</div>
+        <div>
+          <div class="exp-head">
+            <div>
+              <h3>Ph.D. Research Assistant</h3>
+              <p class="exp-org">Saint Louis University — MechaRithm Lab</p>
+            </div>
+            <div class="exp-when">
+              Jun 2024 — Present
+              <span class="loc">St. Louis, MO</span>
+            </div>
+          </div>
+          <ul>
+            <li>Built a video-to-robot imitation-learning pipeline converting human RGB-D demonstrations into robot trajectories via hand-pose estimation, depth processing, 3D transforms, retargeting and inverse kinematics.</li>
+            <li>Developed an RGB-D perception stack — SAM2 hand and object segmentation, camera calibration, temporal depth fusion, 3D back-projection — raising valid object observations from 52.1% to 65.7% across 7,167 frames.</li>
+            <li>Constructed a long-tail benchmark of 570 corruption conditions and 27,360 frames, and a reliability estimator reaching 0.782 AUROC.</li>
+            <li>Deployed and evaluated five assistive manipulation tasks on a Kinova Gen3, combining imitation learning, uncertainty estimation and feasibility checks for safe execution.</li>
+            <li>Audited 1,099 RGB-D demonstrations and 154,844 frames through reproducible PyTorch pipelines with participant-independent evaluation.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">PyTorch</span><span class="chip">SAM2</span><span class="chip">Diffusion policies</span>
+            <span class="chip">ROS 2</span><span class="chip">MoveIt</span><span class="chip">MuJoCo</span>
+            <span class="chip">Kinova Gen3</span><span class="chip">OpenCV</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="exp reveal">
+        <div class="org-mark violet" aria-hidden="true">ABG</div>
+        <div>
+          <div class="exp-head">
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <p class="exp-org">Authentic Brands Group</p>
+            </div>
+            <div class="exp-when">
+              Jan 2024 — Apr 2024
+              <span class="loc">New York, NY</span>
+            </div>
+          </div>
+          <ul>
+            <li>Ran exploratory analysis across Salesforce, database and Excel sources with SQL and pandas to surface commercial trends.</li>
+            <li>Built interactive Tableau dashboards and integrated Salesforce with Excel through Tableau Prep to streamline reporting.</li>
+            <li>Automated ETL and data-quality checks in Python, optimised SQL, and delivered weekly KPI reporting.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">SQL</span><span class="chip">pandas</span><span class="chip">Tableau</span>
+            <span class="chip">Salesforce</span><span class="chip">ETL</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="exp reveal">
+        <div class="org-mark" aria-hidden="true">FU</div>
+        <div>
+          <div class="exp-head">
+            <div>
+              <h3>Research Assistant</h3>
+              <p class="exp-org">Fordham University — Multimodal AI for clinical NLP &amp; imaging</p>
+            </div>
+            <div class="exp-when">
+              2022 — 2024
+              <span class="loc">New York, NY</span>
+            </div>
+          </div>
+          <ul>
+            <li>Led publication-focused research on multimodal clinical AI, producing four IEEE Access papers — MediGPT, MemesViTa and SumGPT — plus GastroVRG in <em>Intelligent Systems with Applications</em>.</li>
+            <li>Built an end-to-end radiology summarisation system over paired images and reports: dataset construction, PHI-safe processing, multimodal alignment, and clinical-style generation with encoder–decoder and LLM models.</li>
+            <li>Compared cross-attention against late fusion with rigorous ablations, error analysis and calibration/ECE reliability evaluation for trustworthy clinical predictions.</li>
+            <li>Created reproducible config-driven training and evaluation pipelines with mixed precision and experiment tracking.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">PyTorch</span><span class="chip">Hugging Face</span><span class="chip">MONAI</span>
+            <span class="chip">spaCy</span><span class="chip">DICOM / NIfTI</span><span class="chip">Docker</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="exp reveal">
+        <div class="org-mark violet" aria-hidden="true">KSU</div>
+        <div>
+          <div class="exp-head">
+            <div>
+              <h3>Research Assistant</h3>
+              <p class="exp-org">Kyungsung University — Switched Reluctance Machines</p>
+            </div>
+            <div class="exp-when">
+              May 2021 — Jul 2022
+              <span class="loc">Busan, South Korea</span>
+            </div>
+          </div>
+          <ul>
+            <li>Researched preliminary design and optimisation of a Switched Reluctance Machine for flywheel energy storage, targeting performance and efficiency.</li>
+            <li>Developed and analysed control strategies for the SRM/generator under varying load conditions, with design and control-system modelling for stability and durability.</li>
+            <li>Applied simulation and analytical techniques to evaluate feasibility in energy-storage applications.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">MATLAB</span><span class="chip">Machine design</span><span class="chip">Control systems</span>
+            <span class="chip">FEA simulation</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================== education -->
+<section id="education" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Education</span>
+      <h2>Three degrees, three countries</h2>
+      <p>Mechatronics to data science to robotics — the reason the work spans hardware, signal processing and machine learning.</p>
+    </div>
+
+    <div class="edu-list">
+
+      <article class="edu reveal">
+        <div class="org-mark" aria-hidden="true">SLU</div>
+        <div>
+          <h3>Ph.D. in Aerospace &amp; Mechanical Engineering</h3>
+          <p class="exp-org">Saint Louis University</p>
+          <div class="edu-detail">
+            <span>GPA <span class="gpa">4.00 / 4.00</span></span>
+            <span class="honour">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+              Fully funded Ph.D. program
+            </span>
+          </div>
+        </div>
+        <div class="exp-when">
+          Expected Apr 2027
+          <span class="loc">St. Louis, MO</span>
+        </div>
+      </article>
+
+      <article class="edu reveal">
+        <div class="org-mark violet" aria-hidden="true">FU</div>
+        <div>
+          <h3>M.Sc. in Data Science</h3>
+          <p class="exp-org">Fordham University</p>
+          <div class="edu-detail">
+            <span>GPA <span class="gpa">3.72 / 4.00</span></span>
+            <span class="honour">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+              GSAS Centennial Scholarship
+            </span>
+          </div>
+        </div>
+        <div class="exp-when">
+          May 2024
+          <span class="loc">New York, NY</span>
+        </div>
+      </article>
+
+      <article class="edu reveal">
+        <div class="org-mark" aria-hidden="true">KSU</div>
+        <div>
+          <h3>B.Sc. in Mechatronics Engineering</h3>
+          <p class="exp-org">Kyungsung University</p>
+          <div class="edu-detail">
+            <span>GPA <span class="gpa">4.17 / 4.50</span></span>
+            <span class="honour">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+              Merit scholarship — ranked 1st
+            </span>
+          </div>
+        </div>
+        <div class="exp-when">
+          Feb 2022
+          <span class="loc">Busan, South Korea</span>
+        </div>
+      </article>
+
+    </div>
+
+    <h3 class="subhead reveal">Travel grants &amp; awards</h3>
+    <div class="award-grid">
+      <div class="award-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+        <div>
+          <b>IEEE RAS Travel Member Support Award</b>
+          <span>IROS 2026 · competitive, up to $1,500</span>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+        <div>
+          <b>IROS Travel Award — Saint Louis University</b>
+          <span>IROS 2026 · institutional travel support</span>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+        <div>
+          <b>Dean's Travel Award — Science &amp; Engineering</b>
+          <span>BioRob 2026 and ISMR 2026</span>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
+        <div>
+          <b>GSAS Centennial Scholarship</b>
+          <span>Fordham University · merit award</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================================================== publications -->
 <section id="publications">
   <div class="wrap">
@@ -711,229 +938,6 @@
 
     </ul>
     <p class="pub-empty" id="pub-empty" hidden>No publications match that search.</p>
-  </div>
-</section>
-
-<!-- ======================================================= experience -->
-<section id="experience" class="alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Experience</span>
-      <h2>Where the work happened</h2>
-      <p>Four research and industry roles across robotics, clinical AI, analytics and electric machines.</p>
-    </div>
-
-    <div class="exp-list">
-
-      <article class="exp reveal">
-        <div class="org-mark" aria-hidden="true">SLU</div>
-        <div>
-          <div class="exp-head">
-            <div>
-              <h3>Ph.D. Research Assistant</h3>
-              <p class="exp-org">Saint Louis University — MechaRithm Lab</p>
-            </div>
-            <div class="exp-when">
-              Jun 2024 — Present
-              <span class="loc">St. Louis, MO</span>
-            </div>
-          </div>
-          <ul>
-            <li>Built a video-to-robot imitation-learning pipeline converting human RGB-D demonstrations into robot trajectories via hand-pose estimation, depth processing, 3D transforms, retargeting and inverse kinematics.</li>
-            <li>Developed an RGB-D perception stack — SAM2 hand and object segmentation, camera calibration, temporal depth fusion, 3D back-projection — raising valid object observations from 52.1% to 65.7% across 7,167 frames.</li>
-            <li>Constructed a long-tail benchmark of 570 corruption conditions and 27,360 frames, and a reliability estimator reaching 0.782 AUROC.</li>
-            <li>Deployed and evaluated five assistive manipulation tasks on a Kinova Gen3, combining imitation learning, uncertainty estimation and feasibility checks for safe execution.</li>
-            <li>Audited 1,099 RGB-D demonstrations and 154,844 frames through reproducible PyTorch pipelines with participant-independent evaluation.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">PyTorch</span><span class="chip">SAM2</span><span class="chip">Diffusion policies</span>
-            <span class="chip">ROS 2</span><span class="chip">MoveIt</span><span class="chip">MuJoCo</span>
-            <span class="chip">Kinova Gen3</span><span class="chip">OpenCV</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp reveal">
-        <div class="org-mark violet" aria-hidden="true">ABG</div>
-        <div>
-          <div class="exp-head">
-            <div>
-              <h3>Data Analyst Intern</h3>
-              <p class="exp-org">Authentic Brands Group</p>
-            </div>
-            <div class="exp-when">
-              Jan 2024 — Apr 2024
-              <span class="loc">New York, NY</span>
-            </div>
-          </div>
-          <ul>
-            <li>Ran exploratory analysis across Salesforce, database and Excel sources with SQL and pandas to surface commercial trends.</li>
-            <li>Built interactive Tableau dashboards and integrated Salesforce with Excel through Tableau Prep to streamline reporting.</li>
-            <li>Automated ETL and data-quality checks in Python, optimised SQL, and delivered weekly KPI reporting.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">SQL</span><span class="chip">pandas</span><span class="chip">Tableau</span>
-            <span class="chip">Salesforce</span><span class="chip">ETL</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp reveal">
-        <div class="org-mark" aria-hidden="true">FU</div>
-        <div>
-          <div class="exp-head">
-            <div>
-              <h3>Research Assistant</h3>
-              <p class="exp-org">Fordham University — Multimodal AI for clinical NLP &amp; imaging</p>
-            </div>
-            <div class="exp-when">
-              2022 — 2024
-              <span class="loc">New York, NY</span>
-            </div>
-          </div>
-          <ul>
-            <li>Led publication-focused research on multimodal clinical AI, producing four IEEE Access papers — MediGPT, MemesViTa and SumGPT — plus GastroVRG in <em>Intelligent Systems with Applications</em>.</li>
-            <li>Built an end-to-end radiology summarisation system over paired images and reports: dataset construction, PHI-safe processing, multimodal alignment, and clinical-style generation with encoder–decoder and LLM models.</li>
-            <li>Compared cross-attention against late fusion with rigorous ablations, error analysis and calibration/ECE reliability evaluation for trustworthy clinical predictions.</li>
-            <li>Created reproducible config-driven training and evaluation pipelines with mixed precision and experiment tracking.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">PyTorch</span><span class="chip">Hugging Face</span><span class="chip">MONAI</span>
-            <span class="chip">spaCy</span><span class="chip">DICOM / NIfTI</span><span class="chip">Docker</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp reveal">
-        <div class="org-mark violet" aria-hidden="true">KSU</div>
-        <div>
-          <div class="exp-head">
-            <div>
-              <h3>Research Assistant</h3>
-              <p class="exp-org">Kyungsung University — Switched Reluctance Machines</p>
-            </div>
-            <div class="exp-when">
-              May 2021 — Jul 2022
-              <span class="loc">Busan, South Korea</span>
-            </div>
-          </div>
-          <ul>
-            <li>Researched preliminary design and optimisation of a Switched Reluctance Machine for flywheel energy storage, targeting performance and efficiency.</li>
-            <li>Developed and analysed control strategies for the SRM/generator under varying load conditions, with design and control-system modelling for stability and durability.</li>
-            <li>Applied simulation and analytical techniques to evaluate feasibility in energy-storage applications.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">MATLAB</span><span class="chip">Machine design</span><span class="chip">Control systems</span>
-            <span class="chip">FEA simulation</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================== education -->
-<section id="education">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Education</span>
-      <h2>Three degrees, three countries</h2>
-      <p>Mechatronics to data science to robotics — the reason the work spans hardware, signal processing and machine learning.</p>
-    </div>
-
-    <div class="edu-list">
-
-      <article class="edu reveal">
-        <div class="org-mark" aria-hidden="true">SLU</div>
-        <div>
-          <h3>Ph.D. in Aerospace &amp; Mechanical Engineering</h3>
-          <p class="exp-org">Saint Louis University</p>
-          <div class="edu-detail">
-            <span>GPA <span class="gpa">4.00 / 4.00</span></span>
-            <span class="honour">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-              Fully funded Ph.D. program
-            </span>
-          </div>
-        </div>
-        <div class="exp-when">
-          Expected Apr 2027
-          <span class="loc">St. Louis, MO</span>
-        </div>
-      </article>
-
-      <article class="edu reveal">
-        <div class="org-mark violet" aria-hidden="true">FU</div>
-        <div>
-          <h3>M.Sc. in Data Science</h3>
-          <p class="exp-org">Fordham University</p>
-          <div class="edu-detail">
-            <span>GPA <span class="gpa">3.72 / 4.00</span></span>
-            <span class="honour">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-              GSAS Centennial Scholarship
-            </span>
-          </div>
-        </div>
-        <div class="exp-when">
-          May 2024
-          <span class="loc">New York, NY</span>
-        </div>
-      </article>
-
-      <article class="edu reveal">
-        <div class="org-mark" aria-hidden="true">KSU</div>
-        <div>
-          <h3>B.Sc. in Mechatronics Engineering</h3>
-          <p class="exp-org">Kyungsung University</p>
-          <div class="edu-detail">
-            <span>GPA <span class="gpa">4.17 / 4.50</span></span>
-            <span class="honour">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-              Merit scholarship — ranked 1st
-            </span>
-          </div>
-        </div>
-        <div class="exp-when">
-          Feb 2022
-          <span class="loc">Busan, South Korea</span>
-        </div>
-      </article>
-
-    </div>
-
-    <h3 class="subhead reveal">Travel grants &amp; awards</h3>
-    <div class="award-grid">
-      <div class="award-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-        <div>
-          <b>IEEE RAS Travel Member Support Award</b>
-          <span>IROS 2026 · competitive, up to $1,500</span>
-        </div>
-      </div>
-      <div class="award-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-        <div>
-          <b>IROS Travel Award — Saint Louis University</b>
-          <span>IROS 2026 · institutional travel support</span>
-        </div>
-      </div>
-      <div class="award-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-        <div>
-          <b>Dean's Travel Award — Science &amp; Engineering</b>
-          <span>BioRob 2026 and ISMR 2026</span>
-        </div>
-      </div>
-      <div class="award-card reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.6 5 2.6-1.5-7"/></svg>
-        <div>
-          <b>GSAS Centennial Scholarship</b>
-          <span>Fordham University · merit award</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
