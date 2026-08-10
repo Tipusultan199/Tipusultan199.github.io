@@ -673,7 +673,12 @@ section.alt { background: var(--bg-subtle); }
 .video-caption { padding: 14px 18px; font-size: .88rem; color: var(--text-muted); }
 .video-caption b { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; font-size: .94rem; }
 
-.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.video-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; align-items: start;
+}
+/* sources range from 8:5 to 12:5, so letterbox them into one shape for a tidy row */
+.video-grid video { aspect-ratio: 16 / 10; object-fit: contain; }
 
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
 .gallery img {

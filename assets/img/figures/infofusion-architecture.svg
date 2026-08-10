@@ -104,9 +104,9 @@
   <text class="t tiny" x="577" y="236">cov · dead · gap</text>
   <text class="t tiny" x="577" y="248">floor 0.1</text>
 
-  <text class="s tiny" x="566" y="272">Gates on whether the</text>
-  <text class="s tiny" x="566" y="286">signal exists — not on</text>
-  <text class="s tiny" x="566" y="300">what it says.</text>
+  <text class="s tiny" x="566" y="267">Gates on whether the</text>
+  <text class="s tiny" x="566" y="280">signal exists — not on</text>
+  <text class="s tiny" x="566" y="293">what it says.</text>
 
   <!-- mask input from below -->
   <rect x="550" y="356" width="140" height="42" rx="8" fill="#f0f3f7" stroke="#cbd5e1" stroke-dasharray="4 3"/>
@@ -121,15 +121,15 @@
   <text class="t mech" x="746" y="152">M3</text>
   <text class="s lbl" x="746" y="174">Hierarchical head</text>
 
-  <rect x="746" y="188" width="114" height="44" rx="7" fill="#ffffff" stroke="#99f6e4"/>
-  <text class="t tiny" x="757" y="206">P(task k) =</text>
-  <text class="t tiny" x="757" y="221">P(active)·P(k|active)</text>
+  <rect x="744" y="188" width="128" height="44" rx="7" fill="#ffffff" stroke="#99f6e4"/>
+  <text class="t" x="754" y="206" font-size="9.5" fill="#7c8aa0">P(task k) =</text>
+  <text class="t" x="754" y="221" font-size="9.5" fill="#7c8aa0">P(active)·P(k|active)</text>
 
-  <rect x="746" y="240" width="114" height="30" rx="7" fill="#ffffff" stroke="#99f6e4"/>
-  <text class="t tiny" x="757" y="259" fill="#0d9488">Temperature scaler</text>
+  <rect x="744" y="240" width="128" height="30" rx="7" fill="#ffffff" stroke="#99f6e4"/>
+  <text class="t" x="754" y="259" font-size="9.5" fill="#0d9488">Temperature scaler</text>
 
-  <text class="s tiny" x="746" y="288">Fitted on validation,</text>
-  <text class="s tiny" x="746" y="302">never on test.</text>
+  <text class="s tiny" x="746" y="283">Fitted on validation,</text>
+  <text class="s tiny" x="746" y="296">never on test.</text>
 
   <!-- ============================================ output -->
   <path d="M803 304 V 344" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arw)" fill="none"/>
