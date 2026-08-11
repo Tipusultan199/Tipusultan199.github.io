@@ -752,8 +752,12 @@ section.alt { background: var(--bg-subtle); }
 
 .projects { display: grid; gap: clamp(24px, 3.5vw, 38px); }
 
-/* one column, text first: the figure only makes sense once you know what it shows */
+/* one column, text first: the figure only makes sense once you know what it shows.
+   Body copy and figure share --measure, so both sit in the same centred column. */
 .project-card {
+  /* rem, not ch: ch resolves against each child's own font-size, so the heading
+     and the tag row would sit wider than the paragraphs and break the alignment */
+  --measure: 43rem;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
@@ -777,13 +781,18 @@ section.alt { background: var(--bg-subtle); }
 }
 .project-media img {
   width: 100%;
-  /* full-bleed figures get tall fast at this width — cap the height and let contain letterbox */
+  max-width: var(--measure);
+  /* tall figures still need a ceiling — cap the height and let contain letterbox */
   max-height: clamp(280px, 42vw, 460px);
   object-fit: contain;
   border-radius: 6px;
 }
 
-.project-body { padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; }
+.project-body {
+  padding: clamp(24px, 3vw, 34px);
+  display: flex; flex-direction: column; align-items: center;
+}
+.project-body > * { width: 100%; max-width: var(--measure); }
 
 .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
 .tag {
@@ -802,8 +811,6 @@ section.alt { background: var(--bg-subtle); }
   margin-bottom: 1em; font-weight: 500;
 }
 .project-body > p { color: var(--text-muted); font-size: .95rem; }
-/* the card is full width now — keep the prose to a readable measure */
-.project-body > p, .project-sub { max-width: 72ch; }
 
 .project-stats {
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -825,7 +832,6 @@ section.alt { background: var(--bg-subtle); }
 /* live status on the two unfinished projects — what is happening this month */
 .project-now {
   padding: 14px 16px; margin: 2px 0 18px;
-  max-width: 72ch;
   border-left: 3px solid var(--violet);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background: var(--violet-wash);
