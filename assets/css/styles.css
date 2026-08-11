@@ -31,9 +31,11 @@
   --shadow-md: 0 4px 12px rgba(15, 23, 42, .07), 0 2px 4px rgba(15, 23, 42, .04);
   --shadow-lg: 0 18px 40px rgba(15, 23, 42, .12), 0 4px 12px rgba(15, 23, 42, .06);
 
-  /* type */
+  /* type — Inter for running text and UI, a text serif for headings */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Source Serif 4", Charter, "Iowan Old Style", Georgia,
+                  "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
                Menlo, Consolas, monospace;
 
@@ -147,17 +149,52 @@ a:hover { text-decoration: underline; }
 
 h1, h2, h3, h4 {
   margin: 0 0 .5em;
-  line-height: 1.18;
-  letter-spacing: -0.021em;
-  font-weight: 680;
+  font-family: var(--font-display);
+  line-height: 1.2;
+  /* a serif does not want the tight tracking the sans headings had */
+  letter-spacing: -0.005em;
+  font-weight: 600;
 }
-h1 { font-size: clamp(2.3rem, 6vw, 3.9rem); letter-spacing: -0.033em; }
-h2 { font-size: clamp(1.65rem, 3.6vw, 2.4rem); letter-spacing: -0.026em; }
+h1 { font-size: clamp(2.3rem, 6vw, 3.9rem); letter-spacing: -0.017em; font-weight: 700; }
+h2 { font-size: clamp(1.65rem, 3.6vw, 2.4rem); letter-spacing: -0.012em; font-weight: 700; }
 h3 { font-size: clamp(1.12rem, 2vw, 1.32rem); }
 h4 { font-size: 1rem; }
 p  { margin: 0 0 1.05em; }
 ul, ol { margin: 0 0 1.05em; padding-left: 1.25em; }
 li { margin-bottom: .38em; }
+
+/* Running prose sets flush on both edges, so every block of text carries the
+   same left and right margin. Hyphenation keeps the word spacing even; without
+   it, justified text opens rivers of white space down the column. */
+/* Justified only where there are enough lines and enough width to absorb the
+   slack: running body copy. The one- and two-line section intros and the narrow
+   three-up cards stay ragged-right, where justifying stretches a single line
+   into gaps you can see from across the room. */
+.hero-lede,
+.about-body p,
+.project-body > p,
+.project-now p,
+.prose p,
+.callout p {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto; hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+  text-wrap: pretty;
+}
+
+/* justification needs a wide enough column to distribute the slack; below this
+   it produces gap-riddled lines, so the text goes back to ragged-right */
+@media (max-width: 640px) {
+  .hero-lede,
+  .about-body p,
+  .project-body > p,
+  .project-now p,
+  .prose p,
+  .callout p {
+    text-align: left;
+  }
+}
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
@@ -189,8 +226,18 @@ li { margin-bottom: .38em; }
 section { padding-block: clamp(58px, 8vw, 104px); }
 section.alt { background: var(--bg-subtle); }
 
-.section-head { margin-bottom: clamp(30px, 4vw, 48px); max-width: 68ch; }
+/* every section opens on a marked plate, so the eye finds the headings when
+   scanning. The wash is translucent, so it reads on plain and .alt sections alike. */
+.section-head {
+  margin-bottom: clamp(30px, 4vw, 48px);
+  max-width: 68ch;
+  padding: clamp(16px, 2vw, 22px) clamp(20px, 2.4vw, 28px);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: linear-gradient(95deg, var(--accent-wash), transparent 82%);
+}
 .section-head p { color: var(--text-muted); font-size: 1.06rem; margin-bottom: 0; }
+.section-head :last-child { margin-bottom: 0; }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: .5em;
@@ -388,13 +435,20 @@ section.alt { background: var(--bg-subtle); }
 
 .hero-cta { display: flex; flex-wrap: wrap; gap: 11px; margin-bottom: 26px; }
 
-.hero-links { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.hero-links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .hero-links a {
-  display: inline-flex; align-items: center; gap: .45em;
-  color: var(--text-muted); font-size: .88rem; font-weight: 500;
+  display: inline-flex; align-items: center; gap: .5em;
+  padding: 8px 14px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface);
+  color: var(--text); font-size: 1rem; font-weight: 600;
+  transition: border-color .16s ease, color .16s ease, transform .16s ease;
 }
-.hero-links a:hover { color: var(--accent); text-decoration: none; }
-.hero-links svg { width: 16px; height: 16px; }
+.hero-links a:hover {
+  color: var(--accent); border-color: var(--accent);
+  text-decoration: none; transform: translateY(-2px);
+}
+.hero-links svg { width: 22px; height: 22px; flex: none; }
 
 /* two stacked shots beside the intro: the person, then the rig */
 .hero-media { display: grid; gap: 14px; align-content: center; }
@@ -486,15 +540,9 @@ section.alt { background: var(--bg-subtle); }
 }
 
 .about-body p {
-  /* even left and right margins, with hyphenation to avoid rivers */
-  text-align: justify;
-  text-justify: inter-word;
-  -webkit-hyphens: auto; hyphens: auto;
-  hyphenate-limit-chars: 7 3 3;
   color: var(--text-muted);
   font-size: 1.02rem; line-height: 1.75;
   margin-bottom: 1.15em;
-  text-wrap: pretty;
 }
 .about-body p:last-child { margin-bottom: 0; }
 .about-body strong { color: var(--text); font-weight: 600; }
@@ -541,16 +589,17 @@ section.alt { background: var(--bg-subtle); }
     position: static;
   }
   .about-side ul { display: flex; flex-wrap: wrap; gap: 7px 16px; }
-  /* justified text needs room; ragged-right reads better on narrow screens */
-  .about-body p { text-align: left; }
 }
 
 /* ------------------------------------------------------- paper cards */
 
+/* a sub-head inside a section: same accent plate, one step quieter */
 .group-head {
   margin: clamp(46px, 6vw, 76px) 0 clamp(20px, 3vw, 30px);
-  padding-top: clamp(30px, 4vw, 44px);
-  border-top: 1px solid var(--border);
+  padding: clamp(14px, 1.6vw, 18px) clamp(18px, 2vw, 22px);
+  border-left: 3px solid var(--border-strong);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: linear-gradient(95deg, var(--surface-2), transparent 84%);
   max-width: 72ch;
 }
 .group-head h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); margin-bottom: .45em; }
