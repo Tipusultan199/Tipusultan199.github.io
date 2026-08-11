@@ -752,10 +752,10 @@ section.alt { background: var(--bg-subtle); }
 
 .projects { display: grid; gap: clamp(24px, 3.5vw, 38px); }
 
+/* one column, text first: the figure only makes sense once you know what it shows */
 .project-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
-  gap: 0;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -767,18 +767,21 @@ section.alt { background: var(--bg-subtle); }
   box-shadow: var(--shadow-lg);
   transform: translateY(-3px);
 }
-.project-card.reverse .project-media { order: 2; }
 
 .project-media {
   position: relative;
   background: var(--figure-bg);
   display: grid; place-items: center;
-  padding: 22px;
-  min-height: 230px;
-  border-right: 1px solid var(--border);
+  padding: clamp(18px, 3vw, 30px);
+  border-top: 1px solid var(--border);
 }
-.project-card.reverse .project-media { border-right: 0; border-left: 1px solid var(--border); }
-.project-media img { width: 100%; object-fit: contain; border-radius: 6px; }
+.project-media img {
+  width: 100%;
+  /* full-bleed figures get tall fast at this width — cap the height and let contain letterbox */
+  max-height: clamp(280px, 42vw, 460px);
+  object-fit: contain;
+  border-radius: 6px;
+}
 
 .project-body { padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; }
 
@@ -799,6 +802,8 @@ section.alt { background: var(--bg-subtle); }
   margin-bottom: 1em; font-weight: 500;
 }
 .project-body > p { color: var(--text-muted); font-size: .95rem; }
+/* the card is full width now — keep the prose to a readable measure */
+.project-body > p, .project-sub { max-width: 72ch; }
 
 .project-stats {
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -820,6 +825,7 @@ section.alt { background: var(--bg-subtle); }
 /* live status on the two unfinished projects — what is happening this month */
 .project-now {
   padding: 14px 16px; margin: 2px 0 18px;
+  max-width: 72ch;
   border-left: 3px solid var(--violet);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background: var(--violet-wash);
@@ -834,14 +840,6 @@ section.alt { background: var(--bg-subtle); }
 .project-now p + p { margin-top: .6em; }
 
 .project-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
-
-@media (max-width: 880px) {
-  .project-card, .project-card.reverse { grid-template-columns: 1fr; }
-  .project-card .project-media,
-  .project-card.reverse .project-media {
-    order: -1; border: 0; border-bottom: 1px solid var(--border); min-height: 0;
-  }
-}
 
 /* -------------------------------------------------------- publications */
 
