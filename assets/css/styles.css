@@ -144,6 +144,13 @@ body {
 
 img, video, svg { max-width: 100%; height: auto; display: block; }
 
+.architecture-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+.architecture-scroll > a { display: block; }
+@media (max-width: 700px) {
+  .architecture-scroll > a { width: 900px; max-width: none; }
+  .architecture-scroll img { max-width: none; }
+}
+
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 

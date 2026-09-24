@@ -46,11 +46,10 @@
     </a>
     <ul class="nav-links" id="nav-links">
       <li><a href="../index.html#research">Research</a></li>
-      <li><a href="../index.html#experience">Experience</a></li>
-      <li><a href="../index.html#education">Education</a></li>
+      <li><a href="../index.html#directions">Current work</a></li>
       <li><a href="../index.html#projects">Projects</a></li>
-      <li><a href="../index.html#media">Media</a></li>
       <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#about">About</a></li>
       <li><a href="../index.html#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -97,11 +96,13 @@
     <div class="prose">
 
       <figure class="fig wide">
-        <a href="../assets/img/figures/infofusion-architecture.svg" title="Open full size">
-          <img src="../assets/img/figures/infofusion-architecture.svg" width="900" height="520" loading="lazy"
-             alt="Proposed architecture: per-modality convolutional encoders, bounded-lag attention from gaze and EEG to EMG, a reliability gate driven only by availability masks, and a calibrated hierarchical head.">
-        </a>
-        <figcaption><b>Figure 1.</b> The three mechanisms in sequence, and the rule that decides whether each one survives.</figcaption>
+        <div class="architecture-scroll">
+          <a href="../assets/docs/BioGazeFormer-Architecture.pdf" title="Open the full-resolution architecture PDF">
+            <img src="../assets/img/figures/biogazeformer-architecture.webp" width="3600" height="1117" loading="lazy"
+               alt="BioGazeFormer architecture: masked EEG, EMG, and eye-tracking encoders feed an anchor cross-modal transformer, specialized residual experts, reliability estimation, a context-conditioned router, and action and task prediction heads.">
+          </a>
+        </div>
+        <figcaption><b>Figure 1.</b> BioGazeFormer uses modality-specific encoders, an anchor cross-modal transformer, three specialized residual experts, reliability estimation, and context-conditioned routing before anchor-preserving fusion. Select the figure to open the full-resolution PDF.</figcaption>
       </figure>
 
       <div class="project-now">

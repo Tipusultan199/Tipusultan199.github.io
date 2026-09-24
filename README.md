@@ -1,7 +1,8 @@
 # tipusultan199.github.io
 
-Personal research portfolio — Tipu Sultan, Ph.D. researcher in robot learning and multimodal
-machine learning at Saint Louis University (MechaRithm Lab).
+Personal research portfolio — Tipu Sultan, Ph.D. researcher in safe human–robot teaming,
+EEG decoding, multimodal information fusion, vision-language-action models, and assistive robotics
+at Saint Louis University (MechaRithm Lab).
 
 **Live site:** https://tipusultan199.github.io/
 
@@ -9,7 +10,7 @@ machine learning at Saint Louis University (MechaRithm Lab).
 
 | Page | Contents |
 |---|---|
-| `index.html` | Concise hero, research focus, evidence-first featured work, experience, education, four full case studies, video, 16 publications with search/filter, skills, lab gallery, contact |
+| `index.html` | Concise research homepage with current T-RO and Information Fusion directions, selected projects and publications, bio, and contact |
 | `projects/neurocommitssm.html` | NeuroCommitSSM — IROS 2026 |
 | `projects/trisafe-trans.html` | TriSaFe-Trans — BioRob 2026 |
 | `projects/video-to-robot.html` | Video-to-robot imitation learning — T-RO, in preparation |
@@ -23,7 +24,8 @@ machine learning at Saint Louis University (MechaRithm Lab).
 ├── 404.html
 ├── projects/            case-study pages
 └── assets/
-    ├── css/styles.css   design tokens + all styling
+    ├── css/home.css     focused homepage design
+    ├── css/styles.css   shared styling for detailed project pages
     ├── js/site.js       theme toggle, nav, scroll-spy, publication filter, BibTeX copy
     ├── img/
     │   ├── figures/     paper figures (PNG + WebP)
