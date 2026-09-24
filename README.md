@@ -1,7 +1,7 @@
 # tipusultan199.github.io
 
 Personal research portfolio — Tipu Sultan, Ph.D. researcher in safe human–robot teaming,
-EEG decoding, multimodal information fusion, vision-language-action models, and assistive robotics
+EEG decoding, multimodal information fusion, vision-language-action models, human–robot interaction, and robot learning
 at Saint Louis University (MechaRithm Lab).
 
 **Live site:** https://tipusultan199.github.io/

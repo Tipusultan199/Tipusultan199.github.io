@@ -104,14 +104,14 @@
       <figure class="fig wide">
         <a href="../assets/img/figures/biorob-teaser.png" title="Open full size">
           <img src="../assets/img/figures/biorob-teaser.png" width="1600" height="522" loading="lazy"
-             alt="TriSaFe-Trans pipeline: synchronised EEG, EMG and eye-tracking; a tri-modal model with a safety policy selecting action or stop; robot demonstrations of assistive tasks.">
+             alt="TriSaFe-Trans pipeline: synchronised EEG, EMG and eye-tracking; a tri-modal model with a safety policy selecting action or stop; robot demonstrations of HRI tasks.">
         </a>
         <figcaption><b>Figure 1.</b> Synchronised neural, muscular and gaze cues feed a tri-modal model that decodes action and task intent, then applies a safety policy gating robot execution between act and stop.</figcaption>
       </figure>
 
       <h2>The problem</h2>
       <p>
-        Fusing EEG, EMG and gaze gives an assistive arm three complementary views of user intent.
+        Fusing EEG, EMG and gaze gives an HRI system three complementary views of user intent.
         It also gives it three things that can break. EMG is vulnerable to artefacts and electrode
         shift; eye tracking drifts out of calibration and loses the pupil; EEG is non-stationary
         across sessions and subjects.
@@ -172,7 +172,7 @@
 
       <h3>Data collection</h3>
       <p>
-        Twenty healthy adults performed five ICF-aligned assistive tasks — reach for a bottle,
+        Twenty healthy adults performed five ICF-aligned HRI tasks — reach for a bottle,
         reach for a clock, fan on/off, repositioning a plant, and a waving gesture — 16 trials
         each, with a fixed structure of pre-trial rest, cue, movement and post-movement rest.
         EEG came from an Enobio-8 at 250 Hz, EMG from a 4-channel wireless PLUX system placed to
@@ -318,7 +318,7 @@
       <figcaption class="video-caption">
         <b>BioRob 2026 submission video</b>
         Tri-modal capture, model inference and safety-gated robot execution across the five
-        assistive tasks. Also on <a href="https://youtu.be/pdMp_myF-lI" rel="noopener">YouTube ↗</a>.
+        HRI tasks. Also on <a href="https://youtu.be/pdMp_myF-lI" rel="noopener">YouTube ↗</a>.
       </figcaption>
     </figure>
 
@@ -326,7 +326,7 @@
       <h2>Honest limitations</h2>
       <p>
         The dataset comes from healthy adults performing the tasks themselves, so these numbers are
-        a non-clinical benchmark rather than validation in target assistive users. That distinction
+        a non-clinical HRI benchmark rather than validation with target end users. That distinction
         matters more than usual here: in real users EMG may be weak or absent, which means
         deployment would resemble the degraded-EMG scenario, leaning far harder on EEG and gaze.
         The unsafe-action fraction under P0 (0.415) is too high for unsupervised use, which is

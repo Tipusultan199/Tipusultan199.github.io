@@ -7,11 +7,11 @@
 <meta name="description" content="A decision-centric shared-autonomy framework that predicts when it is safe to commit, combining EEG–EMG–eye-tracking commit readiness with ROS 2 feasibility gating on a Kinova Gen3. IROS 2026.">
 <link rel="canonical" href="https://tipusultan199.github.io/projects/neurocommitssm.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NeuroCommitSSM — commit-as-decision readiness for assistive robots">
+<meta property="og:title" content="NeuroCommitSSM — commit-as-decision readiness for human–robot interaction">
 <meta property="og:description" content="0.950 action balanced accuracy with 0.75 false commits per 1,000 rest windows, across 32 subjects and seven sensor-dropout scenarios.">
 <meta property="og:url" content="https://tipusultan199.github.io/projects/neurocommitssm.html">
 <meta property="og:image" content="https://tipusultan199.github.io/assets/img/figures/iros-teaser.png">
-<meta property="og:image:alt" content="NeuroCommitSSM overview showing EEG, EMG and eye tracking gating a Kinova Gen3 assistive robot.">
+<meta property="og:image:alt" content="NeuroCommitSSM overview showing EEG, EMG and eye tracking gating a Kinova Gen3 in an HRI task.">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="562">
 <meta name="twitter:card" content="summary_large_image">
@@ -105,14 +105,14 @@
       <figure class="fig wide">
         <a href="../assets/img/figures/iros-teaser.png" title="Open full size">
           <img src="../assets/img/figures/iros-teaser.png" width="1600" height="562" loading="lazy"
-             alt="Left: synchronised EEG, EMG and eye tracking across five ICF-aligned assistive tasks. Middle: commit-readiness scoring and a HOLD–ASSIST–COMMIT supervisor. Right: Kinova Gen3 executing the tasks.">
+             alt="Left: synchronised EEG, EMG and eye tracking across five ICF-aligned HRI tasks. Middle: commit-readiness scoring and a HOLD–ASSIST–COMMIT supervisor. Right: Kinova Gen3 executing the tasks.">
         </a>
         <figcaption><b>Figure 1.</b> Synchronised tri-modal windows produce a continuous commit-readiness score and a HOLD/COMMIT decision, while a ROS 2 and computer-vision supervisor enforces action feasibility before any motion is issued.</figcaption>
       </figure>
 
       <h2>The problem</h2>
       <p>
-        An assistive arm mounted on a wheelchair has to read its user's intent from noisy,
+        In human–robot interaction, a wheelchair-mounted arm has to read its user's intent from noisy,
         non-stationary biosignals. Almost every intent decoder in the literature is evaluated as
         window-level classification — accuracy, F1 — and then deployed by thresholding that score.
         That hides the failure mode that actually matters.
@@ -314,13 +314,13 @@
         <li>A decision-centric intent-to-commit model with entropy-regularised multimodal fusion, evaluated on commit-event quality rather than window accuracy alone.</li>
         <li>A ROS 2-native HOLD–ASSIST–COMMIT shared-autonomy framework with markerless RGB-D feasibility checking — no fiducial markers, CAD models or task-specific 6D pose estimators.</li>
         <li>System-level validation on real hardware via hardware-in-the-loop replay, with unsafe-motion prevention and abort-cause analysis.</li>
-        <li>Release of, to our knowledge, the first synchronised EEG–EMG–eye-tracking dataset for functionally complete, ICF-aligned assistive ADL intent decoding.</li>
+        <li>Release of, to our knowledge, the first synchronised EEG–EMG–eye-tracking dataset for functionally complete, ICF-aligned HRI intent decoding.</li>
       </ul>
 
       <h2>Honest limitations</h2>
       <p>
         Hardware-in-the-loop replay is repeatable and lets the full stack be tested, but it is not
-        live human-in-the-loop assistive testing: it does not capture user adaptation, fatigue,
+        live human-in-the-loop HRI testing: it does not capture user adaptation, fatigue,
         trust, or closed-loop co-adaptation. Participants were healthy adults performing the tasks
         themselves, so results are a non-clinical benchmark, not validation in target users — for
         whom EMG may be weak or absent entirely.
