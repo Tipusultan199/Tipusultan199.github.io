@@ -162,8 +162,8 @@ h1, h2, h3, h4 {
   letter-spacing: -0.005em;
   font-weight: 600;
 }
-h1 { font-size: clamp(2.3rem, 6vw, 3.9rem); letter-spacing: -0.017em; font-weight: 700; }
-h2 { font-size: clamp(1.65rem, 3.6vw, 2.4rem); letter-spacing: -0.012em; font-weight: 700; }
+h1 { font-size: clamp(2rem, 4.4vw, 3rem); letter-spacing: -0.017em; font-weight: 700; }
+h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); letter-spacing: -0.012em; font-weight: 700; }
 h3 { font-size: clamp(1.12rem, 2vw, 1.32rem); }
 h4 { font-size: 1rem; }
 p  { margin: 0 0 1.05em; }
@@ -1073,7 +1073,7 @@ section.alt { background: var(--bg-subtle); }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb svg { width: 14px; height: 14px; }
 
-.page-hero h1 { font-size: clamp(1.85rem, 4.4vw, 2.9rem); margin-bottom: .3em; }
+.page-hero h1 { font-size: clamp(1.7rem, 3.3vw, 2.35rem); margin-bottom: .3em; }
 .page-lede { font-size: clamp(1rem, 1.7vw, 1.14rem); color: var(--text-muted); max-width: 66ch; }
 
 .meta-row {

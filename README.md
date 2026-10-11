@@ -14,7 +14,7 @@ at Saint Louis University (MechaRithm Lab).
 | `projects/neurocommitssm.html` | NeuroCommitSSM — IROS 2026 |
 | `projects/trisafe-trans.html` | TriSaFe-Trans — BioRob 2026 |
 | `projects/video-to-robot.html` | Video-to-robot imitation learning — T-RO, in preparation |
-| `projects/information-fusion.html` | Reliability-aware fusion — pre-registered, ongoing |
+| `projects/information-fusion.html` | BioGazeFormer: sensor fault or unclear intent — results, manuscript in preparation |
 
 ## Structure
 
