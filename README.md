@@ -10,7 +10,7 @@ at Saint Louis University (MechaRithm Lab).
 
 | Page | Contents |
 |---|---|
-| `index.html` | Concise research homepage with current T-RO and Information Fusion directions, selected projects and publications, bio, and contact |
+| `index.html` | Research homepage: about me with portrait, CV (education, experience, awards, PDF), research themes, videos grouped by accepted paper, recent projects, all 16 papers one by one with thumbnails, skills, and contact |
 | `projects/neurocommitssm.html` | NeuroCommitSSM — IROS 2026 |
 | `projects/trisafe-trans.html` | TriSaFe-Trans — BioRob 2026 |
 | `projects/video-to-robot.html` | Video-to-robot imitation learning — T-RO, in preparation |

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f7f8f5"/><stop offset="1" stop-color="#eaf1ed"/>
+  </linearGradient>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="#0f766e" fill-opacity=".07"/>
+  </pattern>
+  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#5d6a66"/>
+  </marker>
+</defs>
+<rect width="480" height="300" fill="url(#bg)"/>
+<rect width="480" height="300" fill="url(#dots)"/>
+<text x="24" y="40" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" letter-spacing="1" fill="#0f766e">MULTIMODAL FAKE NEWS</text>
+<rect x="24" y="86" width="120" height="164" rx="10" fill="#fff" stroke="#d9e0dc" stroke-width="1.6"/><circle cx="44" cy="106" r="10" fill="#dff3ed" stroke="#0f766e" stroke-width="1.6"/><rect x="62" y="99" width="60" height="7" rx="3.5" fill="#12201d" fill-opacity=".5"/><rect x="62" y="111" width="40" height="6" rx="3" fill="#12201d" fill-opacity=".25"/><rect x="34" y="128" width="100" height="9" rx="4.5" fill="#12201d" fill-opacity=".7"/><rect x="34" y="143" width="78" height="9" rx="4.5" fill="#12201d" fill-opacity=".7"/><rect x="34" y="162" width="100" height="76" rx="6" fill="#e7edf9"/><circle cx="112" cy="180" r="8" fill="#d86f45" fill-opacity=".85"/><path d="M34,238 L64,200 L88,220 L102,206 L134,238 Z" fill="#3158a6" fill-opacity=".55"/><line x1="150" y1="170" x2="172" y2="170" stroke="#5d6a66" stroke-width="2.2" marker-end="url(#ah)"/><rect x="176" y="98" width="146" height="144" rx="14" fill="#fff" stroke="#0f766e" stroke-width="2.2"/><text x="249.0" y="127" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" font-weight="700" fill="#12201d">ViTDeBERTa</text><rect x="188" y="140" width="52" height="30" rx="7" fill="#e7edf9" stroke="#3158a6" stroke-width="1.8"/><text x="214.0" y="160.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#3158a6">ViT</text><rect x="248" y="140" width="64" height="30" rx="7" fill="#dff3ed" stroke="#0f766e" stroke-width="1.8"/><text x="280.0" y="159.3" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" fill="#0f766e">DeBERTa</text><path d="M214,170 C214,192 249,188 249,203 M280,170 C280,192 249,188 249,203" fill="none" stroke="#5d6a66" stroke-width="2"/><circle cx="249" cy="214" r="11" fill="#fff" stroke="#0f766e" stroke-width="2.2"/><path d="M243,214 h12 M249,208 v12" stroke="#0f766e" stroke-width="2.4"/><line x1="326" y1="170" x2="346" y2="170" stroke="#5d6a66" stroke-width="2.2" marker-end="url(#ah)"/><rect x="352" y="128" width="108" height="38" rx="19" fill="#d86f45" stroke="#d86f45" stroke-width="2.2"/><text x="406.0" y="153" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="17" font-weight="600" fill="#fff">fake</text><rect x="352" y="178" width="108" height="38" rx="19" fill="#fff" stroke="#0f766e" stroke-width="2.2"/><text x="406.0" y="203" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="17" font-weight="600" fill="#0f766e">real</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f7f8f5"/><stop offset="1" stop-color="#eaf1ed"/>
+  </linearGradient>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="#0f766e" fill-opacity=".07"/>
+  </pattern>
+  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="#5d6a66"/>
+  </marker>
+</defs>
+<rect width="480" height="300" fill="url(#bg)"/>
+<rect width="480" height="300" fill="url(#dots)"/>
+<text x="24" y="40" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" letter-spacing="1" fill="#0f766e">ENDOSCOPY · KVASIR</text>
+<defs><radialGradient id="endo" cx=".45" cy=".42" r=".62"><stop offset="0" stop-color="#fbcfe8"/><stop offset=".55" stop-color="#f472b6"/><stop offset="1" stop-color="#831843"/></radialGradient></defs><rect x="24" y="96" width="122" height="148" rx="10" fill="#0f172a"/><circle cx="85" cy="170" r="58" fill="url(#endo)"/><ellipse cx="104" cy="190" rx="16" ry="13" fill="#be185d" fill-opacity=".85"/><ellipse cx="99" cy="185" rx="6" ry="4" fill="#fff" fill-opacity=".35"/><path d="M48,146 C66,158 70,172 64,198" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3"/><line x1="152" y1="170" x2="172" y2="170" stroke="#5d6a66" stroke-width="2.2" marker-end="url(#ah)"/><rect x="176" y="98" width="146" height="144" rx="14" fill="#fff" stroke="#0f766e" stroke-width="2.2"/><text x="249.0" y="127" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" font-weight="700" fill="#12201d">GastroVRG</text><rect x="209" y="140" width="80" height="30" rx="7" fill="#e7edf9" stroke="#3158a6" stroke-width="1.8"/><text x="249.0" y="160.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#3158a6">VGG</text><path d="M249,170 v14 M249,184 H217 v12 M249,184 H281 v12" fill="none" stroke="#5d6a66" stroke-width="2"/><rect x="192" y="196" width="50" height="30" rx="7" fill="#dff3ed" stroke="#0f766e" stroke-width="1.8"/><text x="217.0" y="216.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#0f766e">RF</text><rect x="256" y="196" width="50" height="30" rx="7" fill="#dff3ed" stroke="#0f766e" stroke-width="1.8"/><text x="281.0" y="216.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#0f766e">GB</text><line x1="326" y1="170" x2="344" y2="170" stroke="#5d6a66" stroke-width="2.2" marker-end="url(#ah)"/><rect x="348" y="128" width="118" height="38" rx="19" fill="#0f766e" stroke="#0f766e" stroke-width="2.2"/><text x="407.0" y="153" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="17" font-weight="600" fill="#fff">esophagitis</text><rect x="348" y="178" width="118" height="38" rx="19" fill="#fff" stroke="#0f766e" stroke-width="2.2"/><text x="407.0" y="203" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="17" font-weight="600" fill="#0f766e">polyp</text>
+</svg>
