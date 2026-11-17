@@ -111,9 +111,9 @@
         <b>Current status</b>
         <p>
           The offline study is complete and the manuscript is being written for <strong>Information Fusion</strong>.
-          Next is a <strong>live streaming study</strong>: new participants, tasks cued in random order, deliberate
-          changes of intent crossed with induced sensor faults, and a Kinova Gen3 arm that acts, waits for the
-          person, or asks for a sensor check. The real-time decoder is built and tested on recorded sessions.
+          The <strong>live streaming study</strong> is under way: new participants, tasks cued in random order, deliberate
+          changes of intent crossed with induced sensor faults, and a Kinova Gen3 arm driven by the live decoder.
+          <a href="#live-study">Videos from the first sessions are below.</a>
         </p>
       </div>
 
@@ -215,15 +215,89 @@
         <li><strong>Accumulating evidence over windows slowed decisions</strong> (1.19 s against 1.02 s to a stable correct decision).</li>
       </ul>
 
-      <h2>Next: live streaming with a robot</h2>
+      <h2 id="live-study">Live study: the decoder drives a robot</h2>
       <p>
-        The decoder already runs live. It streams EEG and EMG from iMotions and gaze and head motion from the
-        Pupil Labs Neon real-time interface, applies the same preprocessing to a sliding buffer, and shows the
-        task belief, the three reliabilities and a message (clear, intent unclear, or check sensor) on a
-        dashboard. Replaying a recorded pilot session, it flagged an EEG headset that had lost electrode
-        contact. The study will compare a cause-aware robot policy with a confidence-only policy on a Kinova
-        Gen3, with sensor faults and changes of intent introduced on purpose so that the true cause of every
-        moment is known.
+        The decoder now runs live with a Kinova Gen3 arm. It streams EEG and EMG from iMotions and gaze and head
+        motion from the Pupil Labs Neon real-time interface, applies the offline preprocessing to a sliding
+        2-second buffer, and decodes every 0.25 s. In each trial a spoken cue asks the participant to do one of
+        five tasks (clock, bottle, fan, plant or wave) or to rest, and the arm acts on the decoder's decision.
+      </p>
+
+      <figure class="video-card" style="margin:0 0 1.5em">
+        <video controls playsinline preload="none" poster="../assets/img/posters/live-study-1min.jpg" width="1280" height="720" aria-label="BioGazeFormer live study in one minute">
+          <source src="../assets/video/biogazeformer/live-study-1min.mp4" type="video/mp4">
+          Your browser cannot play this video. <a href="../assets/video/biogazeformer/live-study-1min.mp4">Download it instead.</a>
+        </video>
+        <figcaption class="video-caption">
+          <b>The live study in one minute</b>
+          The live dashboard, seated views and robot responses show clear intent, a change of mind, deliberation,
+          the EEG cap removed, and an EMG fault introduced on purpose. Faces are blurred and audio is removed.
+        </figcaption>
+      </figure>
+
+      <h3>What the dashboard shows</h3>
+      <p>
+        For every window the dashboard shows the task belief, a reliability for each sensor, and how much of the
+        model's doubt comes from the sensors and how much from the person. Before an action starts, it also shows what a
+        <strong>cause-aware policy</strong> would do for that window, choosing to <strong>stop</strong> and name the sensor when
+        one is trusted below 0.20, <strong>hold</strong> and wait for the person when intent is unclear or
+        changing, and <strong>act</strong> when intent is clear. A confidence-only policy and an always-act policy
+        run on the same windows for comparison. Once an action starts, the arm completes its trajectory. The protocol panel records the true condition (at rest, intent
+        changing, sensor fault), so every decision can be scored against what was really happening.
+      </p>
+
+      <figure class="video-card" style="margin:0 0 1.5em">
+        <video controls playsinline preload="none" poster="../assets/img/posters/live-dashboard-2min.jpg" width="920" height="1000" aria-label="Two-minute screen recording of the live intent decoder dashboard">
+          <source src="../assets/video/biogazeformer/live-dashboard-2min.mp4" type="video/mp4">
+          Your browser cannot play this video. <a href="../assets/video/biogazeformer/live-dashboard-2min.mp4">Download it instead.</a>
+        </video>
+        <figcaption class="video-caption">
+          <b>Two minutes of the live decoder (real time)</b>
+          A session with the EEG cap removed, so EEG reads “no data”. A deliberation trial asks the person to look
+          between wave, fan and bottle before the Bottle cue. The policy holds when intent is unclear, flags
+          low eye-tracker reliability, then acts on Bottle.
+        </figcaption>
+      </figure>
+
+      <h3>The protocol</h3>
+      <ul>
+        <li><strong>Block A, clear intent:</strong> the participant does the cued task at once.</li>
+        <li><strong>Block B, changing intent:</strong> the participant deliberates, or is cued to one task and then switched to another.</li>
+        <li><strong>Block C, sensor fault:</strong> a fault is introduced on purpose in the EEG, the EMG or the eye tracker.</li>
+        <li><strong>Block D, fault and deliberation</strong> combines a sensor fault with deliberation, so the decoder has to tell the two causes apart.</li>
+      </ul>
+      <p>
+        The study has two parts, one with all three sensors and one using EMG and eye tracking with the EEG cap
+        removed. The clips below combine seated views with robot responses. Faces are blurred, audio is removed,
+        and the footage is played at twice normal speed.
+      </p>
+
+      <div class="video-grid">
+        <figure class="video-card" style="margin:0 0 1.5em">
+          <video controls playsinline preload="none" poster="../assets/img/posters/live-clear.jpg" width="1280" height="720" aria-label="Clear intent: the arm fetches the bottle"><source src="../assets/video/biogazeformer/live-clear.mp4" type="video/mp4"><a href="../assets/video/biogazeformer/live-clear.mp4">Download the video.</a></video>
+          <figcaption class="video-caption"><b>1 · Clear intent</b>Cued to take the bottle. With EEG, EMG and eye tracking, the decoder decides Bottle and the arm fetches it.</figcaption>
+        </figure>
+        <figure class="video-card" style="margin:0 0 1.5em">
+          <video controls playsinline preload="none" poster="../assets/img/posters/live-change.jpg" width="1280" height="720" aria-label="Change of mind: wave, then clock"><source src="../assets/video/biogazeformer/live-change.mp4" type="video/mp4"><a href="../assets/video/biogazeformer/live-change.mp4">Download the video.</a></video>
+          <figcaption class="video-caption"><b>2 · Change of mind</b>Cued to wave, then switched to the clock. The decoder follows the change and the arm does the clock task.</figcaption>
+        </figure>
+        <figure class="video-card" style="margin:0 0 1.5em">
+          <video controls playsinline preload="none" poster="../assets/img/posters/live-deliberate.jpg" width="1280" height="720" aria-label="Deliberation: the fan task"><source src="../assets/video/biogazeformer/live-deliberate.mp4" type="video/mp4"><a href="../assets/video/biogazeformer/live-deliberate.mp4">Download the video.</a></video>
+          <figcaption class="video-caption"><b>3 · Deliberation</b>The participant deliberates before choosing. The decoder still lands on Fan.</figcaption>
+        </figure>
+        <figure class="video-card" style="margin:0 0 1.5em">
+          <video controls playsinline preload="none" poster="../assets/img/posters/live-no-eeg.jpg" width="1280" height="720" aria-label="EEG cap removed: the plant task"><source src="../assets/video/biogazeformer/live-no-eeg.mp4" type="video/mp4"><a href="../assets/video/biogazeformer/live-no-eeg.mp4">Download the video.</a></video>
+          <figcaption class="video-caption"><b>4 · EEG cap removed</b>A whole sensor is missing. EMG and eye tracking alone still give Plant.</figcaption>
+        </figure>
+        <figure class="video-card" style="margin:0 0 1.5em">
+          <video controls playsinline preload="none" poster="../assets/img/posters/live-emg-fault.jpg" width="1280" height="720" aria-label="EMG fault induced: the bottle task"><source src="../assets/video/biogazeformer/live-emg-fault.mp4" type="video/mp4"><a href="../assets/video/biogazeformer/live-emg-fault.mp4">Download the video.</a></video>
+          <figcaption class="video-caption"><b>5 · EMG fault, no EEG</b>An EMG fault is introduced on purpose in the session without EEG. The decoder still decides Bottle.</figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Earlier, replaying a recorded pilot session, the decoder flagged an EEG headset that had lost electrode
+        contact. Results across participants will be reported when the live study is complete.
       </p>
 
       <div class="next-nav">
