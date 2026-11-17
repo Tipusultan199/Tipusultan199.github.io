@@ -616,6 +616,13 @@ section:not(.hero) { padding: clamp(64px, 7vw, 100px) 0; }
 /* the profile portrait needs a wider window than the arch's default, or the face or the cap is cut */
 .hero-visual--profile img { aspect-ratio: .95; object-position: 50% center; background: #0b1a4a; }
 
+/* current project: live-study video */
+.current-section { background: var(--surface); border-top: 1px solid var(--line); }
+.current-video { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 17px; background: var(--bg); box-shadow: 0 10px 32px rgba(18, 40, 35, .06); }
+.current-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #050706; }
+.current-video figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 20px; }
+.current-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.current-tags li { padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .8rem; }
 /* CV */
 .cv-section { background: var(--bg); border-top: 1px solid var(--line); }
 .cv-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
