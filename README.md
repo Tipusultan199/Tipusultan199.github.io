@@ -51,8 +51,8 @@ Opening `index.html` directly from the filesystem mostly works, but a server is 
 
 ## Editing content
 
-- **Text, publications, numbers** — edit the HTML directly; publication entries are plain
-  `<li class="pub">` items with `data-type` and `data-year` attributes that drive the filters.
+- **Text, publications, numbers** — edit the HTML directly; homepage publication entries are plain
+  `<li class="paper">` items with a thumbnail, title, authors, venue, and links.
 - **Colours and spacing** — the CSS custom properties at the top of `assets/css/home.css`
   (homepage) and `assets/css/styles.css` (project pages and 404).
   Light values sit on `:root`; the dark palette is defined twice, once under
@@ -60,14 +60,13 @@ Opening `index.html` directly from the filesystem mostly works, but a server is 
   directions. Change both if you change a colour.
   The palette uses charcoal `#34454f`, deep teal `#006b68`, amber `#ffbe00`, and
   aqua `#38d2c5`. Amber and aqua accents sit on dark surfaces to preserve contrast.
-- **New publication** — copy an existing `<li class="pub">` block and update the fields. The
+- **New publication** — copy an existing `<li class="paper">` block and update the fields. The
   BibTeX button reads from the `data-bibtex` attribute, where `\n` marks line breaks.
 
 ## Media notes
 
 Source videos were HEVC, which Chrome and Firefox will not decode inside MP4. Everything in
-`assets/video/` is re-encoded to H.264 (`yuv420p`, `+faststart`) at 720p, taking the payload from
-196 MB to 20 MB. Large videos use `preload="none"` with a poster image, so opening a page does not
+`assets/video/` is re-encoded to H.264 (`yuv420p`, `+faststart`) for browser playback. Large videos use `preload="none"` with a poster image, so opening a page does not
 download them.
 
 ## Licence

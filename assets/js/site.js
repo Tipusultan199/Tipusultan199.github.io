@@ -3,6 +3,7 @@
   "use strict";
 
   var root = document.documentElement;
+  var colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
   /* ---------------------------------------------------------- theme */
 
@@ -17,17 +18,22 @@
   function currentTheme() {
     var set = root.getAttribute("data-theme");
     if (set) return set;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return colorScheme.matches ? "dark" : "light";
   }
 
   var toggle = document.querySelector(".theme-toggle");
   if (toggle) {
+    var updateThemeLabel = function () {
+      toggle.setAttribute("aria-label", "Switch to " + (currentTheme() === "dark" ? "light" : "dark") + " theme");
+    };
+    updateThemeLabel();
     toggle.addEventListener("click", function () {
       var next = currentTheme() === "dark" ? "light" : "dark";
       applyTheme(next);
       try { localStorage.setItem("theme", next); } catch (e) { /* private mode */ }
-      toggle.setAttribute("aria-label", "Switch to " + (next === "dark" ? "light" : "dark") + " theme");
+      updateThemeLabel();
     });
+    if (colorScheme.addEventListener) colorScheme.addEventListener("change", updateThemeLabel);
   }
 
   /* ------------------------------------------------------ mobile nav */
@@ -35,22 +41,29 @@
   var navBtn = document.querySelector(".nav-toggle");
   var navLinks = document.getElementById("nav-links");
   if (navBtn && navLinks) {
-    navBtn.addEventListener("click", function () {
-      var open = navLinks.classList.toggle("open");
+    var setMenuOpen = function (open) {
+      navLinks.classList.toggle("open", open);
       navBtn.setAttribute("aria-expanded", String(open));
+      navBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    setMenuOpen(false);
+    navBtn.addEventListener("click", function () {
+      setMenuOpen(!navLinks.classList.contains("open"));
     });
     navLinks.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        navLinks.classList.remove("open");
-        navBtn.setAttribute("aria-expanded", "false");
-      }
+      if (e.target.closest && e.target.closest("a")) setMenuOpen(false);
+    });
+    document.addEventListener("click", function (e) {
+      if (!navLinks.contains(e.target) && !navBtn.contains(e.target)) setMenuOpen(false);
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && navLinks.classList.contains("open")) {
-        navLinks.classList.remove("open");
-        navBtn.setAttribute("aria-expanded", "false");
+        setMenuOpen(false);
         navBtn.focus();
       }
+    });
+    window.addEventListener("resize", function () {
+      if (window.getComputedStyle(navBtn).display === "none") setMenuOpen(false);
     });
   }
 
@@ -103,7 +116,10 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         spyLinks.forEach(function (a) {
-          a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id);
+          var active = a.getAttribute("href") === "#" + entry.target.id;
+          a.classList.toggle("active", active);
+          if (active) a.setAttribute("aria-current", "location");
+          else a.removeAttribute("aria-current");
         });
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
@@ -153,20 +169,29 @@
 
   /* ------------------------------------------------------ copy BibTeX */
 
+  var copyStates = new WeakMap();
+  document.querySelectorAll("[data-bibtex]").forEach(function (btn) {
+    btn.setAttribute("aria-live", "polite");
+  });
+
   document.addEventListener("click", function (e) {
     var btn = e.target.closest && e.target.closest("[data-bibtex]");
     if (!btn) return;
 
     var text = btn.getAttribute("data-bibtex").replace(/\\n/g, "\n");
-    var done = function () {
-      var old = btn.textContent;
-      btn.textContent = "copied";
-      setTimeout(function () { btn.textContent = old; }, 1600);
+    var state = copyStates.get(btn);
+    if (!state) {
+      state = { label: btn.textContent, timer: null };
+      copyStates.set(btn, state);
+    }
+    var feedback = function (copied) {
+      if (state.timer) clearTimeout(state.timer);
+      btn.textContent = copied ? "Copied" : "Copy failed";
+      state.timer = setTimeout(function () { btn.textContent = state.label; }, 1600);
     };
 
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, done);
-    } else {
+    var fallbackCopy = function () {
+      var focused = document.activeElement;
       var ta = document.createElement("textarea");
       ta.value = text;
       ta.setAttribute("readonly", "");
@@ -174,9 +199,21 @@
       ta.style.opacity = "0";
       document.body.appendChild(ta);
       ta.select();
-      try { document.execCommand("copy"); } catch (err) { /* ignore */ }
+      var copied = false;
+      try { copied = document.execCommand("copy"); } catch (err) { /* unavailable */ }
       document.body.removeChild(ta);
-      done();
+      if (focused && focused.focus) focused.focus({ preventScroll: true });
+      return copied;
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        navigator.clipboard.writeText(text).then(function () { feedback(true); }, function () { feedback(fallbackCopy()); });
+      } catch (err) {
+        feedback(fallbackCopy());
+      }
+    } else {
+      feedback(fallbackCopy());
     }
   });
 
