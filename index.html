@@ -366,14 +366,23 @@
           </div>
         </div>
 
-        <div class="video-group reveal">
+        <div class="video-group reveal" id="biogazeformer-demo">
           <div class="video-group-head"><h3>BioGazeFormer live study</h3><span>In progress · 01 video</span></div>
-          <p class="video-group-summary">The Information Fusion decoder running live with a Kinova Gen3: it tells a failing sensor from a person who has not decided yet.</p>
-          <div class="video-grid">
+          <div class="video-feature">
             <figure class="research-video">
               <video controls playsinline preload="none" poster="assets/img/posters/live-study-full.jpg?v=20261118-6" aria-label="BioGazeFormer live study: every task with the synced live dashboard"><source src="assets/video/biogazeformer/live-study-full.mp4?v=20261118-6" type="video/mp4">Your browser cannot play this video. <a href="assets/video/biogazeformer/live-study-full.mp4?v=20261118-6">Download it.</a></video>
-              <figcaption><span>BioGazeFormer · full video · 4 min</span><strong>Every task, camera and dashboard in sync</strong><p>Wave, clock, plant, bottle, fan and rest, a change of mind, the EEG cap removed and an induced EMG fault, each with the live dashboard from the same trial.</p></figcaption>
+              <figcaption><span>BioGazeFormer · full video · 4 min</span><strong>Every task, camera and dashboard in sync</strong></figcaption>
             </figure>
+            <div class="video-feature-summary">
+              <p class="video-feature-kicker">Project in brief</p>
+              <h4>Understanding intent and uncertainty</h4>
+              <p>BioGazeFormer combines EEG, EMG, and eye tracking to predict the intended task and estimate each sensor’s reliability. It distinguishes a failing sensor from unclear or changing intent.</p>
+              <p>This ongoing study connects the live decoder to a Kinova Gen3 arm. The recording shows five tasks, rest, changes of mind, and induced sensor faults, with the lab camera and dashboard synchronized.</p>
+              <dl class="video-feature-facts">
+                <div><dt>Live decoding</dt><dd>Every 0.25 seconds</dd></div>
+                <div><dt>Sensor fault vs. changing intent (offline)</dt><dd>0.90 AUROC · 22 participants</dd></div>
+              </dl>
+            </div>
           </div>
         </div>
 
