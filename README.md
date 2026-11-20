@@ -53,10 +53,13 @@ Opening `index.html` directly from the filesystem mostly works, but a server is 
 
 - **Text, publications, numbers** — edit the HTML directly; publication entries are plain
   `<li class="pub">` items with `data-type` and `data-year` attributes that drive the filters.
-- **Colours and spacing** — the CSS custom properties at the top of `assets/css/styles.css`.
+- **Colours and spacing** — the CSS custom properties at the top of `assets/css/home.css`
+  (homepage) and `assets/css/styles.css` (project pages and 404).
   Light values sit on `:root`; the dark palette is defined twice, once under
   `prefers-color-scheme` and once under `[data-theme="dark"]`, so the manual toggle wins in both
   directions. Change both if you change a colour.
+  The palette uses charcoal `#34454f`, deep teal `#006b68`, amber `#ffbe00`, and
+  aqua `#38d2c5`. Amber and aqua accents sit on dark surfaces to preserve contrast.
 - **New publication** — copy an existing `<li class="pub">` block and update the fields. The
   BibTeX button reads from the `data-bibtex` attribute, where `\n` marks line breaks.
 
