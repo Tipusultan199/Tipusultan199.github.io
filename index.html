@@ -281,13 +281,13 @@
       </div>
     </section>
 
-    <section class="research-section" id="research">
-      <div class="shell">
-        <header class="section-intro reveal">
+    <section class="research-section" id="research" aria-labelledby="research-title">
+      <div class="shell research-layout">
+        <header class="section-intro research-intro reveal">
           <p class="eyebrow">My research</p>
-          <h2>Human signals into reliable robot behavior</h2>
+          <h2 id="research-title">Human signals into reliable robot behavior</h2>
           <p>
-            My work connects neural and behavioral sensing, uncertainty-aware learning, vision-language-action (VLA) models, and robot decision-making. The goal is not only to predict what a person wants, but to determine whether the evidence is reliable enough—and whether the robot’s next action preserves the person’s ability to change course.
+            I connect neural and behavioral sensing with uncertainty-aware learning and robot decision-making. My goal is to build robots that understand human intent, recognize unreliable evidence, and act while preserving a person’s ability to change course.
           </p>
         </header>
 
@@ -296,36 +296,44 @@
             <div class="theme-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32"><path d="M5 21c3-7 6-10 11-10s8 3 11 10"></path><circle cx="10" cy="10" r="3"></circle><circle cx="22" cy="10" r="3"></circle><path d="M16 7v18"></path></svg>
             </div>
-            <h3>Decode human intent</h3>
-            <p>Decode task and action intent from EEG while using EMG, gaze, vision, and task context to ground neural signals in ongoing behavior.</p>
-            <span class="card-note">EEG decoding · Intent inference</span>
+            <div class="theme-copy">
+              <h3>Decode human intent</h3>
+              <p>Decode task and action intent from EEG, using EMG, gaze, vision, and task context to ground neural signals in ongoing behavior.</p>
+              <span class="card-note">EEG decoding · Intent inference</span>
+            </div>
           </article>
 
           <article class="theme-card reveal">
             <div class="theme-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32"><path d="M5 24V14M11 24V8M17 24V17M23 24V5M29 24V11"></path><path d="M4 27h26"></path></svg>
             </div>
-            <h3>Know what to trust</h3>
-            <p>Give each sensor a reliability with a defined meaning, so a robot can tell a failing sensor from a person who has not decided yet.</p>
-            <span class="card-note">Information fusion · Uncertainty</span>
+            <div class="theme-copy">
+              <h3>Know what to trust</h3>
+              <p>Estimate how much to trust each sensor, so a robot can distinguish a failing sensor from a person who has not decided yet.</p>
+              <span class="card-note">Information fusion · Uncertainty</span>
+            </div>
           </article>
 
           <article class="theme-card reveal">
             <div class="theme-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32"><path d="M5 9h8l3 5 3-5h8"></path><path d="M5 23h8l3-5 3 5h8"></path><circle cx="5" cy="9" r="2"></circle><circle cx="27" cy="9" r="2"></circle><circle cx="5" cy="23" r="2"></circle><circle cx="27" cy="23" r="2"></circle></svg>
             </div>
-            <h3>Connect perception, language, and action</h3>
-            <p>Explore vision-language-action models that translate visual context and high-level instructions into grounded robot behavior.</p>
-            <span class="card-note">VLA models · Embodied AI</span>
+            <div class="theme-copy">
+              <h3>Connect perception, language, and action</h3>
+              <p>Explore vision-language-action models that translate visual context and high-level instructions into grounded robot behavior.</p>
+              <span class="card-note">VLA models · Embodied AI</span>
+            </div>
           </article>
 
           <article class="theme-card reveal">
             <div class="theme-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32"><path d="M6 26V9l10-5 10 5v17"></path><path d="M10 26v-8h12v8M11 12h10"></path><path d="m13 15 3 3 5-6"></path></svg>
             </div>
-            <h3>Act without over-committing</h3>
-            <p>Design robot policies that make useful progress while remaining recoverable, allowing people to revise a task before commitment becomes costly.</p>
-            <span class="card-note">Decision-making · Shared autonomy</span>
+            <div class="theme-copy">
+              <h3>Act without over-committing</h3>
+              <p>Design robot policies that make useful, recoverable progress, allowing people to revise a task before commitment becomes costly.</p>
+              <span class="card-note">Decision-making · Shared autonomy</span>
+            </div>
           </article>
         </div>
       </div>
